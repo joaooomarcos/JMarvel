@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B0965D6AD0727660BC142A0 /* Pods_JMarvel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E428A27D5904448BEDBDE5E /* Pods_JMarvel.framework */; };
 		17B373B623FCB97A009A1909 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B373B523FCB97A009A1909 /* AppDelegate.swift */; };
 		17B373B823FCB97A009A1909 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B373B723FCB97A009A1909 /* SceneDelegate.swift */; };
 		17B373BA23FCB97A009A1909 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B373B923FCB97A009A1909 /* ViewController.swift */; };
@@ -28,6 +29,7 @@
 		17F176AD23FCE46300B92C90 /* Dictionary+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F176AB23FCE3A500B92C90 /* Dictionary+Extensions.swift */; };
 		17F176AF23FCE80F00B92C90 /* ResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F176AE23FCE80F00B92C90 /* ResultModel.swift */; };
 		17F176B123FCE81F00B92C90 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F176B023FCE81F00B92C90 /* Page.swift */; };
+		A09930AB272FEF603DCF4A65 /* Pods_JMarvelTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE17020C672911C2DA4ED60 /* Pods_JMarvelTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +68,12 @@
 		17F176AB23FCE3A500B92C90 /* Dictionary+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Extensions.swift"; sourceTree = "<group>"; };
 		17F176AE23FCE80F00B92C90 /* ResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultModel.swift; sourceTree = "<group>"; };
 		17F176B023FCE81F00B92C90 /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
+		1E428A27D5904448BEDBDE5E /* Pods_JMarvel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JMarvel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C0076B045320665FD5320C6 /* Pods-JMarvelTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JMarvelTests.debug.xcconfig"; path = "Target Support Files/Pods-JMarvelTests/Pods-JMarvelTests.debug.xcconfig"; sourceTree = "<group>"; };
+		95990BC29EB77DE65A652C09 /* Pods-JMarvel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JMarvel.debug.xcconfig"; path = "Target Support Files/Pods-JMarvel/Pods-JMarvel.debug.xcconfig"; sourceTree = "<group>"; };
+		BAA7F74F6293073A20081214 /* Pods-JMarvel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JMarvel.release.xcconfig"; path = "Target Support Files/Pods-JMarvel/Pods-JMarvel.release.xcconfig"; sourceTree = "<group>"; };
+		C22D5CBFA15FD7537A14AF69 /* Pods-JMarvelTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JMarvelTests.release.xcconfig"; path = "Target Support Files/Pods-JMarvelTests/Pods-JMarvelTests.release.xcconfig"; sourceTree = "<group>"; };
+		CEE17020C672911C2DA4ED60 /* Pods_JMarvelTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JMarvelTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B0965D6AD0727660BC142A0 /* Pods_JMarvel.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A09930AB272FEF603DCF4A65 /* Pods_JMarvelTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +102,8 @@
 				17B373B423FCB97A009A1909 /* JMarvel */,
 				17B373CE23FCB97F009A1909 /* JMarvelTests */,
 				17B373B323FCB97A009A1909 /* Products */,
+				D4116E020711DCF087A75065 /* Pods */,
+				B5B55EE08FFC5463FE240B00 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -149,6 +161,26 @@
 			path = API;
 			sourceTree = "<group>";
 		};
+		B5B55EE08FFC5463FE240B00 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1E428A27D5904448BEDBDE5E /* Pods_JMarvel.framework */,
+				CEE17020C672911C2DA4ED60 /* Pods_JMarvelTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D4116E020711DCF087A75065 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				95990BC29EB77DE65A652C09 /* Pods-JMarvel.debug.xcconfig */,
+				BAA7F74F6293073A20081214 /* Pods-JMarvel.release.xcconfig */,
+				8C0076B045320665FD5320C6 /* Pods-JMarvelTests.debug.xcconfig */,
+				C22D5CBFA15FD7537A14AF69 /* Pods-JMarvelTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -156,6 +188,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 17B373D423FCB97F009A1909 /* Build configuration list for PBXNativeTarget "JMarvel" */;
 			buildPhases = (
+				386C0702F7B9796750719958 /* [CP] Check Pods Manifest.lock */,
 				17B373AE23FCB97A009A1909 /* Sources */,
 				17B373AF23FCB97A009A1909 /* Frameworks */,
 				17B373B023FCB97A009A1909 /* Resources */,
@@ -173,6 +206,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 17B373D723FCB97F009A1909 /* Build configuration list for PBXNativeTarget "JMarvelTests" */;
 			buildPhases = (
+				49E608FFCBA665F0F3CBA5F1 /* [CP] Check Pods Manifest.lock */,
 				17B373C723FCB97F009A1909 /* Sources */,
 				17B373C823FCB97F009A1909 /* Frameworks */,
 				17B373C923FCB97F009A1909 /* Resources */,
@@ -244,6 +278,53 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		386C0702F7B9796750719958 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JMarvel-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		49E608FFCBA665F0F3CBA5F1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JMarvelTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		17B373AE23FCB97A009A1909 /* Sources */ = {
@@ -424,11 +505,13 @@
 		};
 		17B373D523FCB97F009A1909 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 95990BC29EB77DE65A652C09 /* Pods-JMarvel.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 68F4V28A64;
 				INFOPLIST_FILE = JMarvel/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -442,11 +525,13 @@
 		};
 		17B373D623FCB97F009A1909 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BAA7F74F6293073A20081214 /* Pods-JMarvel.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 68F4V28A64;
 				INFOPLIST_FILE = JMarvel/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -460,6 +545,7 @@
 		};
 		17B373D823FCB97F009A1909 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8C0076B045320665FD5320C6 /* Pods-JMarvelTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -482,6 +568,7 @@
 		};
 		17B373D923FCB97F009A1909 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C22D5CBFA15FD7537A14AF69 /* Pods-JMarvelTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
