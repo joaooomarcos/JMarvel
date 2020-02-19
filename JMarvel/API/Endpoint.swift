@@ -18,6 +18,6 @@ public struct Endpoint {
     }
     
     var url: String {
-        return (base ?? Constants.API.baseURL) + (path ?? "")
+        (base ?? Constants.API.baseURL) + (path ?? "")
     }
 }

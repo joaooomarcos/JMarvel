@@ -10,8 +10,8 @@ import Foundation
 
 extension Dictionary {
     var queryString: String {
-        let urlParams = self.compactMap({ (key, value) -> String in
-            return "\(key)=\(value)"
+        let urlParams = self.compactMap({ key, value -> String in
+            "\(key)=\(value)"
         }).joined(separator: "&")
         
         return urlParams

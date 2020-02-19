@@ -6,12 +6,12 @@
 //  Copyright © 2020 JoaoMarcos. All rights reserved.
 //
 
-import Foundation
 import CommonCrypto
+import Foundation
 
 class CryptoHelper {
     static func md5(with value: String ) -> String {
-        return value.hashed(.md5) ?? ""
+        value.hashed(.md5) ?? ""
     }
 }
 
@@ -34,12 +34,18 @@ public enum HashType {
     
     var length: Int32 {
         switch self {
-        case .md5: return CC_MD5_DIGEST_LENGTH
-        case .sha1: return CC_SHA1_DIGEST_LENGTH
-        case .sha224: return CC_SHA224_DIGEST_LENGTH
-        case .sha256: return CC_SHA256_DIGEST_LENGTH
-        case .sha384: return CC_SHA384_DIGEST_LENGTH
-        case .sha512: return CC_SHA512_DIGEST_LENGTH
+        case .md5:
+            return CC_MD5_DIGEST_LENGTH
+        case .sha1:
+            return CC_SHA1_DIGEST_LENGTH
+        case .sha224:
+            return CC_SHA224_DIGEST_LENGTH
+        case .sha256:
+            return CC_SHA256_DIGEST_LENGTH
+        case .sha384:
+            return CC_SHA384_DIGEST_LENGTH
+        case .sha512:
+            return CC_SHA512_DIGEST_LENGTH
         }
     }
 }
@@ -70,12 +76,12 @@ extension Data {
     /// - Returns: A hash string using the specified hashing algorithm, or nil.
     public func hashWithRSA2048Asn1Header(_ type: HashType, output: HashOutputType = .hex) -> String? {
         
-        let rsa2048Asn1Header:[UInt8] = [
+        let rsa2048Asn1Header: [UInt8] = [
             0x30, 0x82, 0x01, 0x22, 0x30, 0x0d, 0x06, 0x09, 0x2a, 0x86, 0x48, 0x86,
             0xf7, 0x0d, 0x01, 0x01, 0x01, 0x05, 0x00, 0x03, 0x82, 0x01, 0x0f, 0x00
         ]
         
-        var headerData = Data(bytes: rsa2048Asn1Header)
+        var headerData = Data(rsa2048Asn1Header)
         headerData.append(self)
         
         return hashed(type, output: output)

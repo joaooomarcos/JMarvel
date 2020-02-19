@@ -17,14 +17,14 @@ public protocol Request {
 
 public extension Request {
     var headers: HTTPHeaders {
-        return [:]
+        [:]
     }
         
     var parameters: Parameters {
-        return [:]
+        [:]
     }
     
     var method: HTTPMethod {
-        return .get
+        .get
     }
 }

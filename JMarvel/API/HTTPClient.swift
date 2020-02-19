@@ -13,7 +13,7 @@ public final class HTTPClient {
     
     // MARK: - Variables
     
-    private var remoteTask: URLSessionTask!
+    private var remoteTask: URLSessionTask?
     
     // MARK: - Public
     
@@ -55,7 +55,7 @@ public final class HTTPClient {
                 }
             }
         }
-        remoteTask.resume()
+        remoteTask?.resume()
     }
     
     // MARK: - Privates
@@ -66,22 +66,22 @@ public final class HTTPClient {
         
         url += "?" + query
         
-        if let auxURL = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed){
+        if let auxURL = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
             url = auxURL
         }
         
         guard let newUrl = URL(string: url) else {
             // TODO: Tratativa de erro
-            fatalError()
+            fatalError("Fail on get url request")
         }
         
         return URLRequest(url: newUrl)
     }
     
     private var defaultParameters: String {
-        let ts = timestamp
-        let hash = apiHash(timestamp: ts)
-        return "apikey=\(Constants.API.publicKey)&ts=\(ts)&hash=\(hash)"
+        let time = timestamp
+        let hash = apiHash(timestamp: time)
+        return "apikey=\(Constants.API.publicKey)&ts=\(time)&hash=\(hash)"
     }
     
     private func apiHash(timestamp: String) -> String {
@@ -90,6 +90,6 @@ public final class HTTPClient {
     }
     
     private var timestamp: String {
-        return "\(Date().timeIntervalSince1970)"
+        "\(Date().timeIntervalSince1970)"
     }
 }
