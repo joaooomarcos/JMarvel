@@ -189,6 +189,7 @@
 			buildConfigurationList = 17B373D423FCB97F009A1909 /* Build configuration list for PBXNativeTarget "JMarvel" */;
 			buildPhases = (
 				386C0702F7B9796750719958 /* [CP] Check Pods Manifest.lock */,
+				17F176B223FCEC5F00B92C90 /* SwiftLint */,
 				17B373AE23FCB97A009A1909 /* Sources */,
 				17B373AF23FCB97A009A1909 /* Frameworks */,
 				17B373B023FCB97A009A1909 /* Resources */,
@@ -280,6 +281,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		17F176B223FCEC5F00B92C90 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
 		386C0702F7B9796750719958 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
