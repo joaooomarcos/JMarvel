@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0B0965D6AD0727660BC142A0 /* Pods_JMarvel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E428A27D5904448BEDBDE5E /* Pods_JMarvel.framework */; };
+		04D12CE3BFCBCA7ED15B74E0 /* Pods_JMarvel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2583C54F7C9EE4B06C1B640 /* Pods_JMarvel.framework */; };
+		0EDBD38D351AC76C3A17D230 /* Pods_JMarvelTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAFEA5E57899121AF65B6B59 /* Pods_JMarvelTests.framework */; };
 		17B373B623FCB97A009A1909 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B373B523FCB97A009A1909 /* AppDelegate.swift */; };
 		17B373B823FCB97A009A1909 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B373B723FCB97A009A1909 /* SceneDelegate.swift */; };
 		17B373BD23FCB97A009A1909 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17B373BB23FCB97A009A1909 /* Main.storyboard */; };
@@ -28,13 +29,16 @@
 		17F176AD23FCE46300B92C90 /* Dictionary+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F176AB23FCE3A500B92C90 /* Dictionary+Extensions.swift */; };
 		17F176AF23FCE80F00B92C90 /* ResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F176AE23FCE80F00B92C90 /* ResultModel.swift */; };
 		17F176B123FCE81F00B92C90 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F176B023FCE81F00B92C90 /* Page.swift */; };
-		17F176B523FCF2F200B92C90 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F176B423FCF2F200B92C90 /* ListViewController.swift */; };
+		17F176B523FCF2F200B92C90 /* CharacterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F176B423FCF2F200B92C90 /* CharacterListViewController.swift */; };
 		17F176B823FCF32600B92C90 /* CharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F176B623FCF32600B92C90 /* CharacterCell.swift */; };
 		17F176B923FCF32600B92C90 /* CharacterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17F176B723FCF32600B92C90 /* CharacterCell.xib */; };
 		17F176BB23FCF47700B92C90 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F176BA23FCF47700B92C90 /* Character.swift */; };
-		17F176BD23FCF5DE00B92C90 /* CharacterAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F176BC23FCF5DE00B92C90 /* CharacterAPI.swift */; };
 		17F176BF23FCF72000B92C90 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F176BE23FCF72000B92C90 /* ReusableView.swift */; };
-		A09930AB272FEF603DCF4A65 /* Pods_JMarvelTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE17020C672911C2DA4ED60 /* Pods_JMarvelTests.framework */; };
+		250DC8D823FDB8F0007A87BA /* CharacterListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250DC8D723FDB8F0007A87BA /* CharacterListPresenter.swift */; };
+		250DC8DA23FDB8FD007A87BA /* CharacterListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250DC8D923FDB8FD007A87BA /* CharacterListInteractor.swift */; };
+		250DC8DE23FDB92C007A87BA /* CharacterListWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250DC8DD23FDB92C007A87BA /* CharacterListWireframe.swift */; };
+		25A5E59123FDD1610014ED66 /* CharacterAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F176BC23FCF5DE00B92C90 /* CharacterAPI.swift */; };
+		25A5E59223FDD1640014ED66 /* CharacterListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250DC8DF23FDBA20007A87BA /* CharacterListItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,18 +76,22 @@
 		17F176AB23FCE3A500B92C90 /* Dictionary+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Extensions.swift"; sourceTree = "<group>"; };
 		17F176AE23FCE80F00B92C90 /* ResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultModel.swift; sourceTree = "<group>"; };
 		17F176B023FCE81F00B92C90 /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
-		17F176B423FCF2F200B92C90 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		17F176B423FCF2F200B92C90 /* CharacterListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewController.swift; sourceTree = "<group>"; };
 		17F176B623FCF32600B92C90 /* CharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCell.swift; sourceTree = "<group>"; };
 		17F176B723FCF32600B92C90 /* CharacterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterCell.xib; sourceTree = "<group>"; };
 		17F176BA23FCF47700B92C90 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		17F176BC23FCF5DE00B92C90 /* CharacterAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterAPI.swift; sourceTree = "<group>"; };
 		17F176BE23FCF72000B92C90 /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
-		1E428A27D5904448BEDBDE5E /* Pods_JMarvel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JMarvel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8C0076B045320665FD5320C6 /* Pods-JMarvelTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JMarvelTests.debug.xcconfig"; path = "Target Support Files/Pods-JMarvelTests/Pods-JMarvelTests.debug.xcconfig"; sourceTree = "<group>"; };
-		95990BC29EB77DE65A652C09 /* Pods-JMarvel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JMarvel.debug.xcconfig"; path = "Target Support Files/Pods-JMarvel/Pods-JMarvel.debug.xcconfig"; sourceTree = "<group>"; };
-		BAA7F74F6293073A20081214 /* Pods-JMarvel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JMarvel.release.xcconfig"; path = "Target Support Files/Pods-JMarvel/Pods-JMarvel.release.xcconfig"; sourceTree = "<group>"; };
-		C22D5CBFA15FD7537A14AF69 /* Pods-JMarvelTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JMarvelTests.release.xcconfig"; path = "Target Support Files/Pods-JMarvelTests/Pods-JMarvelTests.release.xcconfig"; sourceTree = "<group>"; };
-		CEE17020C672911C2DA4ED60 /* Pods_JMarvelTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JMarvelTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		250DC8D723FDB8F0007A87BA /* CharacterListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListPresenter.swift; sourceTree = "<group>"; };
+		250DC8D923FDB8FD007A87BA /* CharacterListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListInteractor.swift; sourceTree = "<group>"; };
+		250DC8DD23FDB92C007A87BA /* CharacterListWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListWireframe.swift; sourceTree = "<group>"; };
+		250DC8DF23FDBA20007A87BA /* CharacterListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListItem.swift; sourceTree = "<group>"; };
+		498D1BF6FBC6FA2889ECFAAA /* Pods-JMarvel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JMarvel.release.xcconfig"; path = "Target Support Files/Pods-JMarvel/Pods-JMarvel.release.xcconfig"; sourceTree = "<group>"; };
+		542EEC07FBC8165ED8CE02B1 /* Pods-JMarvelTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JMarvelTests.debug.xcconfig"; path = "Target Support Files/Pods-JMarvelTests/Pods-JMarvelTests.debug.xcconfig"; sourceTree = "<group>"; };
+		58E6F531F9A601FFCBECDDDB /* Pods-JMarvelTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JMarvelTests.release.xcconfig"; path = "Target Support Files/Pods-JMarvelTests/Pods-JMarvelTests.release.xcconfig"; sourceTree = "<group>"; };
+		AE60A0F7AD025D8D646433C6 /* Pods-JMarvel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JMarvel.debug.xcconfig"; path = "Target Support Files/Pods-JMarvel/Pods-JMarvel.debug.xcconfig"; sourceTree = "<group>"; };
+		E2583C54F7C9EE4B06C1B640 /* Pods_JMarvel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JMarvel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EAFEA5E57899121AF65B6B59 /* Pods_JMarvelTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JMarvelTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B0965D6AD0727660BC142A0 /* Pods_JMarvel.framework in Frameworks */,
+				04D12CE3BFCBCA7ED15B74E0 /* Pods_JMarvel.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,7 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A09930AB272FEF603DCF4A65 /* Pods_JMarvelTests.framework in Frameworks */,
+				0EDBD38D351AC76C3A17D230 /* Pods_JMarvelTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,7 +121,7 @@
 				17B373CE23FCB97F009A1909 /* JMarvelTests */,
 				17B373B323FCB97A009A1909 /* Products */,
 				D4116E020711DCF087A75065 /* Pods */,
-				B5B55EE08FFC5463FE240B00 /* Frameworks */,
+				84CCA1679DC095869C5DFC7E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -173,22 +181,34 @@
 		17F176B323FCF1F300B92C90 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				250DC8D623FDB855007A87BA /* List */,
 				17B373BB23FCB97A009A1909 /* Main.storyboard */,
-				17F176B423FCF2F200B92C90 /* ListViewController.swift */,
 				17F176B623FCF32600B92C90 /* CharacterCell.swift */,
 				17F176B723FCF32600B92C90 /* CharacterCell.xib */,
 				17F176BA23FCF47700B92C90 /* Character.swift */,
-				17F176BC23FCF5DE00B92C90 /* CharacterAPI.swift */,
 				17B373E523FCBC5A009A1909 /* CharactersRequest.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
 		};
-		B5B55EE08FFC5463FE240B00 /* Frameworks */ = {
+		250DC8D623FDB855007A87BA /* List */ = {
 			isa = PBXGroup;
 			children = (
-				1E428A27D5904448BEDBDE5E /* Pods_JMarvel.framework */,
-				CEE17020C672911C2DA4ED60 /* Pods_JMarvelTests.framework */,
+				17F176B423FCF2F200B92C90 /* CharacterListViewController.swift */,
+				250DC8D723FDB8F0007A87BA /* CharacterListPresenter.swift */,
+				250DC8D923FDB8FD007A87BA /* CharacterListInteractor.swift */,
+				250DC8DD23FDB92C007A87BA /* CharacterListWireframe.swift */,
+				250DC8DF23FDBA20007A87BA /* CharacterListItem.swift */,
+				17F176BC23FCF5DE00B92C90 /* CharacterAPI.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		84CCA1679DC095869C5DFC7E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E2583C54F7C9EE4B06C1B640 /* Pods_JMarvel.framework */,
+				EAFEA5E57899121AF65B6B59 /* Pods_JMarvelTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -196,10 +216,10 @@
 		D4116E020711DCF087A75065 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				95990BC29EB77DE65A652C09 /* Pods-JMarvel.debug.xcconfig */,
-				BAA7F74F6293073A20081214 /* Pods-JMarvel.release.xcconfig */,
-				8C0076B045320665FD5320C6 /* Pods-JMarvelTests.debug.xcconfig */,
-				C22D5CBFA15FD7537A14AF69 /* Pods-JMarvelTests.release.xcconfig */,
+				AE60A0F7AD025D8D646433C6 /* Pods-JMarvel.debug.xcconfig */,
+				498D1BF6FBC6FA2889ECFAAA /* Pods-JMarvel.release.xcconfig */,
+				542EEC07FBC8165ED8CE02B1 /* Pods-JMarvelTests.debug.xcconfig */,
+				58E6F531F9A601FFCBECDDDB /* Pods-JMarvelTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -211,12 +231,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 17B373D423FCB97F009A1909 /* Build configuration list for PBXNativeTarget "JMarvel" */;
 			buildPhases = (
-				386C0702F7B9796750719958 /* [CP] Check Pods Manifest.lock */,
+				3F8E79EB54109BE467667E45 /* [CP] Check Pods Manifest.lock */,
 				17F176B223FCEC5F00B92C90 /* SwiftLint */,
 				17B373AE23FCB97A009A1909 /* Sources */,
 				17B373AF23FCB97A009A1909 /* Frameworks */,
 				17B373B023FCB97A009A1909 /* Resources */,
-				2FA626ECA2B131E29F22CD1E /* [CP] Embed Pods Frameworks */,
+				FCB336F40E9D122E4D09DDE8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -231,7 +251,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 17B373D723FCB97F009A1909 /* Build configuration list for PBXNativeTarget "JMarvelTests" */;
 			buildPhases = (
-				49E608FFCBA665F0F3CBA5F1 /* [CP] Check Pods Manifest.lock */,
+				BACABC50D142F4A313630110 /* [CP] Check Pods Manifest.lock */,
 				17B373C723FCB97F009A1909 /* Sources */,
 				17B373C823FCB97F009A1909 /* Frameworks */,
 				17B373C923FCB97F009A1909 /* Resources */,
@@ -324,24 +344,7 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
-		2FA626ECA2B131E29F22CD1E /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-JMarvel/Pods-JMarvel-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-JMarvel/Pods-JMarvel-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JMarvel/Pods-JMarvel-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		386C0702F7B9796750719958 /* [CP] Check Pods Manifest.lock */ = {
+		3F8E79EB54109BE467667E45 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -363,7 +366,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		49E608FFCBA665F0F3CBA5F1 /* [CP] Check Pods Manifest.lock */ = {
+		BACABC50D142F4A313630110 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -385,6 +388,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		FCB336F40E9D122E4D09DDE8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JMarvel/Pods-JMarvel-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JMarvel/Pods-JMarvel-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JMarvel/Pods-JMarvel-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -394,22 +414,26 @@
 			files = (
 				17B373EA23FCBF8F009A1909 /* GenericError.swift in Sources */,
 				17B373E023FCBB49009A1909 /* Endpoint.swift in Sources */,
+				250DC8DE23FDB92C007A87BA /* CharacterListWireframe.swift in Sources */,
 				17F176AD23FCE46300B92C90 /* Dictionary+Extensions.swift in Sources */,
 				17B373DE23FCBAF7009A1909 /* Request.swift in Sources */,
 				17F176B123FCE81F00B92C90 /* Page.swift in Sources */,
 				17B373E423FCBC01009A1909 /* TypeAlias.swift in Sources */,
+				250DC8D823FDB8F0007A87BA /* CharacterListPresenter.swift in Sources */,
 				17F176BB23FCF47700B92C90 /* Character.swift in Sources */,
 				17B373DB23FCBA17009A1909 /* HTTPClient.swift in Sources */,
+				250DC8DA23FDB8FD007A87BA /* CharacterListInteractor.swift in Sources */,
 				17B373E223FCBB8A009A1909 /* HTTPMethod.swift in Sources */,
 				17F176A823FCD22000B92C90 /* Constants.swift in Sources */,
 				17F176AA23FCE2A200B92C90 /* CryptoHelper.swift in Sources */,
+				25A5E59123FDD1610014ED66 /* CharacterAPI.swift in Sources */,
 				17B373C023FCB97A009A1909 /* JMarvel.xcdatamodeld in Sources */,
 				17B373B623FCB97A009A1909 /* AppDelegate.swift in Sources */,
-				17F176BD23FCF5DE00B92C90 /* CharacterAPI.swift in Sources */,
 				17F176BF23FCF72000B92C90 /* ReusableView.swift in Sources */,
 				17F176AF23FCE80F00B92C90 /* ResultModel.swift in Sources */,
 				17F176B823FCF32600B92C90 /* CharacterCell.swift in Sources */,
-				17F176B523FCF2F200B92C90 /* ListViewController.swift in Sources */,
+				17F176B523FCF2F200B92C90 /* CharacterListViewController.swift in Sources */,
+				25A5E59223FDD1640014ED66 /* CharacterListItem.swift in Sources */,
 				17B373B823FCB97A009A1909 /* SceneDelegate.swift in Sources */,
 				17B373E623FCBC5A009A1909 /* CharactersRequest.swift in Sources */,
 				17B373E823FCBF5F009A1909 /* Result.swift in Sources */,
@@ -570,18 +594,18 @@
 		};
 		17B373D523FCB97F009A1909 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 95990BC29EB77DE65A652C09 /* Pods-JMarvel.debug.xcconfig */;
+			baseConfigurationReference = AE60A0F7AD025D8D646433C6 /* Pods-JMarvel.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 68F4V28A64;
+				DEVELOPMENT_TEAM = F8QT62VXN8;
 				INFOPLIST_FILE = JMarvel/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = JM.JMarvel;
+				PRODUCT_BUNDLE_IDENTIFIER = JM.JMarvel.Other;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -590,18 +614,18 @@
 		};
 		17B373D623FCB97F009A1909 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BAA7F74F6293073A20081214 /* Pods-JMarvel.release.xcconfig */;
+			baseConfigurationReference = 498D1BF6FBC6FA2889ECFAAA /* Pods-JMarvel.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 68F4V28A64;
+				DEVELOPMENT_TEAM = F8QT62VXN8;
 				INFOPLIST_FILE = JMarvel/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = JM.JMarvel;
+				PRODUCT_BUNDLE_IDENTIFIER = JM.JMarvel.Other;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -610,7 +634,7 @@
 		};
 		17B373D823FCB97F009A1909 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8C0076B045320665FD5320C6 /* Pods-JMarvelTests.debug.xcconfig */;
+			baseConfigurationReference = 542EEC07FBC8165ED8CE02B1 /* Pods-JMarvelTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -633,7 +657,7 @@
 		};
 		17B373D923FCB97F009A1909 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C22D5CBFA15FD7537A14AF69 /* Pods-JMarvelTests.release.xcconfig */;
+			baseConfigurationReference = 58E6F531F9A601FFCBECDDDB /* Pods-JMarvelTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";

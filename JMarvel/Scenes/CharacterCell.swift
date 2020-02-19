@@ -11,6 +11,10 @@ import UIKit
 
 class CharacterCell: UICollectionViewCell, ReusableView {
     
+    // MARK: - Variables
+    
+    private var model: CharacterListItem?
+    
     // MARK: - Outlets
     
     @IBOutlet private weak var mainImageView: UIImageView!
@@ -23,8 +27,9 @@ class CharacterCell: UICollectionViewCell, ReusableView {
     
     // MARK: - Setup
     
-    func setup(with character: CharacterModel) {
-        self.nameLabel.text = character.name ?? "-"
-        self.mainImageView.kf.setImage(with: character.thumbURL)
+    func setup(with character: CharacterListItem) {
+        self.model = character
+        self.nameLabel.text = model?.name
+        self.mainImageView.kf.setImage(with: model?.imageURL)
     }
 }
