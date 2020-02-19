@@ -7,6 +7,7 @@ inhibit_all_warnings!
 target 'JMarvel' do
   
   pod 'SwiftLint'
+  pod 'Kingfisher'
   
   target 'JMarvelTests' do
     inherit! :search_paths
