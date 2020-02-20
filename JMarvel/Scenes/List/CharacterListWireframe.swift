@@ -16,11 +16,11 @@ class CharacterListWireframe: CharacterListWireframeProtocol {
         
     // MARK: - Viper Module Properties
     
-    var view: CharacterListViewController?
+    var view: CharacterListView?
 
     // MARK: - Init
 
-    init(view: CharacterListViewController) {
+    init(view: CharacterListView) {
         self.view = view
         self.view?.title = "Characters list"
         

@@ -1,5 +1,5 @@
 //
-//  CharacterListViewController.swift
+//  CharacterListView.swift
 //  JMarvel
 //
 //  Created by Joao Marcos Ribeiro Araujo on 19/02/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CharacterListViewController: UIViewController {
+class CharacterListView: UICollectionViewController {
     
     // MARK: - Presenter
     
@@ -25,9 +25,11 @@ class CharacterListViewController: UIViewController {
     private var itemSize = CGSize.zero
     private lazy var searchBar = UISearchBar(frame: CGRect.zero)
     
+    private let refreshControl = UIRefreshControl()
+    
     // MARK: - Outlets
     
-    @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     
     // MARK: - Life Cycle
     
@@ -53,6 +55,9 @@ class CharacterListViewController: UIViewController {
     
     private func setupCollectionView() {
         self.collectionView.register(CharacterCell.self)
+        self.collectionView.refreshControl = self.refreshControl
+        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        refreshControl.tintColor = UIColor(named: "main")
     }
     
     private func setupNavigationBar() {
@@ -70,24 +75,30 @@ class CharacterListViewController: UIViewController {
     }
     
     private func calculateDimensions(width: CGFloat) {
-        let utilWidth = width - 2 * CharacterListViewController.spacing
-        let itemsPerRow = round(utilWidth / CharacterListViewController.minItemSize.width)
+        let utilWidth = width - 2 * CharacterListView.spacing
+        let itemsPerRow = round(utilWidth / CharacterListView.minItemSize.width)
         
-        let itemWidth = (utilWidth - ((itemsPerRow - 1) * CharacterListViewController.spacing)) / itemsPerRow
+        let itemWidth = (utilWidth - ((itemsPerRow - 1) * CharacterListView.spacing)) / itemsPerRow
         
         self.itemSize = CGSize(width: itemWidth, height: itemWidth)
+    }
+    
+    @objc
+    private func refreshData() {
+        self.refreshControl.beginRefreshing()
+        self.presenter.refreshData()
     }
 }
 
 // MARK: - Collection View Data Source
 
-extension CharacterListViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+extension CharacterListView {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         self.models.count
     }
     
-    func collectionView(_ collectionView: UICollectionView,
-                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    override func collectionView(_ collectionView: UICollectionView,
+                                   cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: CharacterCell = collectionView.dequeueReusableCell(for: indexPath)
         let model = models[indexPath.row]
         
@@ -99,7 +110,7 @@ extension CharacterListViewController: UICollectionViewDataSource {
 
 // MARK: - Collection View Delegate Flow Layout
 
-extension CharacterListViewController: UICollectionViewDelegateFlowLayout {
+extension CharacterListView: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
@@ -110,28 +121,28 @@ extension CharacterListViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return CharacterListViewController.spacing
+        return CharacterListView.spacing
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return CharacterListViewController.spacing
+        return CharacterListView.spacing
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: CharacterListViewController.spacing,
-                            left: CharacterListViewController.spacing,
-                            bottom: CharacterListViewController.spacing,
-                            right: CharacterListViewController.spacing)
+        return UIEdgeInsets(top: CharacterListView.spacing,
+                            left: CharacterListView.spacing,
+                            bottom: CharacterListView.spacing,
+                            right: CharacterListView.spacing)
     }
 }
 
 // MARK: - Presenter Output
 
-extension CharacterListViewController: CharacterListPresenterOutputProtocol {
+extension CharacterListView: CharacterListPresenterOutputProtocol {
     func didGet(_ characters: [CharacterListItem]) {
         self.models = characters
         self.collectionView.reloadData()
@@ -139,5 +150,14 @@ extension CharacterListViewController: CharacterListPresenterOutputProtocol {
     
     func didFail(_ message: String) {
         print("Error: \(message)")
+    }
+    
+    func showLoading() {
+        self.activityIndicator.startAnimating()
+    }
+    
+    func hideLoading() {
+        self.activityIndicator.stopAnimating()
+        self.refreshControl.endRefreshing()
     }
 }

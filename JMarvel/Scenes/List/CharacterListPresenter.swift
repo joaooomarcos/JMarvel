@@ -13,6 +13,7 @@ import UIKit
 
 protocol CharacterListPresenterInputProtocol: class {
     func loadData()
+    func refreshData()
 }
 
 // MARK: - Presenter Output Protocol
@@ -20,6 +21,8 @@ protocol CharacterListPresenterInputProtocol: class {
 protocol CharacterListPresenterOutputProtocol: class {
     func didGet(_ characters: [CharacterListItem])
     func didFail(_ message: String)
+    func showLoading()
+    func hideLoading()
 }
 
 class CharacterListPresenter: NSObject {
@@ -40,6 +43,11 @@ class CharacterListPresenter: NSObject {
 extension CharacterListPresenter: CharacterListPresenterInputProtocol {
     func loadData() {
         self.interactor.getCharacters()
+        self.view.showLoading()
+    }
+    
+    func refreshData() {
+        self.interactor.getCharacters()
     }
 }
 
@@ -47,6 +55,7 @@ extension CharacterListPresenter: CharacterListPresenterInputProtocol {
 
 extension CharacterListPresenter: CharacterListInteractorOutputProtocol {
     func didGet(_ page: Page<CharacterModel>) {
+        self.view.hideLoading()
         guard let results = page.results else {
             self.view.didFail("")
             return
@@ -57,6 +66,7 @@ extension CharacterListPresenter: CharacterListInteractorOutputProtocol {
     }
     
     func didFailed(_ error: GenericError) {
+        self.view.hideLoading()
         self.view.didFail(error.message)
     }
 }

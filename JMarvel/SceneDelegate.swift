@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         
-        if let controller = storyBoard.instantiateViewController(withIdentifier: "CharacterListViewController") as? CharacterListViewController {
+        if let controller = storyBoard.instantiateViewController(withIdentifier: "CharacterListView") as? CharacterListView {
             let charactersWire = CharacterListWireframe(view: controller)
             let nav = UINavigationController(rootViewController: charactersWire.view ?? UIViewController())
             
