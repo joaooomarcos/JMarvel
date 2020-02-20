@@ -11,9 +11,11 @@ import Foundation
 struct CharacterListItem {
     var name: String
     var imageURL: URL?
+    var isFavorited: Bool
     
     init(_ character: CharacterModel) {
         self.name = character.name ?? ""
         self.imageURL = character.thumbURL
+        self.isFavorited = character.isFavorited ?? false
     }
 }

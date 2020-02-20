@@ -11,6 +11,7 @@ import Foundation
 struct CharacterModel: Decodable {
     var name: String?
     var thumbnail: ImageModel?
+    var isFavorited: Bool?
     
     var thumbURL: URL? {
         if let image = self.thumbnail?.path,

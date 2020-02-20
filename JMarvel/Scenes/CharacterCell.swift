@@ -31,5 +31,8 @@ class CharacterCell: UICollectionViewCell, ReusableView {
         self.model = character
         self.nameLabel.text = model?.name
         self.mainImageView.kf.setImage(with: model?.imageURL)
+        
+        let title = character.isFavorited ? "★" : "☆"
+        self.favoriteButton.setTitle(title, for: .normal)
     }
 }

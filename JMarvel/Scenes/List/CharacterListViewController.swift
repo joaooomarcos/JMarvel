@@ -23,6 +23,7 @@ class CharacterListViewController: UIViewController {
     
     private var models: [CharacterListItem] = []
     private var itemSize = CGSize.zero
+    private lazy var searchBar = UISearchBar(frame: CGRect.zero)
     
     // MARK: - Outlets
     
@@ -32,7 +33,9 @@ class CharacterListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.collectionView.register(CharacterCell.self)
+        self.setupCollectionView()
+        self.setupNavigationBar()
+        self.setupSearch()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -48,7 +51,25 @@ class CharacterListViewController: UIViewController {
     
     // MARK: - Layout
     
-    func calculateDimensions(width: CGFloat) {
+    private func setupCollectionView() {
+        self.collectionView.register(CharacterCell.self)
+    }
+    
+    private func setupNavigationBar() {
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
+    private func setupSearch() {
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self.presenter as? UISearchResultsUpdating
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search"
+    
+        self.definesPresentationContext = true
+        self.navigationItem.searchController = searchController
+    }
+    
+    private func calculateDimensions(width: CGFloat) {
         let utilWidth = width - 2 * CharacterListViewController.spacing
         let itemsPerRow = round(utilWidth / CharacterListViewController.minItemSize.width)
         

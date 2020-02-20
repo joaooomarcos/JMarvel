@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,14 +17,6 @@
                 <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OiD-aM-1qY">
-                        <rect key="frame" x="87" y="8" width="30" height="30"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="30" id="4lg-xG-LsE"/>
-                            <constraint firstAttribute="height" constant="30" id="86x-bf-RVq"/>
-                        </constraints>
-                        <state key="normal" title="★"/>
-                    </button>
                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pd4-as-bJA">
                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                         <subviews>
@@ -44,16 +36,30 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OiD-aM-1qY">
+                                <rect key="frame" x="62" y="8" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="4lg-xG-LsE"/>
+                                    <constraint firstAttribute="height" constant="30" id="86x-bf-RVq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                <state key="normal" title="★"/>
+                                <connections>
+                                    <action selector="favoriteButtonTapped" destination="gTV-IL-0wX" eventType="touchUpInside" id="MSW-V0-Ewk"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="aLL-Xw-WMx" secondAttribute="bottom" id="6q7-js-gPd"/>
                             <constraint firstItem="aLL-Xw-WMx" firstAttribute="leading" secondItem="Pd4-as-bJA" secondAttribute="leading" id="BWv-CO-zZ9"/>
                             <constraint firstItem="Omj-oY-FIo" firstAttribute="leading" secondItem="Pd4-as-bJA" secondAttribute="leading" id="IE3-9t-Xez"/>
+                            <constraint firstAttribute="trailing" secondItem="OiD-aM-1qY" secondAttribute="trailing" constant="8" id="IxV-f2-cgB"/>
                             <constraint firstAttribute="trailing" secondItem="Omj-oY-FIo" secondAttribute="trailing" id="kSf-5r-0Tm"/>
                             <constraint firstAttribute="bottom" secondItem="Omj-oY-FIo" secondAttribute="bottom" id="l5s-q2-AFP"/>
                             <constraint firstItem="Omj-oY-FIo" firstAttribute="top" secondItem="Pd4-as-bJA" secondAttribute="top" id="sdI-HC-lnj"/>
                             <constraint firstAttribute="trailing" secondItem="aLL-Xw-WMx" secondAttribute="trailing" id="uPc-Qf-Gqv"/>
+                            <constraint firstItem="OiD-aM-1qY" firstAttribute="top" secondItem="Pd4-as-bJA" secondAttribute="top" constant="8" id="yDY-B7-BS2"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -65,19 +71,12 @@
             </view>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="Pd4-as-bJA" secondAttribute="trailing" id="3Dq-oe-t6k"/>
-                <constraint firstAttribute="trailing" secondItem="OiD-aM-1qY" secondAttribute="trailing" constant="8" id="PnD-k1-pRP"/>
-                <constraint firstItem="OiD-aM-1qY" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="Rpo-FA-0tc"/>
                 <constraint firstAttribute="bottom" secondItem="Pd4-as-bJA" secondAttribute="bottom" id="SU7-Ez-lKa"/>
                 <constraint firstItem="Pd4-as-bJA" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="XmM-vM-qMT"/>
                 <constraint firstItem="Pd4-as-bJA" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="sgy-qP-fR4"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="250" height="128"/>
-            <variation key="default">
-                <mask key="subviews">
-                    <exclude reference="OiD-aM-1qY"/>
-                </mask>
-            </variation>
             <connections>
                 <outlet property="favoriteButton" destination="OiD-aM-1qY" id="uFq-3R-fCQ"/>
                 <outlet property="mainImageView" destination="Omj-oY-FIo" id="eH6-So-gTM"/>
@@ -88,7 +87,7 @@
     </objects>
     <resources>
         <namedColor name="clearBackground">
-            <color red="1" green="1" blue="1" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.69800001382827759" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
