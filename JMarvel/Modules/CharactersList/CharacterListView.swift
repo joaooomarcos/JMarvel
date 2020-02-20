@@ -21,7 +21,7 @@ class CharacterListView: UICollectionViewController {
     
     // MARK: - Variables
     
-    private var models: [CharacterListItem] = []
+    private var models: [CharacterModel] = []
     private var itemSize = CGSize.zero
     private lazy var searchBar = UISearchBar(frame: CGRect.zero)
     
@@ -38,10 +38,6 @@ class CharacterListView: UICollectionViewController {
         self.setupCollectionView()
         self.setupNavigationBar()
         self.setupSearch()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
         self.presenter.loadData()
     }
     
@@ -111,6 +107,10 @@ extension CharacterListView: UICollectionViewDataSourcePrefetching {
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
         self.presenter.loadMore(for: indexPaths)
     }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.presenter.didSelectItem(indexPath: indexPath)
+    }
 }
 
 // MARK: - Collection View Delegate Flow Layout
@@ -148,7 +148,7 @@ extension CharacterListView: UICollectionViewDelegateFlowLayout {
 // MARK: - Presenter Output
 
 extension CharacterListView: CharacterListPresenterOutputProtocol {
-    func didGet(_ characters: [CharacterListItem]) {
+    func didGet(_ characters: [CharacterModel]) {
         self.models = characters
         self.collectionView.reloadData()
     }

@@ -24,7 +24,7 @@ public extension Request {
         [:]
     }
     
-    var method: HTTPMethod {
+    var method: HTTPMethod? {
         .get
     }
 }

@@ -15,12 +15,13 @@ protocol CharacterListPresenterInputProtocol: class {
     func loadData()
     func refreshData()
     func loadMore(for indexPaths: [IndexPath])
+    func didSelectItem(indexPath: IndexPath)
 }
 
 // MARK: - Presenter Output Protocol
 
 protocol CharacterListPresenterOutputProtocol: class {
-    func didGet(_ characters: [CharacterListItem])
+    func didGet(_ characters: [CharacterModel])
     func didFail(_ message: String)
     func showLoading()
     func hideLoading()
@@ -30,7 +31,7 @@ class CharacterListPresenter: NSObject {
     
     // MARK: - Variables
     
-    private var models: [CharacterListItem] = []
+    private var models: [CharacterModel] = []
     private var isFetchingItems: Bool = false
     private var totalItemsAvailable: Int = .max
     
@@ -41,7 +42,7 @@ class CharacterListPresenter: NSObject {
     var wireframe: CharacterListWireframeProtocol!
 }
 
-// MARK: - HomePresenterInputProtocol
+// MARK: - Input Protocol
 
 extension CharacterListPresenter: CharacterListPresenterInputProtocol {
     func loadData() {
@@ -66,10 +67,14 @@ extension CharacterListPresenter: CharacterListPresenterInputProtocol {
             return
         }
     }
+    
+    func didSelectItem(indexPath: IndexPath) {
+        self.wireframe.navigateToDetail(model: self.models[indexPath.row])
+    }
 }
 
-// MARK: - HomePresenterInteractorOutputProtocol
-
+// MARK: - Output Protocol
+ 
 extension CharacterListPresenter: CharacterListInteractorOutputProtocol {
     func didGet(_ page: Page<CharacterModel>) {
         self.view.hideLoading()
@@ -83,7 +88,7 @@ extension CharacterListPresenter: CharacterListInteractorOutputProtocol {
         
         print(results)
         
-        self.models += results.compactMap({ CharacterListItem($0) })
+        self.models += results
         self.view.didGet(models)
     }
     
@@ -104,7 +109,7 @@ extension CharacterListPresenter: UISearchResultsUpdating {
         }
         
         let filtered = models.filter { item -> Bool in
-            item.name.lowercased().contains(searchText.lowercased())
+            (item.name ?? "").lowercased().contains(searchText.lowercased())
         }
         
         self.view.didGet(filtered)

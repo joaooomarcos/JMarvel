@@ -9,7 +9,7 @@
 import Foundation
 
 struct CharacterModel: Decodable {
-    var id: Int?
+    var id: Int
     var name: String?
     var description: String?
     var image: ImageModel?

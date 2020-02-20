@@ -13,7 +13,7 @@ class CharacterCell: UICollectionViewCell, ReusableView {
     
     // MARK: - Variables
     
-    private var model: CharacterListItem?
+    private var model: CharacterModel?
     
     // MARK: - Outlets
     
@@ -27,12 +27,12 @@ class CharacterCell: UICollectionViewCell, ReusableView {
     
     // MARK: - Setup
     
-    func setup(with character: CharacterListItem) {
+    func setup(with character: CharacterModel) {
         self.model = character
         self.nameLabel.text = model?.name
-        self.mainImageView.kf.setImage(with: model?.imageURL)
+        self.mainImageView.kf.setImage(with: model?.image?.image(kind: .square))
         
-        let title = character.isFavorited ? "★" : "☆"
+        let title = (character.isFavorited ?? false) ? "★" : "☆"
         self.favoriteButton.setTitle(title, for: .normal)
     }
 }

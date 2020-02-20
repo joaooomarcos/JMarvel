@@ -9,13 +9,19 @@
 import Foundation
 
 struct ImageModel: Decodable {
+    
+    enum Kind: String {
+        case square = "standard_fantastic"
+        case landscape = "landscape_incredible"
+    }
+    
     var path: String?
     var `extension`: String?
     
-    var thumbURL: URL? {
+    func image(kind: Kind) -> URL? {
         if let path = self.path,
             let imageExtension = self.extension,
-            let url = URL(string: "\(path)/standard_fantastic.\(imageExtension)") {
+            let url = URL(string: "\(path)/\(kind.rawValue).\(imageExtension)") {
             return url
         }
         

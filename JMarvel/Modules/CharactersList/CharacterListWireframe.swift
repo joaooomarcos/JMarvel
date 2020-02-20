@@ -7,14 +7,17 @@
 //
 
 import Foundation
+import UIKit
 
 // MARK: - Protocol
 
-protocol CharacterListWireframeProtocol: class { }
+protocol CharacterListWireframeProtocol: class {
+    func navigateToDetail(model: CharacterModel)
+}
 
-class CharacterListWireframe: CharacterListWireframeProtocol {
+class CharacterListWireframe {
         
-    // MARK: - Viper Module Properties
+    // MARK: - Viper Properties
     
     var view: CharacterListView?
 
@@ -33,5 +36,18 @@ class CharacterListWireframe: CharacterListWireframeProtocol {
 
         view.presenter = presenter
         interactor.output = presenter
+    }
+}
+
+extension CharacterListWireframe: CharacterListWireframeProtocol {
+    func navigateToDetail(model: CharacterModel) {
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        
+        if let controller = storyBoard.instantiateViewController(withIdentifier: "CharacterDetailsViewController") as? CharacterDetailsViewController {
+            let charactersWire = CharacterDetailsWireframe(view: controller, model: model)
+            if let destination = charactersWire.view {
+                self.view?.navigationController?.pushViewController(destination, animated: true)
+            }
+        }
     }
 }
