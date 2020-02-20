@@ -9,13 +9,21 @@
 import Foundation
 
 class CharactersRequest: Request {
+    
+    private var offset: Int
+    
+    init(offset: Int) {
+        self.offset = offset
+    }
+    
     var endpoint: Endpoint {
         Endpoint(path: "/public/characters")
     }
     
     var parameters: Parameters {
         ["orderBy": "name",
-         "limit": "20"]
+         "limit": "20",
+         "offset": offset]
     }
     
     var method: HTTPMethod? {

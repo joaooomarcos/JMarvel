@@ -56,6 +56,7 @@ class CharacterListView: UICollectionViewController {
     private func setupCollectionView() {
         self.collectionView.register(CharacterCell.self)
         self.collectionView.refreshControl = self.refreshControl
+        self.collectionView.prefetchDataSource = self
         refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
         refreshControl.tintColor = UIColor(named: "main")
     }
@@ -92,20 +93,24 @@ class CharacterListView: UICollectionViewController {
 
 // MARK: - Collection View Data Source
 
-extension CharacterListView {
+extension CharacterListView: UICollectionViewDataSourcePrefetching {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         self.models.count
     }
     
     override func collectionView(_ collectionView: UICollectionView,
-                                   cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+                                 cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: CharacterCell = collectionView.dequeueReusableCell(for: indexPath)
         let model = models[indexPath.row]
         
         cell.setup(with: model)
         
         return cell
-    }    
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        self.presenter.loadMore(for: indexPaths)
+    }
 }
 
 // MARK: - Collection View Delegate Flow Layout

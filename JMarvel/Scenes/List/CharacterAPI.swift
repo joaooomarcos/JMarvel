@@ -22,7 +22,7 @@ class CharacterAPI {
     
     // MARK: - Public
     
-    func getList(completion: @escaping (Result<Page<CharacterModel>>) -> Void) {
-        self.httpClient.request(CharactersRequest(), completion: completion)
+    func getList(with offset: Int, completion: @escaping (Result<Page<CharacterModel>>) -> Void) {
+        self.httpClient.request(CharactersRequest(offset: offset), completion: completion)
     }
 }

@@ -11,7 +11,7 @@ import Foundation
 // MARK: - Interactor Input
 
 protocol CharacterListInteractorInputProtocol {
-    func getCharacters()
+    func getCharacters(with offset: Int)
 }
 
 // MARK: - Interactor Output
@@ -39,14 +39,14 @@ class CharacterListInteractor {
 }
 
 extension CharacterListInteractor: CharacterListInteractorInputProtocol {
-    func getCharacters() {
-        self.api.getList { result in
+    func getCharacters(with offset: Int) {
+        self.api.getList(with: offset, completion: { result in
             switch result {
             case .success(let page):
                 self.output?.didGet(page)
             case .error(let error):
                 self.output?.didFailed(error)
             }
-        }
+        })
     }
 }

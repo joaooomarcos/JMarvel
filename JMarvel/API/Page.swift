@@ -10,5 +10,7 @@ import Foundation
 
 struct Page<T: Decodable>: Decodable {
     var offset: Int?
+    var limit: Int?
+    var total: Int?
     var results: [T]?
 }

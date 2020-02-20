@@ -14,6 +14,7 @@ import UIKit
 protocol CharacterListPresenterInputProtocol: class {
     func loadData()
     func refreshData()
+    func loadMore(for indexPaths: [IndexPath])
 }
 
 // MARK: - Presenter Output Protocol
@@ -30,6 +31,8 @@ class CharacterListPresenter: NSObject {
     // MARK: - Variables
     
     private var models: [CharacterListItem] = []
+    private var isFetchingItems: Bool = false
+    private var totalItemsAvailable: Int = .max
     
     // MARK: - Viper 
     
@@ -42,12 +45,26 @@ class CharacterListPresenter: NSObject {
 
 extension CharacterListPresenter: CharacterListPresenterInputProtocol {
     func loadData() {
-        self.interactor.getCharacters()
+        self.isFetchingItems = true
+        self.models = []
+        self.interactor.getCharacters(with: self.models.count)
         self.view.showLoading()
     }
     
     func refreshData() {
-        self.interactor.getCharacters()
+        self.isFetchingItems = true
+        self.models = []
+        self.interactor.getCharacters(with: self.models.count)
+    }
+    
+    func loadMore(for indexPaths: [IndexPath]) {
+        guard !isFetchingItems else { return }
+        guard totalItemsAvailable > self.models.count else { return }
+        
+        for index in indexPaths where index.row >= (self.models.count - 1) {
+            self.interactor.getCharacters(with: self.models.count)
+            return
+        }
     }
 }
 
@@ -56,16 +73,20 @@ extension CharacterListPresenter: CharacterListPresenterInputProtocol {
 extension CharacterListPresenter: CharacterListInteractorOutputProtocol {
     func didGet(_ page: Page<CharacterModel>) {
         self.view.hideLoading()
+        self.isFetchingItems = false
+        self.totalItemsAvailable = page.total ?? 0
+        
         guard let results = page.results else {
             self.view.didFail("")
             return
         }
         
-        self.models = results.compactMap({ CharacterListItem($0) })
+        self.models += results.compactMap({ CharacterListItem($0) })
         self.view.didGet(models)
     }
     
     func didFailed(_ error: GenericError) {
+        self.isFetchingItems = false
         self.view.hideLoading()
         self.view.didFail(error.message)
     }
