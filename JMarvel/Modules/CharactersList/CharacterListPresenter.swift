@@ -81,6 +81,8 @@ extension CharacterListPresenter: CharacterListInteractorOutputProtocol {
             return
         }
         
+        print(results)
+        
         self.models += results.compactMap({ CharacterListItem($0) })
         self.view.didGet(models)
     }

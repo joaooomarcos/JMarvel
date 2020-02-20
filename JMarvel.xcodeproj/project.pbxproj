@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		04D12CE3BFCBCA7ED15B74E0 /* Pods_JMarvel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2583C54F7C9EE4B06C1B640 /* Pods_JMarvel.framework */; };
 		0EDBD38D351AC76C3A17D230 /* Pods_JMarvelTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAFEA5E57899121AF65B6B59 /* Pods_JMarvelTests.framework */; };
+		178F3BFA23FE4F110074F4DE /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178F3BF923FE4F110074F4DE /* DetailViewController.swift */; };
+		178F3BFC23FE54360074F4DE /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178F3BFB23FE54360074F4DE /* ImageModel.swift */; };
+		178F3BFE23FE58FD0074F4DE /* ListResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178F3BFD23FE58FD0074F4DE /* ListResources.swift */; };
 		17B373B623FCB97A009A1909 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B373B523FCB97A009A1909 /* AppDelegate.swift */; };
 		17B373B823FCB97A009A1909 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B373B723FCB97A009A1909 /* SceneDelegate.swift */; };
 		17B373BD23FCB97A009A1909 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17B373BB23FCB97A009A1909 /* Main.storyboard */; };
@@ -52,6 +55,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		178F3BF923FE4F110074F4DE /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		178F3BFB23FE54360074F4DE /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
+		178F3BFD23FE58FD0074F4DE /* ListResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListResources.swift; sourceTree = "<group>"; };
 		17B373B223FCB97A009A1909 /* JMarvel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JMarvel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17B373B523FCB97A009A1909 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17B373B723FCB97A009A1909 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -114,6 +120,116 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		178F3BF823FE42880074F4DE /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				178F3BF923FE4F110074F4DE /* DetailViewController.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		178F3BFF23FE59220074F4DE /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				17F176A923FCE2A200B92C90 /* CryptoHelper.swift */,
+				17F176BE23FCF72000B92C90 /* ReusableView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		178F3C0023FE59300074F4DE /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				17B373B523FCB97A009A1909 /* AppDelegate.swift */,
+				17B373B723FCB97A009A1909 /* SceneDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		178F3C0123FE59400074F4DE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				17B373DF23FCBB49009A1909 /* Endpoint.swift */,
+				17B373DD23FCBAF7009A1909 /* Request.swift */,
+				17F176B023FCE81F00B92C90 /* Page.swift */,
+				17F176AE23FCE80F00B92C90 /* ResultModel.swift */,
+				17B373E923FCBF8F009A1909 /* GenericError.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		178F3C0223FE59610074F4DE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				17F176A723FCD22000B92C90 /* Constants.swift */,
+				17B373C123FCB97F009A1909 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		178F3C0323FE59800074F4DE /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				17B373DA23FCBA17009A1909 /* HTTPClient.swift */,
+			);
+			path = Client;
+			sourceTree = "<group>";
+		};
+		178F3C0423FE59950074F4DE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				17F176AB23FCE3A500B92C90 /* Dictionary+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		178F3C0523FE59BC0074F4DE /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				17B373E323FCBC01009A1909 /* TypeAlias.swift */,
+				17B373E123FCBB8A009A1909 /* HTTPMethod.swift */,
+				17B373E723FCBF5F009A1909 /* Result.swift */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		178F3C0623FE59DB0074F4DE /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				17B373BB23FCB97A009A1909 /* Main.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		178F3C0723FE59F80074F4DE /* CharacterListCell */ = {
+			isa = PBXGroup;
+			children = (
+				250DC8DF23FDBA20007A87BA /* CharacterListItem.swift */,
+				17F176B623FCF32600B92C90 /* CharacterCell.swift */,
+				17F176B723FCF32600B92C90 /* CharacterCell.xib */,
+			);
+			path = CharacterListCell;
+			sourceTree = "<group>";
+		};
+		178F3C0823FE5A0D0074F4DE /* Characters */ = {
+			isa = PBXGroup;
+			children = (
+				17F176BA23FCF47700B92C90 /* Character.swift */,
+				178F3BFD23FE58FD0074F4DE /* ListResources.swift */,
+				17F176BC23FCF5DE00B92C90 /* CharacterAPI.swift */,
+				17B373E523FCBC5A009A1909 /* CharactersRequest.swift */,
+			);
+			path = Characters;
+			sourceTree = "<group>";
+		};
+		178F3C0923FE5A290074F4DE /* ImageModel */ = {
+			isa = PBXGroup;
+			children = (
+				178F3BFB23FE54360074F4DE /* ImageModel.swift */,
+			);
+			path = ImageModel;
+			sourceTree = "<group>";
+		};
 		17B373A923FCB979009A1909 = {
 			isa = PBXGroup;
 			children = (
@@ -137,15 +253,15 @@
 		17B373B423FCB97A009A1909 /* JMarvel */ = {
 			isa = PBXGroup;
 			children = (
-				17F176B323FCF1F300B92C90 /* Scenes */,
+				178F3C0023FE59300074F4DE /* AppDelegate */,
+				17F176B323FCF1F300B92C90 /* Modules */,
 				17B373DC23FCBAEB009A1909 /* API */,
-				17B373B523FCB97A009A1909 /* AppDelegate.swift */,
-				17B373B723FCB97A009A1909 /* SceneDelegate.swift */,
-				17B373C123FCB97F009A1909 /* Assets.xcassets */,
+				178F3C0223FE59610074F4DE /* Resources */,
+				178F3BFF23FE59220074F4DE /* Components */,
+				178F3C0423FE59950074F4DE /* Extensions */,
 				17B373C323FCB97F009A1909 /* LaunchScreen.storyboard */,
 				17B373C623FCB97F009A1909 /* Info.plist */,
 				17B373BE23FCB97A009A1909 /* JMarvel.xcdatamodeld */,
-				17F176BE23FCF72000B92C90 /* ReusableView.swift */,
 			);
 			path = JMarvel;
 			sourceTree = "<group>";
@@ -162,46 +278,35 @@
 		17B373DC23FCBAEB009A1909 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				17B373DD23FCBAF7009A1909 /* Request.swift */,
-				17B373DF23FCBB49009A1909 /* Endpoint.swift */,
-				17B373E123FCBB8A009A1909 /* HTTPMethod.swift */,
-				17B373DA23FCBA17009A1909 /* HTTPClient.swift */,
-				17B373E323FCBC01009A1909 /* TypeAlias.swift */,
-				17B373E723FCBF5F009A1909 /* Result.swift */,
-				17B373E923FCBF8F009A1909 /* GenericError.swift */,
-				17F176A723FCD22000B92C90 /* Constants.swift */,
-				17F176A923FCE2A200B92C90 /* CryptoHelper.swift */,
-				17F176AB23FCE3A500B92C90 /* Dictionary+Extensions.swift */,
-				17F176AE23FCE80F00B92C90 /* ResultModel.swift */,
-				17F176B023FCE81F00B92C90 /* Page.swift */,
+				178F3C0123FE59400074F4DE /* Models */,
+				178F3C0323FE59800074F4DE /* Client */,
+				178F3C0523FE59BC0074F4DE /* Tools */,
 			);
 			path = API;
 			sourceTree = "<group>";
 		};
-		17F176B323FCF1F300B92C90 /* Scenes */ = {
+		17F176B323FCF1F300B92C90 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				250DC8D623FDB855007A87BA /* List */,
-				17B373BB23FCB97A009A1909 /* Main.storyboard */,
-				17F176B623FCF32600B92C90 /* CharacterCell.swift */,
-				17F176B723FCF32600B92C90 /* CharacterCell.xib */,
-				17F176BA23FCF47700B92C90 /* Character.swift */,
-				17B373E523FCBC5A009A1909 /* CharactersRequest.swift */,
+				178F3C0623FE59DB0074F4DE /* Storyboard */,
+				178F3C0823FE5A0D0074F4DE /* Characters */,
+				178F3C0923FE5A290074F4DE /* ImageModel */,
+				250DC8D623FDB855007A87BA /* CharactersList */,
+				178F3C0723FE59F80074F4DE /* CharacterListCell */,
+				178F3BF823FE42880074F4DE /* Detail */,
 			);
-			path = Scenes;
+			path = Modules;
 			sourceTree = "<group>";
 		};
-		250DC8D623FDB855007A87BA /* List */ = {
+		250DC8D623FDB855007A87BA /* CharactersList */ = {
 			isa = PBXGroup;
 			children = (
 				17F176B423FCF2F200B92C90 /* CharacterListView.swift */,
 				250DC8D723FDB8F0007A87BA /* CharacterListPresenter.swift */,
 				250DC8D923FDB8FD007A87BA /* CharacterListInteractor.swift */,
 				250DC8DD23FDB92C007A87BA /* CharacterListWireframe.swift */,
-				250DC8DF23FDBA20007A87BA /* CharacterListItem.swift */,
-				17F176BC23FCF5DE00B92C90 /* CharacterAPI.swift */,
 			);
-			path = List;
+			path = CharactersList;
 			sourceTree = "<group>";
 		};
 		84CCA1679DC095869C5DFC7E /* Frameworks */ = {
@@ -425,6 +530,8 @@
 				250DC8DA23FDB8FD007A87BA /* CharacterListInteractor.swift in Sources */,
 				17B373E223FCBB8A009A1909 /* HTTPMethod.swift in Sources */,
 				17F176A823FCD22000B92C90 /* Constants.swift in Sources */,
+				178F3BFE23FE58FD0074F4DE /* ListResources.swift in Sources */,
+				178F3BFA23FE4F110074F4DE /* DetailViewController.swift in Sources */,
 				17F176AA23FCE2A200B92C90 /* CryptoHelper.swift in Sources */,
 				25A5E59123FDD1610014ED66 /* CharacterAPI.swift in Sources */,
 				17B373C023FCB97A009A1909 /* JMarvel.xcdatamodeld in Sources */,
@@ -433,6 +540,7 @@
 				17F176AF23FCE80F00B92C90 /* ResultModel.swift in Sources */,
 				17F176B823FCF32600B92C90 /* CharacterCell.swift in Sources */,
 				17F176B523FCF2F200B92C90 /* CharacterListView.swift in Sources */,
+				178F3BFC23FE54360074F4DE /* ImageModel.swift in Sources */,
 				25A5E59223FDD1640014ED66 /* CharacterListItem.swift in Sources */,
 				17B373B823FCB97A009A1909 /* SceneDelegate.swift in Sources */,
 				17B373E623FCBC5A009A1909 /* CharactersRequest.swift in Sources */,

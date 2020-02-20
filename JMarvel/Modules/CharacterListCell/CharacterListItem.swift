@@ -15,7 +15,7 @@ struct CharacterListItem {
     
     init(_ character: CharacterModel) {
         self.name = character.name ?? ""
-        self.imageURL = character.thumbURL
+        self.imageURL = character.image?.thumbURL
         self.isFavorited = character.isFavorited ?? false
     }
 }
