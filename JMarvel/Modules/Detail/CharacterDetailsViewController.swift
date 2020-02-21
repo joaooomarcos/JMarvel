@@ -37,7 +37,7 @@ class CharacterDetailsViewController: UIViewController {
         self.setupCollectionView()
     }
     
-    // MARK: - Setups
+    // MARK: - Privates
     
     private func setupCollectionView() {
         self.seriesCollectionView.register(PosterCell.self)

@@ -12,18 +12,26 @@ import UIKit
 // MARK: - Protocol
 
 protocol CharacterListWireframeProtocol: class {
+    func getNavigation() -> UINavigationController?
     func navigateToDetail(model: CharacterModel)
 }
 
 class CharacterListWireframe {
+    
+    // MARK: - Constants
+    
+    private let storyboardName = "Main"
+    private let storyboardID = "CharacterListView"
         
     // MARK: - Viper Properties
     
-    var view: CharacterListView?
+    private(set) var view: CharacterListView?
 
     // MARK: - Init
 
-    init(view: CharacterListView) {
+    private func prepareView() -> UINavigationController? {
+        let view = instantiateViewController()
+        
         self.view = view
         self.view?.title = "Characters list"
         
@@ -34,20 +42,29 @@ class CharacterListWireframe {
         presenter.wireframe = self
         presenter.view = view
 
-        view.presenter = presenter
+        view?.presenter = presenter
         interactor.output = presenter
+        
+        guard let controller = view else { return nil }
+        
+        return UINavigationController(rootViewController: controller)
+    }
+    
+    private func instantiateViewController() -> CharacterListView? {
+        let storyBoard = UIStoryboard(name: storyboardName, bundle: nil)
+        let controller = storyBoard.instantiateViewController(withIdentifier: storyboardID)
+        return controller as? CharacterListView
     }
 }
 
 extension CharacterListWireframe: CharacterListWireframeProtocol {
+    func getNavigation() -> UINavigationController? {
+        self.prepareView()
+    }
+    
     func navigateToDetail(model: CharacterModel) {
-        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        
-        if let controller = storyBoard.instantiateViewController(withIdentifier: "CharacterDetailsViewController") as? CharacterDetailsViewController {
-            let charactersWire = CharacterDetailsWireframe(view: controller, model: model)
-            if let destination = charactersWire.view {
-                self.view?.navigationController?.pushViewController(destination, animated: true)
-            }
-        }
+        let detailsVC = CharacterDetailsWireframe()
+        guard let navigation = self.view?.navigationController else { return }
+        detailsVC.show(with: model, from: navigation)
     }
 }

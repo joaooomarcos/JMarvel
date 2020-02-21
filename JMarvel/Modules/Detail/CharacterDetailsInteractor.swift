@@ -8,20 +8,22 @@
 
 import Foundation
 
-// MARK: - Interactor Input
+// MARK: - Interactor Input Declaration
 
-protocol CharacterDetailsInteractorInputProtocol {
+protocol CharacterDetailsInteractorInputProtocol: class {
     func getSeries(with id: Int)
     func getComics(with id: Int)
 }
 
-// MARK: - Interactor Output
+// MARK: - Interactor Output Declaration
 
 protocol CharacterDetailsInteractorOutputProtocol: class {
     func didGet(series page: Page<PosterItem>)
     func didGet(comics page: Page<PosterItem>)
     func didFailed(_ error: GenericError)
 }
+
+// MARK: - Interactor
 
 class CharacterDetailsInteractor {
     
@@ -39,6 +41,8 @@ class CharacterDetailsInteractor {
         self.api = api
     }
 }
+
+// MARK: - Interactor Input
 
 extension CharacterDetailsInteractor: CharacterDetailsInteractorInputProtocol {
     func getSeries(with id: Int) {

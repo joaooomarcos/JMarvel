@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-// MARK: - Presenter Input Protocol
+// MARK: - Presenter Input Declaration
 
 protocol CharacterListPresenterInputProtocol: class {
     func loadData()
@@ -18,7 +18,7 @@ protocol CharacterListPresenterInputProtocol: class {
     func didSelectItem(indexPath: IndexPath)
 }
 
-// MARK: - Presenter Output Protocol
+// MARK: - Presenter Output Declaration
 
 protocol CharacterListPresenterOutputProtocol: class {
     func didGet(_ characters: [CharacterModel])
@@ -27,22 +27,24 @@ protocol CharacterListPresenterOutputProtocol: class {
     func hideLoading()
 }
 
+// MARK: - Presenter
+
 class CharacterListPresenter: NSObject {
+    
+    // MARK: - Viper
+    
+    weak var view: CharacterListPresenterOutputProtocol!
+    var interactor: CharacterListInteractorInputProtocol!
+    var wireframe: CharacterListWireframeProtocol!
     
     // MARK: - Variables
     
     private var models: [CharacterModel] = []
     private var isFetchingItems: Bool = false
     private var totalItemsAvailable: Int = .max
-    
-    // MARK: - Viper 
-    
-    weak var view: CharacterListPresenterOutputProtocol!
-    var interactor: CharacterListInteractorInputProtocol!
-    var wireframe: CharacterListWireframeProtocol!
 }
 
-// MARK: - Input Protocol
+// MARK: - Presenter Input
 
 extension CharacterListPresenter: CharacterListPresenterInputProtocol {
     func loadData() {
@@ -73,7 +75,7 @@ extension CharacterListPresenter: CharacterListPresenterInputProtocol {
     }
 }
 
-// MARK: - Output Protocol
+// MARK: - Interactor Output
  
 extension CharacterListPresenter: CharacterListInteractorOutputProtocol {
     func didGet(_ page: Page<CharacterModel>) {
@@ -98,6 +100,8 @@ extension CharacterListPresenter: CharacterListInteractorOutputProtocol {
         self.view.didFail(error.message)
     }
 }
+
+// MARK: - UISearchResultsUpdating
 
 extension CharacterListPresenter: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {

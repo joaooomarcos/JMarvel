@@ -8,18 +8,20 @@
 
 import Foundation
 
-// MARK: - Interactor Input
+// MARK: - Interactor Input Declaration
 
-protocol CharacterListInteractorInputProtocol {
+protocol CharacterListInteractorInputProtocol: class {
     func getCharacters(with offset: Int)
 }
 
-// MARK: - Interactor Output
+// MARK: - Interactor Output Declaration
 
 protocol CharacterListInteractorOutputProtocol: class {
     func didGet(_ page: Page<CharacterModel>)
     func didFailed(_ error: GenericError)
 }
+
+// MARK: - Interactor
 
 class CharacterListInteractor {
     
@@ -37,6 +39,8 @@ class CharacterListInteractor {
         self.api = api
     }
 }
+
+// MARK: - Interactor Input
 
 extension CharacterListInteractor: CharacterListInteractorInputProtocol {
     func getCharacters(with offset: Int) {

@@ -22,14 +22,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = scene as? UIWindowScene else { return }
         self.window = UIWindow(windowScene: windowScene)
                 
-        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        
-        if let controller = storyBoard.instantiateViewController(withIdentifier: "CharacterListView") as? CharacterListView {
-            let charactersWire = CharacterListWireframe(view: controller)
-            let nav = UINavigationController(rootViewController: charactersWire.view ?? UIViewController())
-            
-            window?.rootViewController = nav
-            window?.makeKeyAndVisible()
-        }
+        MainRouterWireframe().prepareInitial(window: window)
     }
 }

@@ -38,6 +38,7 @@ class CharacterListView: UICollectionViewController {
         self.setupCollectionView()
         self.setupNavigationBar()
         self.setupSearch()
+        self.setupLayout()
         self.presenter.loadData()
     }
     
@@ -47,7 +48,7 @@ class CharacterListView: UICollectionViewController {
         self.collectionView?.collectionViewLayout.invalidateLayout()
     }
     
-    // MARK: - Layout
+    // MARK: - Privates
     
     private func setupCollectionView() {
         self.collectionView.register(CharacterCell.self)
@@ -69,6 +70,11 @@ class CharacterListView: UICollectionViewController {
     
         self.definesPresentationContext = true
         self.navigationItem.searchController = searchController
+    }
+    
+    private func setupLayout() {
+        self.view.layoutIfNeeded()
+        self.calculateDimensions(width: self.view.frame.width)
     }
     
     private func calculateDimensions(width: CGFloat) {

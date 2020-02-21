@@ -8,13 +8,13 @@
 
 import Foundation
 
-// MARK: - Presenter Input Protocol
+// MARK: - Presenter Input Declaration
 
 protocol CharacterDetailsPresenterInputProtocol: class {
     func loadData()
 }
 
-// MARK: - Presenter Output Protocol
+// MARK: - Presenter Output Declaration
 
 protocol CharacterDetailsPresenterOutputProtocol: class {
     func prepareLayout(seriesIsHidden: Bool, comicsIsHidden: Bool)
@@ -23,13 +23,9 @@ protocol CharacterDetailsPresenterOutputProtocol: class {
     func didGet(comics items: [PosterItem])
 }
 
+// MARK: - Presenter
+
 class CharacterDetailsPresenter {
-    
-    // MARK: - Variables
-    
-    private var model: CharacterModel
-    private var comics: [PosterItem] = []
-    private var series: [PosterItem] = []
     
     // MARK: - Viper
     
@@ -37,13 +33,19 @@ class CharacterDetailsPresenter {
     var interactor: CharacterDetailsInteractorInputProtocol!
     var wireframe: CharacterDetailsWireframeProtocol!
     
+    // MARK: - Variables
+    
+    private var model: CharacterModel
+    private var comics: [PosterItem] = []
+    private var series: [PosterItem] = []
+    
     // MARK: - Init
     
     init(_ model: CharacterModel) {
         self.model = model
     }
     
-    // MARK: - Data
+    // MARK: - Privates
     
     private var hasSeries: Bool {
         (self.model.series?.available ?? 0) > 0
@@ -64,6 +66,8 @@ class CharacterDetailsPresenter {
     }
 }
 
+// MARK: - Presenter Input
+
 extension CharacterDetailsPresenter: CharacterDetailsPresenterInputProtocol {
     func loadData() {
         self.loadSeries()
@@ -72,6 +76,8 @@ extension CharacterDetailsPresenter: CharacterDetailsPresenterInputProtocol {
         self.view.didGet(imageURL: self.model.image?.image(kind: .landscape), description: self.model.description ?? "")
     }
 }
+
+// MARK: - Interactor Output
 
 extension CharacterDetailsPresenter: CharacterDetailsInteractorOutputProtocol {
     func didGet(series page: Page<PosterItem>) {
