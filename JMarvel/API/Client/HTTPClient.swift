@@ -38,7 +38,7 @@ public final class HTTPClient {
                     }
                 } else {
                     DispatchQueue.main.async {
-                        completion(.error(GenericError(message: "Failed to get data object")))
+                        completion(.error(GenericError(result: model)))
                     }
                 }
             } catch let decoderError {

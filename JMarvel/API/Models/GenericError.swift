@@ -9,17 +9,19 @@
 import Foundation
 
 public class GenericError: Codable, Error {
-    public var code: String
     public var statusCode: Int
     public var message: String
 
-    init(message: String, code: String = "", statusCode: Int = -1) {
+    init(message: String, statusCode: Int = -1) {
         self.message = message
-        self.code = code
         self.statusCode = statusCode
     }
     
     convenience init(error: Error, statusCode: Int = -1) {
         self.init(message: error.localizedDescription, statusCode: statusCode)
+    }
+    
+    convenience init<T>(result: ResultModel<T>) {
+        self.init(message: result.status ?? "", statusCode: result.code ?? -1)
     }
 }
