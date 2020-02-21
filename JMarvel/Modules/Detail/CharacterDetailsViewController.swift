@@ -23,11 +23,18 @@ class CharacterDetailsViewController: UIViewController {
     // MARK: - Outlets
     
     @IBOutlet private weak var mainImageView: UIImageView!
+    @IBOutlet private weak var favoriteButton: UIButton!
     @IBOutlet private weak var decriptionLabel: UILabel!
     @IBOutlet private weak var seriesView: UIView!
     @IBOutlet private weak var comicsView: UIView!
     @IBOutlet private weak var seriesCollectionView: UICollectionView!
     @IBOutlet private weak var comicsCollectionView: UICollectionView!
+    
+    // MARK: - Actions
+    
+    @IBAction func favoriteButtonTapped(_ sender: Any) {
+        self.presenter.didTapFavorite()
+    }
     
     // MARK: - Life Cycle
 
@@ -82,6 +89,11 @@ extension CharacterDetailsViewController: UICollectionViewDataSource {
 // MARK: - Presenter Output
 
 extension CharacterDetailsViewController: CharacterDetailsPresenterOutputProtocol {
+    func updateLayout(isFavorited: Bool) {
+        let image = isFavorited ? #imageLiteral(resourceName: "iconStarFilled") : #imageLiteral(resourceName: "iconStar")
+        self.favoriteButton.setImage(image, for: .normal)
+    }
+    
     func prepareLayout(seriesIsHidden: Bool, comicsIsHidden: Bool) {
         self.seriesView.isHidden = seriesIsHidden
         self.comicsView.isHidden = comicsIsHidden

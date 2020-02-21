@@ -13,6 +13,7 @@ import Foundation
 protocol CharacterDetailsInteractorInputProtocol: class {
     func getSeries(with id: Int)
     func getComics(with id: Int)
+    func updateLocal(_ model: CharacterModel)
 }
 
 // MARK: - Interactor Output Declaration
@@ -34,11 +35,13 @@ class CharacterDetailsInteractor {
     // MARK: - Variables
     
     private var api: CharacterDetailsAPI
+    private var dataBase: LocalDatabaseManager
     
     // MARK: - Init
     
-    init(api: CharacterDetailsAPI = CharacterDetailsAPI()) {
+    init(api: CharacterDetailsAPI = CharacterDetailsAPI(), dataBase: LocalDatabaseManager = LocalDatabaseManager()) {
         self.api = api
+        self.dataBase = dataBase
     }
 }
 
@@ -65,5 +68,14 @@ extension CharacterDetailsInteractor: CharacterDetailsInteractorInputProtocol {
                 self.output?.didFailed(error)
             }
         })
+    }
+    
+    func updateLocal(_ model: CharacterModel) {
+        let realmObject = CharacterRealm(model)
+        if let dataBaseObject = dataBase.object(realmObject) {
+            dataBase.delete(dataBaseObject)
+        } else {
+            dataBase.save(realmObject)
+        }
     }
 }
