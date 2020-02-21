@@ -17,6 +17,7 @@ protocol CharacterDetailsPresenterInputProtocol: class {
 // MARK: - Presenter Output Protocol
 
 protocol CharacterDetailsPresenterOutputProtocol: class {
+    func prepareLayout(seriesIsHidden: Bool, comicsIsHidden: Bool)
     func didGet(imageURL: URL?, description: String)
     func didGet(series items: [CharacterModel])
     func didGet(comics items: [CharacterModel])
@@ -44,15 +45,21 @@ class CharacterDetailsPresenter {
     
     // MARK: - Data
     
+    private var hasSeries: Bool {
+        (self.model.series?.available ?? 0) > 0
+    }
+    
+    private var hasComics: Bool {
+        (self.model.comics?.available ?? 0) > 0
+    }
+    
     private func loadSeries() {
-        guard (self.model.series?.available ?? 0) > 0 else { return }
-        
+        guard self.hasSeries else { return }
         self.interactor.getSeries(with: self.model.id)
     }
     
     private func loadComics() {
-        guard (self.model.comics?.available ?? 0) > 0 else { return }
-        
+        guard self.hasComics else { return }
         self.interactor.getComics(with: self.model.id)
     }
 }
@@ -61,6 +68,7 @@ extension CharacterDetailsPresenter: CharacterDetailsPresenterInputProtocol {
     func loadData() {
         self.loadSeries()
         self.loadComics()
+        self.view.prepareLayout(seriesIsHidden: !self.hasSeries, comicsIsHidden: !self.hasComics)
         self.view.didGet(imageURL: self.model.image?.image(kind: .landscape), description: self.model.description ?? "")
     }
 }
@@ -88,7 +96,5 @@ extension CharacterDetailsPresenter: CharacterDetailsInteractorOutputProtocol {
         self.view.didGet(comics: comics)
     }
     
-    func didFailed(_ error: GenericError) {
-        
-    }
+    func didFailed(_ error: GenericError) { }
 }

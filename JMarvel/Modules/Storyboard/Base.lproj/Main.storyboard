@@ -204,9 +204,11 @@
                     <navigationItem key="navigationItem" id="9MZ-Zd-Zyr"/>
                     <connections>
                         <outlet property="comicsCollectionView" destination="pQ6-A6-ise" id="pZv-QK-gHw"/>
+                        <outlet property="comicsView" destination="tIP-bv-3KF" id="MPo-Dh-CuN"/>
                         <outlet property="decriptionLabel" destination="90A-MT-j0c" id="pfq-Zl-Td8"/>
                         <outlet property="mainImageView" destination="oAt-mF-u77" id="KgR-on-Smm"/>
                         <outlet property="seriesCollectionView" destination="a0o-DL-y7G" id="YKn-FZ-M4U"/>
+                        <outlet property="seriesView" destination="kcn-At-e1k" id="PgL-On-ANu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FAK-be-KMf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

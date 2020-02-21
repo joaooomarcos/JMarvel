@@ -24,6 +24,8 @@ class CharacterDetailsViewController: UIViewController {
     
     @IBOutlet private weak var mainImageView: UIImageView!
     @IBOutlet private weak var decriptionLabel: UILabel!
+    @IBOutlet private weak var seriesView: UIView!
+    @IBOutlet private weak var comicsView: UIView!
     @IBOutlet private weak var seriesCollectionView: UICollectionView!
     @IBOutlet private weak var comicsCollectionView: UICollectionView!
     
@@ -80,6 +82,11 @@ extension CharacterDetailsViewController: UICollectionViewDataSource {
 // MARK: - Presenter Output
 
 extension CharacterDetailsViewController: CharacterDetailsPresenterOutputProtocol {
+    func prepareLayout(seriesIsHidden: Bool, comicsIsHidden: Bool) {
+        self.seriesView.isHidden = seriesIsHidden
+        self.comicsView.isHidden = comicsIsHidden
+    }
+    
     func didGet(imageURL: URL?, description: String) {
         self.mainImageView.kf.setImage(with: imageURL)
         self.decriptionLabel.text = description
