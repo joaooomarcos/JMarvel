@@ -21,6 +21,27 @@ class LocalDatabaseManager {
         }
     }
     
+    func delete<T: Object>(_ object: T) {
+        do {
+            let realm = try Realm()
+            try realm.write {
+                realm.delete(object)
+            }
+        } catch {
+            print(error)
+        }
+    }
+    
+    func object<T: CharacterRealm>(_ object: T) -> T? {
+        do {
+            let realm = try Realm()
+            return realm.objects(T.self).first { $0.id == object.id }
+        } catch {
+            print(error)
+            return nil
+        }
+    }
+    
     func objects<T: Object>(_ type: T.Type) -> [T] {
         do {
             let realm = try Realm()

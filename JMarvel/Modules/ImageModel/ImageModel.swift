@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import RealmSwift
 
-struct ImageModel: Decodable {
+class ImageModel: Decodable {
     
     enum Kind: String {
         case square = "standard_fantastic"

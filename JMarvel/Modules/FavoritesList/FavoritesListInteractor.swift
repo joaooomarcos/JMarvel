@@ -9,9 +9,7 @@ import Foundation
 
 // MARK: - Interactor Input Declaration
 
-protocol FavoritesListInteractorInputProtocol: class {
-    
-}
+protocol FavoritesListInteractorInputProtocol: class { }
 
 // MARK: - Interactor Output Declaration
 

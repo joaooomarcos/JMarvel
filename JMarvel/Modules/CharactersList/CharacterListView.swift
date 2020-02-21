@@ -105,7 +105,7 @@ extension CharacterListView: UICollectionViewDataSourcePrefetching {
         let cell: CharacterCell = collectionView.dequeueReusableCell(for: indexPath)
         let model = models[indexPath.row]
         
-        cell.setup(with: model)
+        cell.setup(with: model, delegate: self)
         
         return cell
     }
@@ -170,5 +170,11 @@ extension CharacterListView: CharacterListPresenterOutputProtocol {
     func hideLoading() {
         self.activityIndicator.stopAnimating()
         self.refreshControl.endRefreshing()
+    }
+}
+
+extension CharacterListView: CharacterCellActionDelegate {
+    func didTapFavorite(_ model: CharacterModel) {
+        self.presenter.didTapFavorite(on: model)
     }
 }

@@ -12,6 +12,8 @@ import Foundation
 
 protocol CharacterListInteractorInputProtocol: class {
     func getCharacters(with offset: Int)
+    func updateLocal(_ model: CharacterModel)
+    func getFavorites()
 }
 
 // MARK: - Interactor Output Declaration
@@ -19,6 +21,7 @@ protocol CharacterListInteractorInputProtocol: class {
 protocol CharacterListInteractorOutputProtocol: class {
     func didGet(_ page: Page<CharacterModel>)
     func didFailed(_ error: GenericError)
+    func didGetIdFavoritesList(_ ids: [Int])
 }
 
 // MARK: - Interactor
@@ -32,11 +35,13 @@ class CharacterListInteractor {
     // MARK: - Variables
     
     private var api: CharacterAPI
+    private var dataBase: LocalDatabaseManager
     
     // MARK: - Init
     
-    init(api: CharacterAPI = CharacterAPI()) {
+    init(api: CharacterAPI = CharacterAPI(), dataBase: LocalDatabaseManager = LocalDatabaseManager()) {
         self.api = api
+        self.dataBase = dataBase
     }
 }
 
@@ -52,5 +57,20 @@ extension CharacterListInteractor: CharacterListInteractorInputProtocol {
                 self.output?.didFailed(error)
             }
         })
+    }
+    
+    func updateLocal(_ model: CharacterModel) {
+        let realmObject = CharacterRealm(model)
+        if let dataBaseObject = dataBase.object(realmObject) {
+            dataBase.delete(dataBaseObject)
+        } else {
+            dataBase.save(realmObject)
+        }
+    }
+    
+    func getFavorites() {
+        let results = dataBase.objects(CharacterRealm.self)
+        let ids: [Int] = results.compactMap { $0.id }
+        self.output?.didGetIdFavoritesList(ids)
     }
 }

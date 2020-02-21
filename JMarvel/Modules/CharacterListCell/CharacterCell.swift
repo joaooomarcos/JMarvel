@@ -9,11 +9,16 @@
 import Kingfisher
 import UIKit
 
+protocol CharacterCellActionDelegate: class {
+    func didTapFavorite(_ model: CharacterModel)
+}
+
 class CharacterCell: UICollectionViewCell, ReusableView {
     
     // MARK: - Variables
     
     private var model: CharacterModel?
+    private weak var delegate: CharacterCellActionDelegate?
     
     // MARK: - Outlets
     
@@ -23,16 +28,25 @@ class CharacterCell: UICollectionViewCell, ReusableView {
     
     // MARK: - Actions
     
-    @IBAction private func favoriteButtonTapped() { }
+    @IBAction private func favoriteButtonTapped() {
+        guard let model = self.model else { return }
+        model.isFavorited.toggle()
+        self.updateLayout()
+        self.delegate?.didTapFavorite(model)
+    }
     
     // MARK: - Setup
     
-    func setup(with character: CharacterModel) {
+    func setup(with character: CharacterModel, delegate: CharacterCellActionDelegate? = nil) {
         self.model = character
+        self.delegate = delegate
         self.nameLabel.text = model?.name
         self.mainImageView.kf.setImage(with: model?.image?.image(kind: .square))
-        
-        let title = (character.isFavorited ?? false) ? "★" : "☆"
-        self.favoriteButton.setTitle(title, for: .normal)
+        self.updateLayout()
+    }
+    
+    func updateLayout() {
+        let image = (self.model?.isFavorited ?? false) ? #imageLiteral(resourceName: "iconStarFilled") : #imageLiteral(resourceName: "iconStar")
+        self.favoriteButton.setImage(image, for: .normal)
     }
 }

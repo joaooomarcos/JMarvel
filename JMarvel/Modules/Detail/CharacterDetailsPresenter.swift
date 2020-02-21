@@ -73,7 +73,7 @@ extension CharacterDetailsPresenter: CharacterDetailsPresenterInputProtocol {
         self.loadSeries()
         self.loadComics()
         self.view.prepareLayout(seriesIsHidden: !self.hasSeries, comicsIsHidden: !self.hasComics)
-        self.view.didGet(imageURL: self.model.image?.image(kind: .landscape), description: self.model.description ?? "")
+        self.view.didGet(imageURL: self.model.image?.image(kind: .landscape), description: self.model.summary ?? "")
     }
 }
 
@@ -85,8 +85,6 @@ extension CharacterDetailsPresenter: CharacterDetailsInteractorOutputProtocol {
             return
         }
         
-        print(results)
-        
         self.series = results
         self.view.didGet(series: series)
     }
@@ -95,8 +93,6 @@ extension CharacterDetailsPresenter: CharacterDetailsInteractorOutputProtocol {
         guard let results = page.results else {
             return
         }
-        
-        print(results)
         
         self.comics = results
         self.view.didGet(comics: comics)

@@ -8,7 +8,8 @@
 
 import Foundation
 
-struct PosterItem: Decodable {
+class PosterItem: Decodable {
+    
     var id: Int
     var title: String?
     var image: ImageModel?

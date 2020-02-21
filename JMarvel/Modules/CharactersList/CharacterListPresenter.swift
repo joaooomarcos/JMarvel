@@ -16,6 +16,7 @@ protocol CharacterListPresenterInputProtocol: class {
     func refreshData()
     func loadMore(for indexPaths: [IndexPath])
     func didSelectItem(indexPath: IndexPath)
+    func didTapFavorite(on model: CharacterModel)
 }
 
 // MARK: - Presenter Output Declaration
@@ -39,7 +40,12 @@ class CharacterListPresenter: NSObject {
     
     // MARK: - Variables
     
-    private var models: [CharacterModel] = []
+    private var models: [CharacterModel] = [] {
+        didSet {
+            self.interactor.getFavorites()
+        }
+    }
+    
     private var isFetchingItems: Bool = false
     private var totalItemsAvailable: Int = .max
 }
@@ -73,11 +79,22 @@ extension CharacterListPresenter: CharacterListPresenterInputProtocol {
     func didSelectItem(indexPath: IndexPath) {
         self.wireframe.navigateToDetail(model: self.models[indexPath.row])
     }
+    
+    func didTapFavorite(on model: CharacterModel) {
+        self.interactor.updateLocal(model)
+    }
 }
 
 // MARK: - Interactor Output
  
 extension CharacterListPresenter: CharacterListInteractorOutputProtocol {
+    func didGetIdFavoritesList(_ ids: [Int]) {
+        for id in ids {
+            let model = self.models.first { $0.id == id }
+            model?.isFavorited = true
+        }
+    }
+    
     func didGet(_ page: Page<CharacterModel>) {
         self.view.hideLoading()
         self.isFetchingItems = false
@@ -87,8 +104,6 @@ extension CharacterListPresenter: CharacterListInteractorOutputProtocol {
             self.view.didFail("")
             return
         }
-        
-        print(results)
         
         self.models += results
         self.view.didGet(models)

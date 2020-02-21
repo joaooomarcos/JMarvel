@@ -6,6 +6,7 @@
 //  Copyright © 2020 JoaoMarcos. All rights reserved.
 //
 
+import RealmSwift
 import UIKit
 
 class FavoritesListView: UICollectionViewController {
@@ -29,6 +30,11 @@ class FavoritesListView: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.presenter.loadData()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print(LocalDatabaseManager().objects(CharacterRealm.self))
     }
 
     // MARK: - Privates
