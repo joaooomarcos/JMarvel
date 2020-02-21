@@ -31,12 +31,16 @@ class MainRouterWireframe {
     
     private func charactersList() -> UIViewController {
         let wire = CharacterListWireframe()
-        return wire.getNavigation() ?? UIViewController()
+        let navigation = wire.getNavigation() ?? UIViewController()
+        navigation.tabBarItem = UITabBarItem(title: "Characters", image: #imageLiteral(resourceName: "iconCharacter"), selectedImage: #imageLiteral(resourceName: "iconCharacterFilled"))
+        return navigation
     }
     
     private func favoritesList() -> UIViewController {
         let wire = FavoritesListWireframe()
-        return wire.getNavigation() ?? UIViewController()
+        let navigation = wire.getNavigation() ?? UIViewController()
+        navigation.tabBarItem = UITabBarItem(title: "Favorites", image: #imageLiteral(resourceName: "iconStar"), selectedImage: #imageLiteral(resourceName: "iconStarFilled"))
+        return navigation
     }
 }
 
