@@ -19,8 +19,8 @@ protocol CharacterDetailsPresenterInputProtocol: class {
 protocol CharacterDetailsPresenterOutputProtocol: class {
     func prepareLayout(seriesIsHidden: Bool, comicsIsHidden: Bool)
     func didGet(imageURL: URL?, description: String)
-    func didGet(series items: [CharacterModel])
-    func didGet(comics items: [CharacterModel])
+    func didGet(series items: [PosterItem])
+    func didGet(comics items: [PosterItem])
 }
 
 class CharacterDetailsPresenter {
@@ -28,8 +28,8 @@ class CharacterDetailsPresenter {
     // MARK: - Variables
     
     private var model: CharacterModel
-    private var comics: [CharacterModel] = []
-    private var series: [CharacterModel] = []
+    private var comics: [PosterItem] = []
+    private var series: [PosterItem] = []
     
     // MARK: - Viper
     
@@ -74,7 +74,7 @@ extension CharacterDetailsPresenter: CharacterDetailsPresenterInputProtocol {
 }
 
 extension CharacterDetailsPresenter: CharacterDetailsInteractorOutputProtocol {
-    func didGet(series page: Page<CharacterModel>) {
+    func didGet(series page: Page<PosterItem>) {
         guard let results = page.results else {
             return
         }
@@ -85,7 +85,7 @@ extension CharacterDetailsPresenter: CharacterDetailsInteractorOutputProtocol {
         self.view.didGet(series: series)
     }
     
-    func didGet(comics page: Page<CharacterModel>) {
+    func didGet(comics page: Page<PosterItem>) {
         guard let results = page.results else {
             return
         }

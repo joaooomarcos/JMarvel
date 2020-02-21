@@ -1,5 +1,5 @@
 //
-//  CharactersDetailsAPI.swift
+//  CharacterDetailsAPI.swift
 //  JMarvel
 //
 //  Created by Joao Marcos Ribeiro Araujo on 2/20/20.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class CharactersDetailsAPI {
+class CharacterDetailsAPI {
     
     // MARK: - Variables
     
@@ -22,11 +22,11 @@ class CharactersDetailsAPI {
     
     // MARK: - Public
     
-    func getSeries(with id: Int, completion: @escaping (Result<Page<CharacterModel>>) -> Void) {
+    func getSeries(with id: Int, completion: @escaping (Result<Page<PosterItem>>) -> Void) {
         self.httpClient.request(CharacterDetailsRequest(id: id, kind: .series), completion: completion)
     }
     
-    func getComics(with id: Int, completion: @escaping (Result<Page<CharacterModel>>) -> Void) {
+    func getComics(with id: Int, completion: @escaping (Result<Page<PosterItem>>) -> Void) {
         self.httpClient.request(CharacterDetailsRequest(id: id, kind: .comics), completion: completion)
     }
 }

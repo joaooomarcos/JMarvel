@@ -17,8 +17,8 @@ class CharacterDetailsViewController: UIViewController {
     
     // MARK: - Variables
     
-    private var series: [CharacterModel] = []
-    private var comics: [CharacterModel] = []
+    private var series: [PosterItem] = []
+    private var comics: [PosterItem] = []
     
     // MARK: - Outlets
     
@@ -40,8 +40,8 @@ class CharacterDetailsViewController: UIViewController {
     // MARK: - Setups
     
     private func setupCollectionView() {
-        self.seriesCollectionView.register(CharacterCell.self)
-        self.comicsCollectionView.register(CharacterCell.self)
+        self.seriesCollectionView.register(PosterCell.self)
+        self.comicsCollectionView.register(PosterCell.self)
         self.seriesCollectionView.dataSource = self
         self.comicsCollectionView.dataSource = self
     }
@@ -63,8 +63,8 @@ extension CharacterDetailsViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell: CharacterCell = collectionView.dequeueReusableCell(for: indexPath)
-        let model: CharacterModel
+        let cell: PosterCell = collectionView.dequeueReusableCell(for: indexPath)
+        let model: PosterItem
         
         switch collectionView {
         case seriesCollectionView:
@@ -92,12 +92,12 @@ extension CharacterDetailsViewController: CharacterDetailsPresenterOutputProtoco
         self.decriptionLabel.text = description
     }
     
-    func didGet(series items: [CharacterModel]) {
+    func didGet(series items: [PosterItem]) {
         self.series = items
         self.seriesCollectionView.reloadData()
     }
     
-    func didGet(comics items: [CharacterModel]) {
+    func didGet(comics items: [PosterItem]) {
         self.comics = items
         self.comicsCollectionView.reloadData()
     }

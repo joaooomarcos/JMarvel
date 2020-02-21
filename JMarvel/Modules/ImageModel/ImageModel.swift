@@ -13,6 +13,7 @@ struct ImageModel: Decodable {
     enum Kind: String {
         case square = "standard_fantastic"
         case landscape = "landscape_incredible"
+        case portrait = "portrait_fantastic"
     }
     
     var path: String?

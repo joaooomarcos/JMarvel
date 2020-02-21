@@ -18,8 +18,8 @@ protocol CharacterDetailsInteractorInputProtocol {
 // MARK: - Interactor Output
 
 protocol CharacterDetailsInteractorOutputProtocol: class {
-    func didGet(series page: Page<CharacterModel>)
-    func didGet(comics page: Page<CharacterModel>)
+    func didGet(series page: Page<PosterItem>)
+    func didGet(comics page: Page<PosterItem>)
     func didFailed(_ error: GenericError)
 }
 
@@ -31,11 +31,11 @@ class CharacterDetailsInteractor {
     
     // MARK: - Variables
     
-    private var api: CharactersDetailsAPI
+    private var api: CharacterDetailsAPI
     
     // MARK: - Init
     
-    init(api: CharactersDetailsAPI = CharactersDetailsAPI()) {
+    init(api: CharacterDetailsAPI = CharacterDetailsAPI()) {
         self.api = api
     }
 }
