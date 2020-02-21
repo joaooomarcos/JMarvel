@@ -8,6 +8,7 @@ target 'JMarvel' do
   
   pod 'SwiftLint'
   pod 'Kingfisher'
+  pod 'RealmSwift'
   
   target 'JMarvelTests' do
     inherit! :search_paths

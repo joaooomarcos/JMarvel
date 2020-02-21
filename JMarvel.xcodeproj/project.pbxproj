@@ -55,6 +55,7 @@
 		258589C823FEF16E004CE71B /* CharacterDetailsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258589C723FEF16E004CE71B /* CharacterDetailsAPI.swift */; };
 		258589CA23FEF8B2004CE71B /* CharacterDetailsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258589C923FEF8B2004CE71B /* CharacterDetailsRequest.swift */; };
 		25A5E59123FDD1610014ED66 /* CharacterAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F176BC23FCF5DE00B92C90 /* CharacterAPI.swift */; };
+		25B596F72400117100F6BB69 /* LocalDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B596F62400117100F6BB69 /* LocalDatabaseManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,6 +119,7 @@
 		258589C123FEEA0C004CE71B /* CharacterDetailsWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsWireframe.swift; sourceTree = "<group>"; };
 		258589C723FEF16E004CE71B /* CharacterDetailsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsAPI.swift; sourceTree = "<group>"; };
 		258589C923FEF8B2004CE71B /* CharacterDetailsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsRequest.swift; sourceTree = "<group>"; };
+		25B596F62400117100F6BB69 /* LocalDatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDatabaseManager.swift; sourceTree = "<group>"; };
 		498D1BF6FBC6FA2889ECFAAA /* Pods-JMarvel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JMarvel.release.xcconfig"; path = "Target Support Files/Pods-JMarvel/Pods-JMarvel.release.xcconfig"; sourceTree = "<group>"; };
 		542EEC07FBC8165ED8CE02B1 /* Pods-JMarvelTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JMarvelTests.debug.xcconfig"; path = "Target Support Files/Pods-JMarvelTests/Pods-JMarvelTests.debug.xcconfig"; sourceTree = "<group>"; };
 		58E6F531F9A601FFCBECDDDB /* Pods-JMarvelTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JMarvelTests.release.xcconfig"; path = "Target Support Files/Pods-JMarvelTests/Pods-JMarvelTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 			children = (
 				17F176A923FCE2A200B92C90 /* CryptoHelper.swift */,
 				17F176BE23FCF72000B92C90 /* ReusableView.swift */,
+				25B596F62400117100F6BB69 /* LocalDatabaseManager.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -598,6 +601,7 @@
 				258589C023FEE9F8004CE71B /* CharacterDetailsInteractor.swift in Sources */,
 				178F3BFA23FE4F110074F4DE /* CharacterDetailsViewController.swift in Sources */,
 				17F176AA23FCE2A200B92C90 /* CryptoHelper.swift in Sources */,
+				25B596F72400117100F6BB69 /* LocalDatabaseManager.swift in Sources */,
 				25A5E59123FDD1610014ED66 /* CharacterAPI.swift in Sources */,
 				17B373C023FCB97A009A1909 /* JMarvel.xcdatamodeld in Sources */,
 				178F3C1023FF8E510074F4DE /* PosterItem.swift in Sources */,
