@@ -12,7 +12,8 @@ import UIKit
 // MARK: - Wireframe Protocol Declaration
 
 protocol FavoritesListWireframeProtocol: class {
-    func showFavoritesList(from tabBarController: UITabBarController)
+    func getNavigation() -> UINavigationController
+    func navigateToDetail(model: CharacterModel)
 }
 
 // MARK: - Wireframe
@@ -29,7 +30,7 @@ class FavoritesListWireframe {
 
 	// MARK: - Private
 
-    private func prepareView() -> FavoritesListView {
+    private func prepareView() -> UINavigationController {
         let view = FavoritesListView(nibName: self.nibName, bundle: nil)
         self.view = view
         
@@ -42,20 +43,20 @@ class FavoritesListWireframe {
         view.presenter = presenter
         interactor.output = presenter
         
-        return view
+        return UINavigationController(rootViewController: view)
     }
 }
 
 // MARK: - Wireframe Protocol
 
 extension FavoritesListWireframe: FavoritesListWireframeProtocol {
-    func showFavoritesList(from tabBarController: UITabBarController) {
-//        let view = self.prepareView()
+    func getNavigation() -> UINavigationController {
+        self.prepareView()
     }
-
-    func showFavoritesList(with navigationController: UINavigationController) {
-        let view = self.prepareView()
-        
-        navigationController.show(view, sender: nil)
+    
+    func navigateToDetail(model: CharacterModel) {
+        let detailsVC = CharacterDetailsWireframe()
+        guard let navigation = self.view?.navigationController else { return }
+        detailsVC.show(with: model, from: navigation)
     }
 }

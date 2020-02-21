@@ -18,9 +18,9 @@
 		178F3C1C23FF939B0074F4DE /* FavoritesListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178F3C1223FF939B0074F4DE /* FavoritesListInteractor.swift */; };
 		178F3C1E23FF939B0074F4DE /* FavoritesListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178F3C1423FF939B0074F4DE /* FavoritesListPresenter.swift */; };
 		178F3C1F23FF939B0074F4DE /* FavoritesListWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178F3C1523FF939B0074F4DE /* FavoritesListWireframe.swift */; };
-		178F3C2023FF939B0074F4DE /* FavoritesListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 178F3C1723FF939B0074F4DE /* FavoritesListView.xib */; };
-		178F3C2123FF939B0074F4DE /* FavoritesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178F3C1823FF939B0074F4DE /* FavoritesListView.swift */; };
 		178F3C2523FFA49B0074F4DE /* MainRouterWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178F3C2423FFA49B0074F4DE /* MainRouterWireframe.swift */; };
+		178F3C2823FFA6C10074F4DE /* FavoritesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178F3C2623FFA6C10074F4DE /* FavoritesListView.swift */; };
+		178F3C2923FFA6C10074F4DE /* FavoritesListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 178F3C2723FFA6C10074F4DE /* FavoritesListView.xib */; };
 		17B373B623FCB97A009A1909 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B373B523FCB97A009A1909 /* AppDelegate.swift */; };
 		17B373B823FCB97A009A1909 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B373B723FCB97A009A1909 /* SceneDelegate.swift */; };
 		17B373BD23FCB97A009A1909 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17B373BB23FCB97A009A1909 /* Main.storyboard */; };
@@ -77,9 +77,9 @@
 		178F3C1223FF939B0074F4DE /* FavoritesListInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesListInteractor.swift; sourceTree = "<group>"; };
 		178F3C1423FF939B0074F4DE /* FavoritesListPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesListPresenter.swift; sourceTree = "<group>"; };
 		178F3C1523FF939B0074F4DE /* FavoritesListWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesListWireframe.swift; sourceTree = "<group>"; };
-		178F3C1723FF939B0074F4DE /* FavoritesListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoritesListView.xib; sourceTree = "<group>"; };
-		178F3C1823FF939B0074F4DE /* FavoritesListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesListView.swift; sourceTree = "<group>"; };
 		178F3C2423FFA49B0074F4DE /* MainRouterWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouterWireframe.swift; sourceTree = "<group>"; };
+		178F3C2623FFA6C10074F4DE /* FavoritesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesListView.swift; sourceTree = "<group>"; };
+		178F3C2723FFA6C10074F4DE /* FavoritesListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesListView.xib; sourceTree = "<group>"; };
 		17B373B223FCB97A009A1909 /* JMarvel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JMarvel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17B373B523FCB97A009A1909 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17B373B723FCB97A009A1909 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -274,11 +274,11 @@
 		178F3C1123FF939B0074F4DE /* FavoritesList */ = {
 			isa = PBXGroup;
 			children = (
-				178F3C1823FF939B0074F4DE /* FavoritesListView.swift */,
-				178F3C1723FF939B0074F4DE /* FavoritesListView.xib */,
 				178F3C1223FF939B0074F4DE /* FavoritesListInteractor.swift */,
 				178F3C1423FF939B0074F4DE /* FavoritesListPresenter.swift */,
 				178F3C1523FF939B0074F4DE /* FavoritesListWireframe.swift */,
+				178F3C2623FFA6C10074F4DE /* FavoritesListView.swift */,
+				178F3C2723FFA6C10074F4DE /* FavoritesListView.xib */,
 			);
 			path = FavoritesList;
 			sourceTree = "<group>";
@@ -473,7 +473,7 @@
 				17B373C223FCB97F009A1909 /* Assets.xcassets in Resources */,
 				17B373BD23FCB97A009A1909 /* Main.storyboard in Resources */,
 				178F3C0E23FF8E010074F4DE /* PosterCell.xib in Resources */,
-				178F3C2023FF939B0074F4DE /* FavoritesListView.xib in Resources */,
+				178F3C2923FFA6C10074F4DE /* FavoritesListView.xib in Resources */,
 				17F176B923FCF32600B92C90 /* CharacterCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -591,7 +591,7 @@
 				17B373DB23FCBA17009A1909 /* HTTPClient.swift in Sources */,
 				250DC8DA23FDB8FD007A87BA /* CharacterListInteractor.swift in Sources */,
 				258589BE23FEE9EB004CE71B /* CharacterDetailsPresenter.swift in Sources */,
-				178F3C2123FF939B0074F4DE /* FavoritesListView.swift in Sources */,
+				178F3C2823FFA6C10074F4DE /* FavoritesListView.swift in Sources */,
 				17B373E223FCBB8A009A1909 /* HTTPMethod.swift in Sources */,
 				17F176A823FCD22000B92C90 /* Constants.swift in Sources */,
 				178F3BFE23FE58FD0074F4DE /* ListResources.swift in Sources */,

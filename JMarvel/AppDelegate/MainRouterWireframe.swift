@@ -21,6 +21,7 @@ class MainRouterWireframe {
         var viewControllers: [UIViewController] = []
         
         viewControllers.append(charactersList())
+        viewControllers.append(favoritesList())
         
         let tabBar = UITabBarController()
         tabBar.viewControllers = viewControllers
@@ -34,8 +35,8 @@ class MainRouterWireframe {
     }
     
     private func favoritesList() -> UIViewController {
-        let wire = CharacterListWireframe()
-        return wire.getNavigation() ?? UIViewController()
+        let wire = FavoritesListWireframe()
+        return wire.getNavigation()
     }
 }
 

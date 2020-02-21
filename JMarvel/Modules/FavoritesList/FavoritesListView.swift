@@ -2,7 +2,7 @@
 //  FavoritesListView.swift
 //  JMarvel
 //
-//  Created Joao Marcos Ribeiro Araujo on 21/02/2020.
+//  Created by Joao Marcos Ribeiro Araujo on 21/02/20.
 //  Copyright © 2020 JoaoMarcos. All rights reserved.
 //
 
@@ -36,7 +36,6 @@ class FavoritesListView: UICollectionViewController {
     // MARK: - Public
 
     // MARK: - Notifications
-
 }
 
 // MARK: - Presenter Output
