@@ -12,7 +12,7 @@ import UIKit
 // MARK: - Wireframe Protocol Declaration
 
 protocol FavoritesListWireframeProtocol: class {
-    func getNavigation() -> UINavigationController
+    func getNavigation() -> UINavigationController?
     func navigateToDetail(model: CharacterModel)
 }
 
@@ -20,19 +20,22 @@ protocol FavoritesListWireframeProtocol: class {
 
 class FavoritesListWireframe {
     
+    // MARK: - Constants
+    
+    private let storyboardName = "Main"
+    private let storyboardID = "FavoritesListView"
+    
     // MARK: - View
 
     private(set) weak var view: FavoritesListView?
 
-	// MARK: - Constants
-
-	private let nibName = "FavoritesListView"
-
 	// MARK: - Private
 
-    private func prepareView() -> UINavigationController {
-        let view = FavoritesListView(nibName: self.nibName, bundle: nil)
+    private func prepareView() -> UINavigationController? {
+        let view = self.instantiateViewController()
+        
         self.view = view
+        self.view?.title = "Favorites"
         
         let interactor = FavoritesListInteractor()
         let presenter = FavoritesListPresenter()
@@ -40,17 +43,26 @@ class FavoritesListWireframe {
         presenter.interactor = interactor
         presenter.wireframe = self
         presenter.view = view
-        view.presenter = presenter
+        
+        view?.presenter = presenter
         interactor.output = presenter
         
-        return UINavigationController(rootViewController: view)
+        guard let controller = view else { return nil }
+        
+        return UINavigationController(rootViewController: controller)
+    }
+    
+    private func instantiateViewController() -> FavoritesListView? {
+        let storyBoard = UIStoryboard(name: storyboardName, bundle: nil)
+        let controller = storyBoard.instantiateViewController(withIdentifier: storyboardID)
+        return controller as? FavoritesListView
     }
 }
 
 // MARK: - Wireframe Protocol
 
 extension FavoritesListWireframe: FavoritesListWireframeProtocol {
-    func getNavigation() -> UINavigationController {
+    func getNavigation() -> UINavigationController? {
         self.prepareView()
     }
     

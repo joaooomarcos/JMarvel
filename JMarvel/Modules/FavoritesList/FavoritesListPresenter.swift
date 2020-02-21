@@ -15,7 +15,9 @@ protocol FavoritesListPresenterInputProtocol: class {
 
 // MARK: - Presenter Output Declaration
 
-protocol FavoritesListPresenterOutputProtocol: class { }
+protocol FavoritesListPresenterOutputProtocol: class {
+    func didGetList(_ objects: [CharacterRealm])
+}
 
 // MARK: - Presenter
 
@@ -39,9 +41,15 @@ class FavoritesListPresenter {
 // MARK: - Presenter Input
 
 extension FavoritesListPresenter: FavoritesListPresenterInputProtocol {
-    func loadData() { }
+    func loadData() {
+        self.interactor.getFavorites()
+    }
 }
 
 // MARK: - Interactor Output
 
-extension FavoritesListPresenter: FavoritesListInteractorOutputProtocol { }
+extension FavoritesListPresenter: FavoritesListInteractorOutputProtocol {
+    func didGetFavorites(_ list: [CharacterRealm]) {
+        self.view?.didGetList(list)
+    }
+}

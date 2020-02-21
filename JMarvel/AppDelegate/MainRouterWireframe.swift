@@ -36,7 +36,7 @@ class MainRouterWireframe {
     
     private func favoritesList() -> UIViewController {
         let wire = FavoritesListWireframe()
-        return wire.getNavigation()
+        return wire.getNavigation() ?? UIViewController()
     }
 }
 

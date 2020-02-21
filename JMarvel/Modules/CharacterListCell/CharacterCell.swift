@@ -45,6 +45,14 @@ class CharacterCell: UICollectionViewCell, ReusableView {
         self.updateLayout()
     }
     
+    func setup(with character: CharacterRealm) {
+        self.nameLabel.text = character.name ?? ""
+        if let url = URL(string: character.imageURL ?? "") {
+            self.mainImageView.kf.setImage(with: url)
+        }
+        self.favoriteButton.isHidden = true
+    }
+    
     func updateLayout() {
         let image = (self.model?.isFavorited ?? false) ? #imageLiteral(resourceName: "iconStarFilled") : #imageLiteral(resourceName: "iconStar")
         self.favoriteButton.setImage(image, for: .normal)

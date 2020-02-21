@@ -23,14 +23,14 @@ class CharacterListWireframe {
     private let storyboardName = "Main"
     private let storyboardID = "CharacterListView"
         
-    // MARK: - Viper Properties
+    // MARK: - View
     
     private(set) var view: CharacterListView?
 
     // MARK: - Init
 
     private func prepareView() -> UINavigationController? {
-        let view = instantiateViewController()
+        let view = self.instantiateViewController()
         
         self.view = view
         self.view?.title = "Characters list"
