@@ -18,12 +18,14 @@ class CharacterDetailsViewController: UIViewController {
     // MARK: - Variables
     
     private var series: [CharacterModel] = []
+    private var comics: [CharacterModel] = []
     
     // MARK: - Outlets
     
     @IBOutlet private weak var mainImageView: UIImageView!
     @IBOutlet private weak var decriptionLabel: UILabel!
     @IBOutlet private weak var seriesCollectionView: UICollectionView!
+    @IBOutlet private weak var comicsCollectionView: UICollectionView!
     
     // MARK: - Life Cycle
 
@@ -37,7 +39,9 @@ class CharacterDetailsViewController: UIViewController {
     
     private func setupCollectionView() {
         self.seriesCollectionView.register(CharacterCell.self)
+        self.comicsCollectionView.register(CharacterCell.self)
         self.seriesCollectionView.dataSource = self
+        self.comicsCollectionView.dataSource = self
     }
 }
 
@@ -45,13 +49,27 @@ class CharacterDetailsViewController: UIViewController {
 
 extension CharacterDetailsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        self.series.count
+        switch collectionView {
+        case seriesCollectionView:
+            return self.series.count
+        case comicsCollectionView:
+            return self.comics.count
+        default:
+            return 0
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: CharacterCell = collectionView.dequeueReusableCell(for: indexPath)
-        let model = self.series[indexPath.row]
+        let model: CharacterModel
+        
+        switch collectionView {
+        case seriesCollectionView:
+            model = self.series[indexPath.row]
+        default:
+            model = self.comics[indexPath.row]
+        }
         
         cell.setup(with: model)
         
@@ -72,5 +90,8 @@ extension CharacterDetailsViewController: CharacterDetailsPresenterOutputProtoco
         self.seriesCollectionView.reloadData()
     }
     
-    func didGet(comics items: [CharacterModel]) { }
+    func didGet(comics items: [CharacterModel]) {
+        self.comics = items
+        self.comicsCollectionView.reloadData()
+    }
 }

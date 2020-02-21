@@ -10,19 +10,25 @@ import Foundation
 
 class CharacterDetailsRequest: Request {
     
-    private var id: Int
+    enum Kind: String {
+        case series
+        case comics
+    }
     
-    init(id: Int) {
+    private var id: Int
+    private var kind: Kind
+    
+    init(id: Int, kind: Kind) {
         self.id = id
+        self.kind = kind
     }
     
     var endpoint: Endpoint {
-        Endpoint(path: "/public/characters/\(id)/series")
+        Endpoint(path: "/public/characters/\(id)/\(kind.rawValue)")
     }
     
     var parameters: Parameters {
-        ["orderBy": "-startYear",
-         "limit": "10"]
+        ["limit": "10"]
     }
     
     var method: HTTPMethod? {

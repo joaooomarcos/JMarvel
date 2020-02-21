@@ -42,15 +42,24 @@ class CharacterDetailsInteractor {
 
 extension CharacterDetailsInteractor: CharacterDetailsInteractorInputProtocol {
     func getSeries(with id: Int) {
-        self.api.getSeries(with: id) { result in
+        self.api.getSeries(with: id, completion: { result in
             switch result {
             case .success(let page):
                 self.output?.didGet(series: page)
             case .error(let error):
                 self.output?.didFailed(error)
             }
-        }
+        })
     }
     
-    func getComics(with id: Int) { }
+    func getComics(with id: Int) {
+        self.api.getComics(with: id, completion: { result in
+            switch result {
+            case .success(let page):
+                self.output?.didGet(comics: page)
+            case .error(let error):
+                self.output?.didFailed(error)
+            }
+        })
+    }
 }

@@ -23,6 +23,10 @@ class CharactersDetailsAPI {
     // MARK: - Public
     
     func getSeries(with id: Int, completion: @escaping (Result<Page<CharacterModel>>) -> Void) {
-        self.httpClient.request(CharacterDetailsRequest(id: id), completion: completion)
+        self.httpClient.request(CharacterDetailsRequest(id: id, kind: .series), completion: completion)
+    }
+    
+    func getComics(with id: Int, completion: @escaping (Result<Page<CharacterModel>>) -> Void) {
+        self.httpClient.request(CharacterDetailsRequest(id: id, kind: .comics), completion: completion)
     }
 }

@@ -49,11 +49,18 @@ class CharacterDetailsPresenter {
         
         self.interactor.getSeries(with: self.model.id)
     }
+    
+    private func loadComics() {
+        guard (self.model.comics?.available ?? 0) > 0 else { return }
+        
+        self.interactor.getComics(with: self.model.id)
+    }
 }
 
 extension CharacterDetailsPresenter: CharacterDetailsPresenterInputProtocol {
     func loadData() {
         self.loadSeries()
+        self.loadComics()
         self.view.didGet(imageURL: self.model.image?.image(kind: .landscape), description: self.model.description ?? "")
     }
 }
@@ -71,7 +78,14 @@ extension CharacterDetailsPresenter: CharacterDetailsInteractorOutputProtocol {
     }
     
     func didGet(comics page: Page<CharacterModel>) {
+        guard let results = page.results else {
+            return
+        }
         
+        print(results)
+        
+        self.comics = results
+        self.view.didGet(comics: comics)
     }
     
     func didFailed(_ error: GenericError) {
