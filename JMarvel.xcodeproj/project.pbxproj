@@ -43,7 +43,7 @@
 		17F176B523FCF2F200B92C90 /* CharacterListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F176B423FCF2F200B92C90 /* CharacterListView.swift */; };
 		17F176B823FCF32600B92C90 /* CharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F176B623FCF32600B92C90 /* CharacterCell.swift */; };
 		17F176B923FCF32600B92C90 /* CharacterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17F176B723FCF32600B92C90 /* CharacterCell.xib */; };
-		17F176BB23FCF47700B92C90 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F176BA23FCF47700B92C90 /* Character.swift */; };
+		17F176BB23FCF47700B92C90 /* CharacterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F176BA23FCF47700B92C90 /* CharacterModel.swift */; };
 		17F176BF23FCF72000B92C90 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F176BE23FCF72000B92C90 /* ReusableView.swift */; };
 		250DC8D823FDB8F0007A87BA /* CharacterListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250DC8D723FDB8F0007A87BA /* CharacterListPresenter.swift */; };
 		250DC8DA23FDB8FD007A87BA /* CharacterListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250DC8D923FDB8FD007A87BA /* CharacterListInteractor.swift */; };
@@ -106,7 +106,7 @@
 		17F176B423FCF2F200B92C90 /* CharacterListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListView.swift; sourceTree = "<group>"; };
 		17F176B623FCF32600B92C90 /* CharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCell.swift; sourceTree = "<group>"; };
 		17F176B723FCF32600B92C90 /* CharacterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterCell.xib; sourceTree = "<group>"; };
-		17F176BA23FCF47700B92C90 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		17F176BA23FCF47700B92C90 /* CharacterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterModel.swift; sourceTree = "<group>"; };
 		17F176BC23FCF5DE00B92C90 /* CharacterAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterAPI.swift; sourceTree = "<group>"; };
 		17F176BE23FCF72000B92C90 /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 		250DC8D723FDB8F0007A87BA /* CharacterListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListPresenter.swift; sourceTree = "<group>"; };
@@ -246,7 +246,7 @@
 		178F3C0823FE5A0D0074F4DE /* Characters */ = {
 			isa = PBXGroup;
 			children = (
-				17F176BA23FCF47700B92C90 /* Character.swift */,
+				17F176BA23FCF47700B92C90 /* CharacterModel.swift */,
 				178F3BFD23FE58FD0074F4DE /* ListResources.swift */,
 				17F176BC23FCF5DE00B92C90 /* CharacterAPI.swift */,
 				17B373E523FCBC5A009A1909 /* CharactersRequest.swift */,
@@ -341,9 +341,9 @@
 		17F176B323FCF1F300B92C90 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				178F3C0623FE59DB0074F4DE /* Storyboard */,
 				178F3C1123FF939B0074F4DE /* FavoritesList */,
 				178F3C0A23FF8DD90074F4DE /* PosterCell */,
-				178F3C0623FE59DB0074F4DE /* Storyboard */,
 				178F3C0823FE5A0D0074F4DE /* Characters */,
 				178F3C0923FE5A290074F4DE /* ImageModel */,
 				250DC8D623FDB855007A87BA /* CharactersList */,
@@ -415,6 +415,7 @@
 				17B373C723FCB97F009A1909 /* Sources */,
 				17B373C823FCB97F009A1909 /* Frameworks */,
 				17B373C923FCB97F009A1909 /* Resources */,
+				648F3E6441D4A34D85BE2113 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -527,6 +528,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		648F3E6441D4A34D85BE2113 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JMarvelTests/Pods-JMarvelTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JMarvelTests/Pods-JMarvelTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JMarvelTests/Pods-JMarvelTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		BACABC50D142F4A313630110 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -585,7 +603,7 @@
 				17B373E423FCBC01009A1909 /* TypeAlias.swift in Sources */,
 				178F3C2523FFA49B0074F4DE /* MainRouterWireframe.swift in Sources */,
 				250DC8D823FDB8F0007A87BA /* CharacterListPresenter.swift in Sources */,
-				17F176BB23FCF47700B92C90 /* Character.swift in Sources */,
+				17F176BB23FCF47700B92C90 /* CharacterModel.swift in Sources */,
 				178F3C0D23FF8E010074F4DE /* PosterCell.swift in Sources */,
 				17B373DB23FCBA17009A1909 /* HTTPClient.swift in Sources */,
 				250DC8DA23FDB8FD007A87BA /* CharacterListInteractor.swift in Sources */,
