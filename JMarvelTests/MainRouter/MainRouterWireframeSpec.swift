@@ -14,11 +14,16 @@ import UIKit
 class MainRouterWireframeSpec: QuickSpec {
     override func spec() {
         describe("CharacterListWireframe") {
-
-            let sut = MainRouterWireframe()
-            let window = UIWindow()
             
-            sut.prepareInitial(window: window)
+            var sut: MainRouterWireframe!
+            var window: UIWindow!
+            
+            beforeEach {
+                sut = MainRouterWireframe()
+                window = UIWindow()
+                
+                sut.prepareInitial(window: window)
+            }
             
             it("should have a root view controller on window") {
                 let viewController = window.rootViewController
