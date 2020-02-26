@@ -29,7 +29,7 @@ class CharacterListView: UICollectionViewController {
     
     // MARK: - Outlets
     
-    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // MARK: - Life Cycle
     
@@ -40,6 +40,11 @@ class CharacterListView: UICollectionViewController {
         self.setupSearch()
         self.setupLayout()
         self.presenter.loadData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.presenter.refreshData()
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {

@@ -61,6 +61,8 @@ extension CharacterListPresenter: CharacterListPresenterInputProtocol {
     }
     
     func refreshData() {
+        guard !isFetchingItems else { return }
+        
         self.isFetchingItems = true
         self.models = []
         self.interactor.getCharacters(with: self.models.count)
@@ -72,6 +74,7 @@ extension CharacterListPresenter: CharacterListPresenterInputProtocol {
         
         for index in indexPaths where index.row >= (self.models.count - 1) {
             self.interactor.getCharacters(with: self.models.count)
+            self.isFetchingItems = true
             return
         }
     }

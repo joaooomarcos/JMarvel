@@ -25,6 +25,11 @@ class MainRouterWireframeSpec: QuickSpec {
                 sut.prepareInitial(window: window)
             }
             
+            afterEach {
+                sut = nil
+                window = nil
+            }
+            
             it("should have a root view controller on window") {
                 let viewController = window.rootViewController
                 expect(viewController).toNot(beNil())

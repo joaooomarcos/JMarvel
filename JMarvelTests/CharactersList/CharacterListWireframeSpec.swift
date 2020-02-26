@@ -24,6 +24,10 @@ class CharacterListWireframeSpec: QuickSpec {
                 _ = sut.getNavigation()
             }
             
+            afterEach {
+                sut = nil
+            }
+            
 			it("should have a valid view") {
 				 expect(sut.view).toNot(beNil())
 			}
