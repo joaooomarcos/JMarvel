@@ -63,17 +63,9 @@ class CharacterListWireframeSpec: QuickSpec {
             it("should navigate to character detail on call") {
                 let window = UIWindow()
                 let router = MainRouterWireframe(characters: sut)
+                
                 router.prepareInitial(window: window)
-                
-                let json = """
-                {
-                 "id": 0
-                }
-                """.data(using: .utf8)!
-                
-                let model = try! JSONDecoder().decode(CharacterModel.self, from: json)
-                
-                sut.navigateToDetail(model: model)
+                sut.navigateToDetail(model: CharacterModel.mock())
                 expect(sut.view?.navigationController?.viewControllers.last).toEventually(beAKindOf(CharacterDetailsViewController.self))
             }
 		}

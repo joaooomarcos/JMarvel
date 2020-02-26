@@ -59,14 +59,7 @@ class CharacterListViewSpec: QuickSpec {
                 }
                 
                 it("should tell the presenter that tap favorite on item") {
-                    let json = """
-                    {
-                     "id": 0
-                    }
-                    """.data(using: .utf8)!
-                    
-                    let model = try! JSONDecoder().decode(CharacterModel.self, from: json)
-                    sut.didTapFavorite(model)
+                    sut.didTapFavorite(CharacterModel.mock())
                     expect((sut.presenter as? CharacterListPresenterMock)?.didTapFavoriteCalled).to(beTrue())
                 }
             }

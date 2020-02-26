@@ -56,7 +56,10 @@
 		25B596F72400117100F6BB69 /* LocalDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B596F62400117100F6BB69 /* LocalDatabaseManager.swift */; };
 		25C61CE62406D1AD000C524D /* MainRouterWireframeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C61CE52406D1AD000C524D /* MainRouterWireframeSpec.swift */; };
 		25D17C1D2406DE1600A90402 /* CharacterListWireframeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D17C192406DE1600A90402 /* CharacterListWireframeSpec.swift */; };
+		25D17C1E2406DE1600A90402 /* CharacterListPresenterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D17C1A2406DE1600A90402 /* CharacterListPresenterSpec.swift */; };
+		25D17C1F2406DE1600A90402 /* CharacterListInteractorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D17C1B2406DE1600A90402 /* CharacterListInteractorSpec.swift */; };
 		25D17C202406DE1600A90402 /* CharacterListViewSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D17C1C2406DE1600A90402 /* CharacterListViewSpec.swift */; };
+		25D17C22240709D300A90402 /* CharacterModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D17C21240709D300A90402 /* CharacterModelMock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,7 +124,10 @@
 		25B596F62400117100F6BB69 /* LocalDatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDatabaseManager.swift; sourceTree = "<group>"; };
 		25C61CE52406D1AD000C524D /* MainRouterWireframeSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouterWireframeSpec.swift; sourceTree = "<group>"; };
 		25D17C192406DE1600A90402 /* CharacterListWireframeSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterListWireframeSpec.swift; sourceTree = "<group>"; };
+		25D17C1A2406DE1600A90402 /* CharacterListPresenterSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterListPresenterSpec.swift; sourceTree = "<group>"; };
+		25D17C1B2406DE1600A90402 /* CharacterListInteractorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterListInteractorSpec.swift; sourceTree = "<group>"; };
 		25D17C1C2406DE1600A90402 /* CharacterListViewSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterListViewSpec.swift; sourceTree = "<group>"; };
+		25D17C21240709D300A90402 /* CharacterModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterModelMock.swift; sourceTree = "<group>"; };
 		498D1BF6FBC6FA2889ECFAAA /* Pods-JMarvel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JMarvel.release.xcconfig"; path = "Target Support Files/Pods-JMarvel/Pods-JMarvel.release.xcconfig"; sourceTree = "<group>"; };
 		542EEC07FBC8165ED8CE02B1 /* Pods-JMarvelTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JMarvelTests.debug.xcconfig"; path = "Target Support Files/Pods-JMarvelTests/Pods-JMarvelTests.debug.xcconfig"; sourceTree = "<group>"; };
 		58E6F531F9A601FFCBECDDDB /* Pods-JMarvelTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JMarvelTests.release.xcconfig"; path = "Target Support Files/Pods-JMarvelTests/Pods-JMarvelTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -329,6 +335,7 @@
 				25D17C182406DE1600A90402 /* CharactersList */,
 				25C61CE72406D8DD000C524D /* MainRouter */,
 				17B373D123FCB97F009A1909 /* Info.plist */,
+				25D17C21240709D300A90402 /* CharacterModelMock.swift */,
 			);
 			path = JMarvelTests;
 			sourceTree = "<group>";
@@ -381,6 +388,8 @@
 			isa = PBXGroup;
 			children = (
 				25D17C192406DE1600A90402 /* CharacterListWireframeSpec.swift */,
+				25D17C1A2406DE1600A90402 /* CharacterListPresenterSpec.swift */,
+				25D17C1B2406DE1600A90402 /* CharacterListInteractorSpec.swift */,
 				25D17C1C2406DE1600A90402 /* CharacterListViewSpec.swift */,
 			);
 			path = CharactersList;
@@ -661,6 +670,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				25D17C202406DE1600A90402 /* CharacterListViewSpec.swift in Sources */,
+				25D17C1E2406DE1600A90402 /* CharacterListPresenterSpec.swift in Sources */,
+				25D17C1F2406DE1600A90402 /* CharacterListInteractorSpec.swift in Sources */,
+				25D17C22240709D300A90402 /* CharacterModelMock.swift in Sources */,
 				25D17C1D2406DE1600A90402 /* CharacterListWireframeSpec.swift in Sources */,
 				25C61CE62406D1AD000C524D /* MainRouterWireframeSpec.swift in Sources */,
 			);

@@ -1,4 +1,4 @@
-warning_threshold: 10
+warning_threshold: 20
 
 force_cast:
   severity: error
@@ -76,3 +76,4 @@ opt_in_rules:
 
 excluded:
   - Pods
+  - JMarvelTests

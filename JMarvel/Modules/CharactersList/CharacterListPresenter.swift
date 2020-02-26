@@ -40,14 +40,19 @@ class CharacterListPresenter: NSObject {
     
     // MARK: - Variables
     
-    private var models: [CharacterModel] = [] {
+    private var models: [CharacterModel] {
         didSet {
             self.interactor.getFavorites()
         }
     }
     
     private var isFetchingItems: Bool = false
-    private var totalItemsAvailable: Int = .max
+    private var totalItemsAvailable: Int
+    
+    init(_ models: [CharacterModel] = [], totalItems: Int = .max) {
+        self.models = models
+        self.totalItemsAvailable = totalItems
+    }
 }
 
 // MARK: - Presenter Input
