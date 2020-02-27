@@ -65,4 +65,8 @@ class LocalDatabaseManager {
             return []
         }
     }
+    
+    func isFavorite(id: Int) -> Bool {
+        self.objects(CharacterRealm.self).contains(where: { $0.id == id })
+    }
 }

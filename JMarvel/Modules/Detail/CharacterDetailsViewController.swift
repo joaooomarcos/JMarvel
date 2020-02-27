@@ -29,6 +29,7 @@ class CharacterDetailsViewController: UIViewController {
     @IBOutlet private weak var comicsView: UIView!
     @IBOutlet private weak var seriesCollectionView: UICollectionView!
     @IBOutlet private weak var comicsCollectionView: UICollectionView!
+    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     
     // MARK: - Actions
     
@@ -112,5 +113,17 @@ extension CharacterDetailsViewController: CharacterDetailsPresenterOutputProtoco
     func didGet(comics items: [PosterItem]) {
         self.comics = items
         self.comicsCollectionView.reloadData()
+    }
+    
+    func showLoading() {
+        self.activityIndicator.startAnimating()
+    }
+    
+    func hideLoading() {
+        self.activityIndicator.stopAnimating()
+    }
+    
+    func showAlert(title: String, message: String) {
+        self.showSimpleAlert(title: title, message: message)
     }
 }

@@ -45,7 +45,7 @@ class WidgetView: UIViewController, NCWidgetProviding {
 // MARK: - Character View Delegate
 
 extension WidgetView: CharacterViewDelegate {
-    func didTap(on character: CharacterRealm) {
+    func didTap(on character: CharacterRealm?) {
         self.presenter.didTap(on: character)
     }
 }

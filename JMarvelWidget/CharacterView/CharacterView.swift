@@ -10,7 +10,7 @@ import Kingfisher
 import UIKit
 
 protocol CharacterViewDelegate: class {
-    func didTap(on character: CharacterRealm)
+    func didTap(on character: CharacterRealm?)
 }
 
 class CharacterView: UIView {
@@ -30,9 +30,7 @@ class CharacterView: UIView {
     // MARK: - Actions
     
     @IBAction func mainButtonTapped() {
-        if let model = self.model {
-            self.delegate?.didTap(on: model)
-        }
+        self.delegate?.didTap(on: model)
     }
     
     // MARK: - Init

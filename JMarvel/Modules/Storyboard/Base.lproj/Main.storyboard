@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xxX-oF-dzv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xxX-oF-dzv">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -49,6 +49,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Iob-fG-MYL">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                <color key="color" name="main"/>
+                            </activityIndicatorView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kST-8d-uyc">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
@@ -210,13 +214,16 @@
                         <constraints>
                             <constraint firstItem="kST-8d-uyc" firstAttribute="top" secondItem="d3s-0d-meo" secondAttribute="top" id="7Nu-Mm-iXf"/>
                             <constraint firstItem="kST-8d-uyc" firstAttribute="bottom" secondItem="d3s-0d-meo" secondAttribute="bottom" id="8Pa-Ct-L5k"/>
+                            <constraint firstItem="Iob-fG-MYL" firstAttribute="centerY" secondItem="kG1-Nr-mNV" secondAttribute="centerY" id="EaK-OE-0Id"/>
                             <constraint firstItem="kST-8d-uyc" firstAttribute="leading" secondItem="d3s-0d-meo" secondAttribute="leading" id="Ebz-tn-v62"/>
                             <constraint firstItem="kST-8d-uyc" firstAttribute="trailing" secondItem="d3s-0d-meo" secondAttribute="trailing" id="qjg-8E-V3o"/>
+                            <constraint firstItem="Iob-fG-MYL" firstAttribute="centerX" secondItem="kG1-Nr-mNV" secondAttribute="centerX" id="xu8-oj-lEU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="d3s-0d-meo"/>
                     </view>
                     <navigationItem key="navigationItem" id="9MZ-Zd-Zyr"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="Iob-fG-MYL" id="tZb-Iy-NDm"/>
                         <outlet property="comicsCollectionView" destination="pQ6-A6-ise" id="pZv-QK-gHw"/>
                         <outlet property="comicsView" destination="tIP-bv-3KF" id="MPo-Dh-CuN"/>
                         <outlet property="decriptionLabel" destination="90A-MT-j0c" id="pfq-Zl-Td8"/>
@@ -262,7 +269,7 @@
             <color red="1" green="0.037000000476837158" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="placeHolder">
-            <color red="0.16675920050761417" green="0.16675920050761417" blue="0.16675920050761417" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.85100001096725464" green="0.85100001096725464" blue="0.85100001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

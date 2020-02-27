@@ -23,6 +23,9 @@ protocol CharacterDetailsPresenterOutputProtocol: class {
     func didGet(series items: [PosterItem])
     func didGet(comics items: [PosterItem])
     func updateLayout(isFavorited: Bool)
+    func showLoading()
+    func hideLoading()
+    func showAlert(title: String, message: String)
 }
 
 // MARK: - Presenter
@@ -66,17 +69,36 @@ class CharacterDetailsPresenter {
         guard self.hasComics else { return }
         self.interactor.getComics(with: self.model.id)
     }
+    
+    private func verifyToLoad() {
+        if self.model.isNull() {
+            self.getData()
+        } else {
+            self.showData()
+        }
+    }
+    
+    private func getData() {
+        self.view.showLoading()
+        self.view.prepareLayout(seriesIsHidden: true, comicsIsHidden: true)
+        self.interactor.getDetail(with: self.model.id)
+    }
+    
+    private func showData() {
+        self.view.hideLoading()
+        self.loadSeries()
+        self.loadComics()
+        self.view.prepareLayout(seriesIsHidden: !self.hasSeries, comicsIsHidden: !self.hasComics)
+        self.view.didGet(imageURL: self.model.image?.image(kind: .landscape), description: self.model.summary ?? "")
+        self.view.updateLayout(isFavorited: self.model.isFavorited)
+    }
 }
 
 // MARK: - Presenter Input
 
 extension CharacterDetailsPresenter: CharacterDetailsPresenterInputProtocol {
     func loadData() {
-        self.loadSeries()
-        self.loadComics()
-        self.view.prepareLayout(seriesIsHidden: !self.hasSeries, comicsIsHidden: !self.hasComics)
-        self.view.didGet(imageURL: self.model.image?.image(kind: .landscape), description: self.model.summary ?? "")
-        self.view.updateLayout(isFavorited: self.model.isFavorited)
+        self.verifyToLoad()
     }
     
     func didTapFavorite() {
@@ -89,6 +111,21 @@ extension CharacterDetailsPresenter: CharacterDetailsPresenterInputProtocol {
 // MARK: - Interactor Output
 
 extension CharacterDetailsPresenter: CharacterDetailsInteractorOutputProtocol {
+    func didGet(detail page: Page<CharacterModel>) {
+        guard let results = page.results else {
+            self.view.showAlert(title: "Error", message: "Error on get detail")
+            return
+        }
+        
+        if let model = results.first {
+            self.model = model
+            self.interactor.verifyFavorite(with: model.id)
+            self.showData()
+        } else {
+            self.view.showAlert(title: "Error", message: "Error on get detail")
+        }
+    }
+    
     func didGet(series page: Page<PosterItem>) {
         guard let results = page.results else {
             return
@@ -107,5 +144,12 @@ extension CharacterDetailsPresenter: CharacterDetailsInteractorOutputProtocol {
         self.view.didGet(comics: comics)
     }
     
-    func didFailed(_ error: GenericError) { }
+    func didFailed(_ error: GenericError) {
+        self.view.showAlert(title: "Error", message: error.message)
+    }
+    
+    func didGetFavorite(id: Int, isFavorite: Bool) {
+        self.model.isFavorited = isFavorite
+        self.view.updateLayout(isFavorited: isFavorite)
+    }
 }

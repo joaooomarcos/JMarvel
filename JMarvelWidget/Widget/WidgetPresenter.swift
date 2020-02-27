@@ -57,12 +57,20 @@ extension WidgetPresenter: WidgetInteractorOutputProtocol {
         
         if list.count >= 1 {
             self.view?.didGet(character1: list[0])
+        } else {
+            self.view?.didGet(character1: nil)
         }
+        
         if list.count >= 2 {
             self.view?.didGet(character2: list[1])
+        } else {
+            self.view?.didGet(character2: nil)
         }
+        
         if list.count >= 3 {
             self.view?.didGet(character3: list[2])
+        } else {
+            self.view?.didGet(character3: nil)
         }
     }
 }

@@ -30,6 +30,10 @@ class CharacterModel: Decodable {
         self.id = id
     }
     
+    func isNull() -> Bool {
+        return self.name == nil && self.summary == nil && self.image == nil
+    }
+    
     func realmObject() -> CharacterRealm {
         let imageURL = self.image?.image(kind: .square)?.absoluteString
         return CharacterRealm(id, name: name, imageURL: imageURL)

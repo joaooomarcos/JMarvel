@@ -22,6 +22,10 @@ class CharacterDetailsAPI {
     
     // MARK: - Public
     
+    func getDetail(with id: Int, completion: @escaping (Result<Page<CharacterModel>>) -> Void) {
+        self.httpClient.request(CharacterDetailRequest(id: id), completion: completion)
+    }
+    
     func getSeries(with id: Int, completion: @escaping (Result<Page<PosterItem>>) -> Void) {
         self.httpClient.request(CharacterDetailsRequest(id: id, kind: .series), completion: completion)
     }
