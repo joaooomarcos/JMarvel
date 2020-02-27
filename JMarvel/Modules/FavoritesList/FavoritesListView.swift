@@ -76,12 +76,11 @@ extension FavoritesListView: FavoritesListPresenterOutputProtocol {
     func didGetList(_ objects: [CharacterRealm]) {
         self.models = objects
         self.collectionView.reloadData()
-        
-        if self.models.isEmpty {
-            self.setEmptyMessage("You don't have favorites yet 😏")
-        } else {
-            self.removeEmptyMessage()
-        }
+        self.removeEmptyMessage()
+    }
+    
+    func showEmptyState(_ message: String) {
+        self.setEmptyMessage(message)
     }
 }
 

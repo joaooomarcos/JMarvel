@@ -17,6 +17,7 @@ protocol FavoritesListPresenterInputProtocol: class {
 
 protocol FavoritesListPresenterOutputProtocol: class {
     func didGetList(_ objects: [CharacterRealm])
+    func showEmptyState(_ message: String)
 }
 
 // MARK: - Presenter
@@ -43,5 +44,9 @@ extension FavoritesListPresenter: FavoritesListPresenterInputProtocol {
 extension FavoritesListPresenter: FavoritesListInteractorOutputProtocol {
     func didGetFavorites(_ list: [CharacterRealm]) {
         self.view?.didGetList(list)
+        
+        if list.isEmpty {
+            self.view?.showEmptyState("You don't have favorites yet 😏")
+        }
     }
 }
