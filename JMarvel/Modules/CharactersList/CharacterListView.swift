@@ -162,21 +162,19 @@ extension CharacterListView: CharacterListPresenterOutputProtocol {
     func didGet(_ characters: [CharacterModel]) {
         self.models = characters
         self.collectionView.reloadData()
-        
-        if self.models.isEmpty {
-            self.setEmptyMessage("Nothing to show 😲")
-        } else {
-            self.removeEmptyMessage()
-        }
+        self.removeEmptyMessage()
     }
     
-    func didFail(_ message: String) {
-        print("Error: \(message)")
+    func showAlert(title: String, message: String) {
+        self.showSimpleAlert(title: title, message: message)
+    }
+    
+    func showEmptyState(message: String) {
+        self.setEmptyMessage(message)
     }
     
     func showLoading() {
         self.activityIndicator.startAnimating()
-        self.setEmptyMessage("Searching... 🔍")
     }
     
     func hideLoading() {

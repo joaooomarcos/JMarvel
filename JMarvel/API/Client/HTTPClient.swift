@@ -25,7 +25,11 @@ public final class HTTPClient {
         remoteTask = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
             guard let data = data else {
                 DispatchQueue.main.async {
-                    completion(.error(GenericError(message: "Data empty")))
+                    if let error = error {
+                        completion(.error(GenericError(error: error)))
+                    } else {
+                        completion(.error(GenericError(message: "Data empty")))
+                    }
                 }
                 return
             }

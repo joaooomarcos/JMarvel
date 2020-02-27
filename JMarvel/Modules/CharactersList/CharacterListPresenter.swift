@@ -23,7 +23,8 @@ protocol CharacterListPresenterInputProtocol: class {
 
 protocol CharacterListPresenterOutputProtocol: class {
     func didGet(_ characters: [CharacterModel])
-    func didFail(_ message: String)
+    func showAlert(title: String, message: String)
+    func showEmptyState(message: String)
     func showLoading()
     func hideLoading()
 }
@@ -62,10 +63,16 @@ extension CharacterListPresenter: CharacterListPresenterInputProtocol {
         self.isFetchingItems = true
         self.interactor.getCharacters(with: 0)
         self.view.showLoading()
+        self.view.showEmptyState(message: "Searching... 🔍")
     }
     
     func refreshData() {
         guard !isFetchingItems else { return }
+        
+        if self.models.isEmpty {
+            self.view.showLoading()
+            self.view.showEmptyState(message: "Searching... 🔍")
+        }
         
         self.isFetchingItems = true
         self.interactor.getCharacters(with: 0)
@@ -112,7 +119,8 @@ extension CharacterListPresenter: CharacterListInteractorOutputProtocol {
         self.totalItemsAvailable = page.total ?? 0
         
         guard let results = page.results else {
-            self.view.didFail("")
+            self.view.didGet([])
+            self.view.showEmptyState(message: "Nothing to show 😲")
             return
         }
         
@@ -122,8 +130,11 @@ extension CharacterListPresenter: CharacterListInteractorOutputProtocol {
     
     func didFailed(_ error: GenericError) {
         self.isFetchingItems = false
+        self.models = []
         self.view.hideLoading()
-        self.view.didFail(error.message)
+        self.view.didGet([])
+        self.view.showEmptyState(message: "Nothing to show 😲")
+        self.view.showAlert(title: "Error", message: error.message + "🥺")
     }
 }
 
@@ -143,5 +154,9 @@ extension CharacterListPresenter: UISearchResultsUpdating {
         }
         
         self.view.didGet(filtered)
+        
+        if filtered.isEmpty {
+            self.view.showEmptyState(message: "Nothing to show 😲")
+        }
     }
 }

@@ -122,7 +122,7 @@ class CharacterListPresenterSpec: QuickSpec {
                 
                 it("should call didFailed when didGet does not has results") {
                     sut.didGet(Page())
-                    expect(view.failMessage).to(beEmpty())
+                    expect(view.emptyStateMessage).toNot(beEmpty())
                 }
                 
                 it("should call didFailed when didGet does not has results") {
@@ -140,7 +140,7 @@ class CharacterListPresenterSpec: QuickSpec {
                 it("should call didFail when called didFailed") {
                     let failMessage = "fail"
                     sut.didFailed(GenericError(message: failMessage))
-                    expect(view.failMessage).to(equal(failMessage))
+                    expect(view.alertMessage).to(contain(failMessage))
                 }
             }
             
@@ -181,20 +181,24 @@ class SearchControlMock: UISearchController {
 
 class CharacterListViewMock: CharacterListPresenterOutputProtocol {
     var didGetCalled: Bool = false
-    var didFailCalled: Bool = false
     var showLoadingCalled: Bool = false
     var hideLoadingCalled: Bool = false
     var characters: [CharacterModel] = []
     
-    var failMessage: String?
+    var alertMessage: String?
+    var emptyStateMessage: String?
     
     func didGet(_ characters: [CharacterModel]) {
         self.didGetCalled = true
         self.characters = characters
     }
     
-    func didFail(_ message: String) {
-        self.failMessage = message
+    func showAlert(title: String, message: String) {
+        self.alertMessage = message
+    }
+    
+    func showEmptyState(message: String) {
+        self.emptyStateMessage = message
     }
     
     func showLoading() {
