@@ -7,7 +7,25 @@
 		<key>JMarvel.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>4</integer>
+			<integer>0</integer>
+		</dict>
+		<key>JMarvelWidget.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>10</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>17B373B123FCB97A009A1909</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>17B373CA23FCB97F009A1909</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

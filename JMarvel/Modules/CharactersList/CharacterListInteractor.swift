@@ -60,7 +60,7 @@ extension CharacterListInteractor: CharacterListInteractorInputProtocol {
     }
     
     func updateLocal(_ model: CharacterModel) {
-        let realmObject = CharacterRealm(model)
+        let realmObject = model.realmObject()
         if let dataBaseObject = dataBase.object(realmObject) {
             dataBase.delete(dataBaseObject)
         } else {

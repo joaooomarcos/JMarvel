@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="M4Y-Lb-cyx">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Widget View-->
+        <scene sceneID="cwh-vc-ff4">
+            <objects>
+                <viewController id="M4Y-Lb-cyx" customClass="WidgetView" customModule="JMarvelWidget" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" simulatedAppContext="notificationCenter" id="S3S-Oj-5AN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="4bY-Jq-Sg9">
+                                <rect key="frame" x="23.5" y="0.0" width="273" height="200"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zly-P1-8Kt" customClass="CharacterView" customModule="JMarvelWidget" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="75" height="100"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="EoY-gU-PZp"/>
+                                            <constraint firstAttribute="width" constant="75" id="hbR-Uf-fax"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tqj-TH-heu" customClass="CharacterView" customModule="JMarvelWidget" customModuleProvider="target">
+                                        <rect key="frame" x="99" y="50" width="75" height="100"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="75" id="eVo-a0-PR8"/>
+                                            <constraint firstAttribute="height" constant="100" id="gqa-Bs-MUD"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CdU-f9-0Ib" customClass="CharacterView" customModule="JMarvelWidget" customModuleProvider="target">
+                                        <rect key="frame" x="198" y="50" width="75" height="100"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="75" id="Gzz-Z6-kAw"/>
+                                            <constraint firstAttribute="height" constant="100" id="htK-oW-bgD"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </stackView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="OTl-jB-bAP">
+                                <rect key="frame" x="141.5" y="81.5" width="37" height="37"/>
+                                <color key="color" name="main"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="4bY-Jq-Sg9" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ssy-KU-ocm" secondAttribute="leading" constant="16" id="49P-d2-Ahh"/>
+                            <constraint firstItem="4bY-Jq-Sg9" firstAttribute="bottom" secondItem="ssy-KU-ocm" secondAttribute="bottom" id="IY2-XL-wOY"/>
+                            <constraint firstItem="4bY-Jq-Sg9" firstAttribute="centerX" secondItem="S3S-Oj-5AN" secondAttribute="centerX" id="NhC-jH-FgA"/>
+                            <constraint firstItem="ssy-KU-ocm" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="4bY-Jq-Sg9" secondAttribute="trailing" constant="16" id="PAO-4W-QdK"/>
+                            <constraint firstItem="4bY-Jq-Sg9" firstAttribute="top" secondItem="S3S-Oj-5AN" secondAttribute="top" id="civ-uN-qw2"/>
+                            <constraint firstItem="OTl-jB-bAP" firstAttribute="centerX" secondItem="S3S-Oj-5AN" secondAttribute="centerX" id="fGa-oz-7vL"/>
+                            <constraint firstItem="OTl-jB-bAP" firstAttribute="centerY" secondItem="S3S-Oj-5AN" secondAttribute="centerY" id="fbE-N1-46j"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ssy-KU-ocm"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="200"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="OTl-jB-bAP" id="0Hz-yS-qqe"/>
+                        <outlet property="character1View" destination="zly-P1-8Kt" id="6dx-Z6-Qxh"/>
+                        <outlet property="character2View" destination="Tqj-TH-heu" id="5pI-Q0-ArO"/>
+                        <outlet property="character3View" destination="CdU-f9-0Ib" id="ypm-fh-9v4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-44.927536231884062" y="-9.375"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="main">
+            <color red="1" green="0.037000000476837158" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

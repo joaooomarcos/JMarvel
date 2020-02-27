@@ -29,3 +29,8 @@ target 'JMarvel' do
   end
   
 end
+
+target 'JMarvelWidget' do
+  developmentTools
+  thirParties
+end

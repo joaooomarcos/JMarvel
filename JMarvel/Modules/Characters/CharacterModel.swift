@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import RealmSwift
 
 class CharacterModel: Decodable {
     var id: Int
@@ -26,24 +25,9 @@ class CharacterModel: Decodable {
         case comics
         case series
     }
-}
-
-class CharacterRealm: Object {
-    @objc dynamic var id: Int
-    @objc dynamic var name: String?
-    @objc dynamic var imageURL: String?
     
-    init(_ model: CharacterModel) {
-        self.id = model.id
-        self.name = model.name
-        self.imageURL = model.image?.image(kind: .square)?.absoluteString
-    }
-    
-    required init() {
-        self.id = 0
-    }
-    
-    override static func primaryKey() -> String? {
-        return "id"
+    func realmObject() -> CharacterRealm {
+        let imageURL = self.image?.image(kind: .square)?.absoluteString
+        return CharacterRealm(id, name: name, imageURL: imageURL)
     }
 }

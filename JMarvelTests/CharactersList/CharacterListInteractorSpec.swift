@@ -139,7 +139,7 @@ class LocalDatabaseManagerMock: LocalDatabaseManager {
     
     override func object<T>(_ object: T) -> T? where T : CharacterRealm {
         if let obj = self.object {
-            return CharacterRealm(obj) as? T
+            return obj.realmObject() as? T
         } else {
             return nil
         }

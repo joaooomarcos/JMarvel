@@ -5,6 +5,7 @@
 //  Created Joao Marcos Ribeiro Araujo on 21/02/2020.
 //  Copyright © 2020 JoaoMarcos. All rights reserved.
 //
+
 import Foundation
 
 // MARK: - Presenter Input Declaration
