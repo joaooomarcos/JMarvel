@@ -26,6 +26,10 @@ class CharacterModel: Decodable {
         case series
     }
     
+    init(id: Int) {
+        self.id = id
+    }
+    
     func realmObject() -> CharacterRealm {
         let imageURL = self.image?.image(kind: .square)?.absoluteString
         return CharacterRealm(id, name: name, imageURL: imageURL)

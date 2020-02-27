@@ -53,6 +53,8 @@ extension WidgetPresenter: WidgetPresenterInputProtocol {
 
 extension WidgetPresenter: WidgetInteractorOutputProtocol {
     func didGetFavorites(_ list: [CharacterRealm]) {
+        self.view?.hideLoading()
+        
         if list.count >= 1 {
             self.view?.didGet(character1: list[0])
         }

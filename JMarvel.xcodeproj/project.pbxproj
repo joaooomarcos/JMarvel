@@ -55,6 +55,8 @@
 		250DC8D823FDB8F0007A87BA /* CharacterListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250DC8D723FDB8F0007A87BA /* CharacterListPresenter.swift */; };
 		250DC8DA23FDB8FD007A87BA /* CharacterListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250DC8D923FDB8FD007A87BA /* CharacterListInteractor.swift */; };
 		250DC8DE23FDB92C007A87BA /* CharacterListWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250DC8DD23FDB92C007A87BA /* CharacterListWireframe.swift */; };
+		25209F51240857A200FEA72F /* DeeplinkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25209F50240857A200FEA72F /* DeeplinkManager.swift */; };
+		25209F55240859A100FEA72F /* DeeplinkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25209F54240859A100FEA72F /* DeeplinkRouter.swift */; };
 		258589BE23FEE9EB004CE71B /* CharacterDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258589BD23FEE9EB004CE71B /* CharacterDetailsPresenter.swift */; };
 		258589C023FEE9F8004CE71B /* CharacterDetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258589BF23FEE9F8004CE71B /* CharacterDetailsInteractor.swift */; };
 		258589C223FEEA0C004CE71B /* CharacterDetailsWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258589C123FEEA0C004CE71B /* CharacterDetailsWireframe.swift */; };
@@ -165,6 +167,8 @@
 		250DC8D723FDB8F0007A87BA /* CharacterListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListPresenter.swift; sourceTree = "<group>"; };
 		250DC8D923FDB8FD007A87BA /* CharacterListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListInteractor.swift; sourceTree = "<group>"; };
 		250DC8DD23FDB92C007A87BA /* CharacterListWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListWireframe.swift; sourceTree = "<group>"; };
+		25209F50240857A200FEA72F /* DeeplinkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeeplinkManager.swift; sourceTree = "<group>"; };
+		25209F54240859A100FEA72F /* DeeplinkRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeeplinkRouter.swift; sourceTree = "<group>"; };
 		258589BD23FEE9EB004CE71B /* CharacterDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsPresenter.swift; sourceTree = "<group>"; };
 		258589BF23FEE9F8004CE71B /* CharacterDetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsInteractor.swift; sourceTree = "<group>"; };
 		258589C123FEEA0C004CE71B /* CharacterDetailsWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsWireframe.swift; sourceTree = "<group>"; };
@@ -240,6 +244,8 @@
 				25B596F62400117100F6BB69 /* LocalDatabaseManager.swift */,
 				1720435824076870003291A9 /* JMCollectionViewController.swift */,
 				1720435A24077F61003291A9 /* UIViewController+Extensions.swift */,
+				25209F50240857A200FEA72F /* DeeplinkManager.swift */,
+				25209F54240859A100FEA72F /* DeeplinkRouter.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -838,7 +844,9 @@
 				17B373B823FCB97A009A1909 /* SceneDelegate.swift in Sources */,
 				17B373E623FCBC5A009A1909 /* CharactersRequest.swift in Sources */,
 				258589C223FEEA0C004CE71B /* CharacterDetailsWireframe.swift in Sources */,
+				25209F55240859A100FEA72F /* DeeplinkRouter.swift in Sources */,
 				17B373E823FCBF5F009A1909 /* Result.swift in Sources */,
+				25209F51240857A200FEA72F /* DeeplinkManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

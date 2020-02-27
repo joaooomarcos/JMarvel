@@ -13,6 +13,7 @@ import UIKit
 
 protocol CharacterDetailsWireframeProtocol: class {
     func show(with model: CharacterModel, from navigation: UINavigationController)
+    func present(with id: Int, from view: UIViewController)
 }
 
 // MARK: - Wireframe
@@ -57,5 +58,11 @@ extension CharacterDetailsWireframe: CharacterDetailsWireframeProtocol {
     func show(with model: CharacterModel, from navigation: UINavigationController) {
         guard let view = self.prepareView(model: model) else { return }
         navigation.show(view, sender: nil)
+    }
+    
+    func present(with id: Int, from view: UIViewController) {
+        let model = CharacterModel(id: id)
+        guard let detailVC = self.prepareView(model: model) else { return }
+        view.show(detailVC, sender: nil)
     }
 }

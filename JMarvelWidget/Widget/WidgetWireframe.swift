@@ -46,14 +46,15 @@ class WidgetWireframe {
 
 extension WidgetWireframe: WidgetWireframeProtocol {
     func openDetail(model: CharacterRealm?) {
-        guard let pathURL = URL(string: "jmarvel://favorites") else { return }
-        
-        var url = pathURL
+        let url: URL?
         
         if let model = model {
-            url.appendPathComponent("\(model.id)")
+            url = URL(string: "jmarvel://detail/\(model.id)")
+        } else {
+            url = URL(string: "jmarvel://favorites")
         }
         
-        self.view?.extensionContext?.open(url)
+        guard let unwrappedURL = url else { return }
+        self.view?.extensionContext?.open(unwrappedURL)
     }
 }

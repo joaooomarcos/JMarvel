@@ -16,6 +16,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
     
+    func sceneDidBecomeActive(_ scene: UIScene) {
+        DeepLinkManager.shared.checkDeepLink()
+    }
+    
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        DeepLinkManager.shared.handleDeeplink(URLContexts)
+    }
+    
     func scene(_ scene: UIScene,
                willConnectTo session: UISceneSession,
                options connectionOptions: UIScene.ConnectionOptions) {
@@ -23,5 +31,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window = UIWindow(windowScene: windowScene)
                 
         MainRouterWireframe().prepareInitial(window: window)
+        DeepLinkManager.shared.handleDeeplink(connectionOptions.urlContexts)
     }
 }
