@@ -10,10 +10,11 @@ import Foundation
 @testable import JMarvel
 
 extension CharacterModel {
-    static func mock() -> CharacterModel {
+    static func mock(_ id: Int) -> CharacterModel {
         let json = """
         {
-         "id": 0
+         "id": \(id),
+         "name": "name\(id)"
         }
         """.data(using: .utf8)!
         

@@ -59,7 +59,7 @@ class CharacterListViewSpec: QuickSpec {
                 }
                 
                 it("should tell the presenter that tap favorite on item") {
-                    sut.didTapFavorite(CharacterModel.mock())
+                    sut.didTapFavorite(CharacterModel.mock(0))
                     expect((sut.presenter as? CharacterListPresenterMock)?.didTapFavoriteCalled).to(beTrue())
                 }
             }

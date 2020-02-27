@@ -21,9 +21,10 @@ class CharacterListPresenterSpec: QuickSpec {
             var view: CharacterListViewMock!
             var interactor: CharacterListInteractorMock!
             var wireframe: CharacterListWireframeMock!
+            var models: [CharacterModel]!
             
             beforeEach {
-                let models = [CharacterModel.mock(), CharacterModel.mock()]
+                models = [CharacterModel.mock(0), CharacterModel.mock(1)]
                 sut = CharacterListPresenter(models, totalItems: 5)
                 view = CharacterListViewMock()
                 interactor = CharacterListInteractorMock()
@@ -67,8 +68,13 @@ class CharacterListPresenterSpec: QuickSpec {
                     expect(interactor.getCharactersCalled).to(beFalse())
                 }
                 
+                it("should not call interactor when indexpath on load more is empty") {
+                    sut.loadMore(for: [])
+                    expect(interactor.getCharactersCalled).to(beFalse())
+                }
+                
                 it("should not call interactor to getCharacters when reach total items") {
-                    let models = [CharacterModel.mock(), CharacterModel.mock()]
+                    let models = [CharacterModel.mock(0), CharacterModel.mock(1)]
                     sut = CharacterListPresenter(models, totalItems: 2)
                     
                     sut.wireframe = wireframe
@@ -96,15 +102,80 @@ class CharacterListPresenterSpec: QuickSpec {
                 }
                 
                 it("should call interactor to favorite when call didTapFavorite") {
-                    sut.didTapFavorite(on: CharacterModel.mock())
+                    sut.didTapFavorite(on: CharacterModel.mock(0))
                     expect(interactor.updateLocalCalled).to(beTrue())
                 }
             }
 
             context("Output protocol") {
+                it("should be favorite models id returned by interactor") {
+                    let id = 0
+                    sut.didGetIdFavoritesList([id])
+                    let models = models.filter({ $0.id == id && $0.isFavorited })
+                    expect(models.count).to(equal(1))
+                }
                 
+                it("should call hide loading when interactor call didGet") {
+                    sut.didGet(Page())
+                    expect(view.hideLoadingCalled).to(beTrue())
+                }
+                
+                it("should call didFailed when didGet does not has results") {
+                    sut.didGet(Page())
+                    expect(view.failMessage).to(beEmpty())
+                }
+                
+                it("should call didFailed when didGet does not has results") {
+                    let model = CharacterModel.mock(0)
+                    let page = Page(results: [model])
+                    sut.didGet(page)
+                    expect(view.didGetCalled).to(beTrue())
+                }
+                
+                it("should call hide loading when called didFailed") {
+                    sut.didFailed(GenericError(message: ""))
+                    expect(view.hideLoadingCalled).to(beTrue())
+                }
+                
+                it("should call didFail when called didFailed") {
+                    let failMessage = "fail"
+                    sut.didFailed(GenericError(message: failMessage))
+                    expect(view.failMessage).to(equal(failMessage))
+                }
+            }
+            
+            context("Search Control protocol") {
+                it("should return all models when search text is empty") {
+                    let search = SearchControlMock()
+                    search.text = ""
+                    sut.updateSearchResults(for: search)
+                    expect(view.characters.count).to(equal(models.count))
+                }
+                
+                it("should return filtered models based on search text") {
+                    let searchText = "me1"
+                    let search = SearchControlMock()
+                    search.text = "name1"
+                    
+                    let filtered = models.filter { item -> Bool in
+                        (item.name ?? "").lowercased().contains(searchText.lowercased())
+                    }
+                    
+                    sut.updateSearchResults(for: search)
+                    expect(view.characters.count).to(equal(filtered.count))
+                }
             }
         }
+    }
+}
+
+class SearchControlMock: UISearchController {
+    var text: String?
+    
+    override var searchBar: UISearchBar {
+        let bar = UISearchBar()
+        bar.text = text
+        return bar
     }
 }
 
@@ -113,13 +184,17 @@ class CharacterListViewMock: CharacterListPresenterOutputProtocol {
     var didFailCalled: Bool = false
     var showLoadingCalled: Bool = false
     var hideLoadingCalled: Bool = false
+    var characters: [CharacterModel] = []
+    
+    var failMessage: String?
     
     func didGet(_ characters: [CharacterModel]) {
         self.didGetCalled = true
+        self.characters = characters
     }
     
     func didFail(_ message: String) {
-        self.didFailCalled = true
+        self.failMessage = message
     }
     
     func showLoading() {

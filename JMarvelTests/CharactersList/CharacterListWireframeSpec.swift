@@ -65,7 +65,7 @@ class CharacterListWireframeSpec: QuickSpec {
                 let router = MainRouterWireframe(characters: sut)
                 
                 router.prepareInitial(window: window)
-                sut.navigateToDetail(model: CharacterModel.mock())
+                sut.navigateToDetail(model: CharacterModel.mock(0))
                 expect(sut.view?.navigationController?.viewControllers.last).toEventually(beAKindOf(CharacterDetailsViewController.self))
             }
 		}
