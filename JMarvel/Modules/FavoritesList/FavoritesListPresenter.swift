@@ -12,6 +12,7 @@ import Foundation
 
 protocol FavoritesListPresenterInputProtocol: class {
     func loadData()
+    func didSelect(index: IndexPath)
 }
 
 // MARK: - Presenter Output Declaration
@@ -30,11 +31,20 @@ class FavoritesListPresenter {
     weak var view: FavoritesListPresenterOutputProtocol?
     var interactor: FavoritesListInteractorInputProtocol!
     var wireframe: FavoritesListWireframeProtocol!
+    
+    // MARK: - Variables
+    
+    private var models: [CharacterRealm] = []
 }
 
 // MARK: - Presenter Input
 
 extension FavoritesListPresenter: FavoritesListPresenterInputProtocol {
+    func didSelect(index: IndexPath) {
+        let item = self.models[index.row]
+        self.wireframe.navigateToDetail(model: CharacterModel(realm: item))
+    }
+    
     func loadData() {
         self.interactor.getFavorites()
     }
@@ -44,6 +54,7 @@ extension FavoritesListPresenter: FavoritesListPresenterInputProtocol {
 
 extension FavoritesListPresenter: FavoritesListInteractorOutputProtocol {
     func didGetFavorites(_ list: [CharacterRealm]) {
+        self.models = list
         self.view?.didGetList(list)
         
         if list.isEmpty {

@@ -100,6 +100,10 @@ extension FavoritesListView {
         
         return cell
     }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.presenter.didSelect(index: indexPath)
+    }
 }
 
 // MARK: - Collection View Delegate Flow Layout

@@ -30,6 +30,10 @@ class CharacterModel: Decodable {
         self.id = id
     }
     
+    init(realm: CharacterRealm) {
+        self.id = realm.id
+    }
+    
     func isNull() -> Bool {
         return self.name == nil && self.summary == nil && self.image == nil
     }
