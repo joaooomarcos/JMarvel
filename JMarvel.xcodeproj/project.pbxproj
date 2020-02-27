@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		04D12CE3BFCBCA7ED15B74E0 /* Pods_JMarvel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2583C54F7C9EE4B06C1B640 /* Pods_JMarvel.framework */; };
-		0EDBD38D351AC76C3A17D230 /* Pods_JMarvelTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAFEA5E57899121AF65B6B59 /* Pods_JMarvelTests.framework */; };
 		1720435924076870003291A9 /* JMCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1720435824076870003291A9 /* JMCollectionViewController.swift */; };
 		1720435B24077F61003291A9 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1720435A24077F61003291A9 /* UIViewController+Extensions.swift */; };
 		178F3BFA23FE4F110074F4DE /* CharacterDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178F3BF923FE4F110074F4DE /* CharacterDetailsViewController.swift */; };
@@ -22,6 +20,13 @@
 		178F3C1F23FF939B0074F4DE /* FavoritesListWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178F3C1523FF939B0074F4DE /* FavoritesListWireframe.swift */; };
 		178F3C2523FFA49B0074F4DE /* MainRouterWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178F3C2423FFA49B0074F4DE /* MainRouterWireframe.swift */; };
 		178F3C2823FFA6C10074F4DE /* FavoritesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178F3C2623FFA6C10074F4DE /* FavoritesListView.swift */; };
+		178F3C302400BC720074F4DE /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 178F3C2F2400BC720074F4DE /* NotificationCenter.framework */; };
+		178F3C332400BC720074F4DE /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178F3C322400BC720074F4DE /* TodayViewController.swift */; };
+		178F3C362400BC720074F4DE /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 178F3C342400BC720074F4DE /* MainInterface.storyboard */; };
+		178F3C3A2400BC720074F4DE /* JMarvelWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 178F3C2E2400BC720074F4DE /* JMarvelWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		178F3C3F2400BCCC0074F4DE /* LocalDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B596F62400117100F6BB69 /* LocalDatabaseManager.swift */; };
+		178F3C422400BF770074F4DE /* CharacterRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178F3C412400BF770074F4DE /* CharacterRealm.swift */; };
+		178F3C432400BF950074F4DE /* CharacterRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178F3C412400BF770074F4DE /* CharacterRealm.swift */; };
 		17B373B623FCB97A009A1909 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B373B523FCB97A009A1909 /* AppDelegate.swift */; };
 		17B373B823FCB97A009A1909 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B373B723FCB97A009A1909 /* SceneDelegate.swift */; };
 		17B373BD23FCB97A009A1909 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17B373BB23FCB97A009A1909 /* Main.storyboard */; };
@@ -46,6 +51,7 @@
 		17F176B923FCF32600B92C90 /* CharacterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17F176B723FCF32600B92C90 /* CharacterCell.xib */; };
 		17F176BB23FCF47700B92C90 /* CharacterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F176BA23FCF47700B92C90 /* CharacterModel.swift */; };
 		17F176BF23FCF72000B92C90 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F176BE23FCF72000B92C90 /* ReusableView.swift */; };
+		1E1B5A7D88B32BA09C5ACE01 /* Pods_JMarvelTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 122FA32B21A5B5FF1336A362 /* Pods_JMarvelTests.framework */; };
 		250DC8D823FDB8F0007A87BA /* CharacterListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250DC8D723FDB8F0007A87BA /* CharacterListPresenter.swift */; };
 		250DC8DA23FDB8FD007A87BA /* CharacterListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250DC8D923FDB8FD007A87BA /* CharacterListInteractor.swift */; };
 		250DC8DE23FDB92C007A87BA /* CharacterListWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250DC8DD23FDB92C007A87BA /* CharacterListWireframe.swift */; };
@@ -62,9 +68,18 @@
 		25D17C1F2406DE1600A90402 /* CharacterListInteractorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D17C1B2406DE1600A90402 /* CharacterListInteractorSpec.swift */; };
 		25D17C202406DE1600A90402 /* CharacterListViewSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D17C1C2406DE1600A90402 /* CharacterListViewSpec.swift */; };
 		25D17C22240709D300A90402 /* CharacterModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D17C21240709D300A90402 /* CharacterModelMock.swift */; };
+		97557FBD18203A004C04F893 /* Pods_JMarvelWidget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E86374944B5B4D15F9CECF7 /* Pods_JMarvelWidget.framework */; };
+		CFEB065376046AD28749ACF3 /* Pods_JMarvel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFC52BEB9BE3AD29E0A8D501 /* Pods_JMarvel.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		178F3C382400BC720074F4DE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 17B373AA23FCB979009A1909 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 178F3C2D2400BC720074F4DE;
+			remoteInfo = JMarvelWidget;
+		};
 		17B373CC23FCB97F009A1909 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 17B373AA23FCB979009A1909 /* Project object */;
@@ -74,9 +89,28 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		178F3C3E2400BC720074F4DE /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				178F3C3A2400BC720074F4DE /* JMarvelWidget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		0031E88A921F75ABE6139469 /* Pods-JMarvel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JMarvel.debug.xcconfig"; path = "Target Support Files/Pods-JMarvel/Pods-JMarvel.debug.xcconfig"; sourceTree = "<group>"; };
+		04FEA1BBD5EF30E69163C160 /* Pods-JMarvelWidget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JMarvelWidget.debug.xcconfig"; path = "Target Support Files/Pods-JMarvelWidget/Pods-JMarvelWidget.debug.xcconfig"; sourceTree = "<group>"; };
+		122FA32B21A5B5FF1336A362 /* Pods_JMarvelTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JMarvelTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1720435824076870003291A9 /* JMCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JMCollectionViewController.swift; sourceTree = "<group>"; };
 		1720435A24077F61003291A9 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		1720435C24078E97003291A9 /* JMarvel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JMarvel.entitlements; sourceTree = "<group>"; };
+		1720435D240790C9003291A9 /* JMarvelWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JMarvelWidget.entitlements; sourceTree = "<group>"; };
 		178F3BF923FE4F110074F4DE /* CharacterDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsViewController.swift; sourceTree = "<group>"; };
 		178F3BFB23FE54360074F4DE /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 		178F3BFD23FE58FD0074F4DE /* ListResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListResources.swift; sourceTree = "<group>"; };
@@ -88,6 +122,12 @@
 		178F3C1523FF939B0074F4DE /* FavoritesListWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesListWireframe.swift; sourceTree = "<group>"; };
 		178F3C2423FFA49B0074F4DE /* MainRouterWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouterWireframe.swift; sourceTree = "<group>"; };
 		178F3C2623FFA6C10074F4DE /* FavoritesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesListView.swift; sourceTree = "<group>"; };
+		178F3C2E2400BC720074F4DE /* JMarvelWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = JMarvelWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		178F3C2F2400BC720074F4DE /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		178F3C322400BC720074F4DE /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		178F3C352400BC720074F4DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		178F3C372400BC720074F4DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		178F3C412400BF770074F4DE /* CharacterRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterRealm.swift; sourceTree = "<group>"; };
 		17B373B223FCB97A009A1909 /* JMarvel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JMarvel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17B373B523FCB97A009A1909 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17B373B723FCB97A009A1909 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -132,20 +172,29 @@
 		25D17C1B2406DE1600A90402 /* CharacterListInteractorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterListInteractorSpec.swift; sourceTree = "<group>"; };
 		25D17C1C2406DE1600A90402 /* CharacterListViewSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterListViewSpec.swift; sourceTree = "<group>"; };
 		25D17C21240709D300A90402 /* CharacterModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterModelMock.swift; sourceTree = "<group>"; };
-		498D1BF6FBC6FA2889ECFAAA /* Pods-JMarvel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JMarvel.release.xcconfig"; path = "Target Support Files/Pods-JMarvel/Pods-JMarvel.release.xcconfig"; sourceTree = "<group>"; };
-		542EEC07FBC8165ED8CE02B1 /* Pods-JMarvelTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JMarvelTests.debug.xcconfig"; path = "Target Support Files/Pods-JMarvelTests/Pods-JMarvelTests.debug.xcconfig"; sourceTree = "<group>"; };
-		58E6F531F9A601FFCBECDDDB /* Pods-JMarvelTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JMarvelTests.release.xcconfig"; path = "Target Support Files/Pods-JMarvelTests/Pods-JMarvelTests.release.xcconfig"; sourceTree = "<group>"; };
-		AE60A0F7AD025D8D646433C6 /* Pods-JMarvel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JMarvel.debug.xcconfig"; path = "Target Support Files/Pods-JMarvel/Pods-JMarvel.debug.xcconfig"; sourceTree = "<group>"; };
-		E2583C54F7C9EE4B06C1B640 /* Pods_JMarvel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JMarvel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EAFEA5E57899121AF65B6B59 /* Pods_JMarvelTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JMarvelTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E86374944B5B4D15F9CECF7 /* Pods_JMarvelWidget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JMarvelWidget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		40F0D658CAE7F3F3314A9F53 /* Pods-JMarvel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JMarvel.release.xcconfig"; path = "Target Support Files/Pods-JMarvel/Pods-JMarvel.release.xcconfig"; sourceTree = "<group>"; };
+		B76953889C5CABA0FD4DA186 /* Pods-JMarvelTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JMarvelTests.release.xcconfig"; path = "Target Support Files/Pods-JMarvelTests/Pods-JMarvelTests.release.xcconfig"; sourceTree = "<group>"; };
+		C85DADDC86A8CEC19541800F /* Pods-JMarvelWidget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JMarvelWidget.release.xcconfig"; path = "Target Support Files/Pods-JMarvelWidget/Pods-JMarvelWidget.release.xcconfig"; sourceTree = "<group>"; };
+		E40FB1AE7252F8992C997F0B /* Pods-JMarvelTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JMarvelTests.debug.xcconfig"; path = "Target Support Files/Pods-JMarvelTests/Pods-JMarvelTests.debug.xcconfig"; sourceTree = "<group>"; };
+		FFC52BEB9BE3AD29E0A8D501 /* Pods_JMarvel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JMarvel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		178F3C2B2400BC720074F4DE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				178F3C302400BC720074F4DE /* NotificationCenter.framework in Frameworks */,
+				97557FBD18203A004C04F893 /* Pods_JMarvelWidget.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		17B373AF23FCB97A009A1909 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04D12CE3BFCBCA7ED15B74E0 /* Pods_JMarvel.framework in Frameworks */,
+				CFEB065376046AD28749ACF3 /* Pods_JMarvel.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,7 +202,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0EDBD38D351AC76C3A17D230 /* Pods_JMarvelTests.framework in Frameworks */,
+				1E1B5A7D88B32BA09C5ACE01 /* Pods_JMarvelTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,6 +315,7 @@
 				178F3BFD23FE58FD0074F4DE /* ListResources.swift */,
 				17F176BC23FCF5DE00B92C90 /* CharacterAPI.swift */,
 				17B373E523FCBC5A009A1909 /* CharactersRequest.swift */,
+				178F3C412400BF770074F4DE /* CharacterRealm.swift */,
 			);
 			path = Characters;
 			sourceTree = "<group>";
@@ -299,11 +349,23 @@
 			path = FavoritesList;
 			sourceTree = "<group>";
 		};
+		178F3C312400BC720074F4DE /* JMarvelWidget */ = {
+			isa = PBXGroup;
+			children = (
+				1720435D240790C9003291A9 /* JMarvelWidget.entitlements */,
+				178F3C322400BC720074F4DE /* TodayViewController.swift */,
+				178F3C342400BC720074F4DE /* MainInterface.storyboard */,
+				178F3C372400BC720074F4DE /* Info.plist */,
+			);
+			path = JMarvelWidget;
+			sourceTree = "<group>";
+		};
 		17B373A923FCB979009A1909 = {
 			isa = PBXGroup;
 			children = (
 				17B373B423FCB97A009A1909 /* JMarvel */,
 				17B373CE23FCB97F009A1909 /* JMarvelTests */,
+				178F3C312400BC720074F4DE /* JMarvelWidget */,
 				17B373B323FCB97A009A1909 /* Products */,
 				D4116E020711DCF087A75065 /* Pods */,
 				84CCA1679DC095869C5DFC7E /* Frameworks */,
@@ -315,6 +377,7 @@
 			children = (
 				17B373B223FCB97A009A1909 /* JMarvel.app */,
 				17B373CB23FCB97F009A1909 /* JMarvelTests.xctest */,
+				178F3C2E2400BC720074F4DE /* JMarvelWidget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -322,6 +385,7 @@
 		17B373B423FCB97A009A1909 /* JMarvel */ = {
 			isa = PBXGroup;
 			children = (
+				1720435C24078E97003291A9 /* JMarvel.entitlements */,
 				178F3C0023FE59300074F4DE /* AppDelegate */,
 				17F176B323FCF1F300B92C90 /* Modules */,
 				17B373DC23FCBAEB009A1909 /* API */,
@@ -404,8 +468,10 @@
 		84CCA1679DC095869C5DFC7E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E2583C54F7C9EE4B06C1B640 /* Pods_JMarvel.framework */,
-				EAFEA5E57899121AF65B6B59 /* Pods_JMarvelTests.framework */,
+				178F3C2F2400BC720074F4DE /* NotificationCenter.framework */,
+				FFC52BEB9BE3AD29E0A8D501 /* Pods_JMarvel.framework */,
+				122FA32B21A5B5FF1336A362 /* Pods_JMarvelTests.framework */,
+				2E86374944B5B4D15F9CECF7 /* Pods_JMarvelWidget.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -413,10 +479,12 @@
 		D4116E020711DCF087A75065 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				AE60A0F7AD025D8D646433C6 /* Pods-JMarvel.debug.xcconfig */,
-				498D1BF6FBC6FA2889ECFAAA /* Pods-JMarvel.release.xcconfig */,
-				542EEC07FBC8165ED8CE02B1 /* Pods-JMarvelTests.debug.xcconfig */,
-				58E6F531F9A601FFCBECDDDB /* Pods-JMarvelTests.release.xcconfig */,
+				0031E88A921F75ABE6139469 /* Pods-JMarvel.debug.xcconfig */,
+				40F0D658CAE7F3F3314A9F53 /* Pods-JMarvel.release.xcconfig */,
+				E40FB1AE7252F8992C997F0B /* Pods-JMarvelTests.debug.xcconfig */,
+				B76953889C5CABA0FD4DA186 /* Pods-JMarvelTests.release.xcconfig */,
+				04FEA1BBD5EF30E69163C160 /* Pods-JMarvelWidget.debug.xcconfig */,
+				C85DADDC86A8CEC19541800F /* Pods-JMarvelWidget.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -424,20 +492,40 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		17B373B123FCB97A009A1909 /* JMarvel */ = {
+		178F3C2D2400BC720074F4DE /* JMarvelWidget */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 17B373D423FCB97F009A1909 /* Build configuration list for PBXNativeTarget "JMarvel" */;
+			buildConfigurationList = 178F3C3B2400BC720074F4DE /* Build configuration list for PBXNativeTarget "JMarvelWidget" */;
 			buildPhases = (
-				3F8E79EB54109BE467667E45 /* [CP] Check Pods Manifest.lock */,
-				17F176B223FCEC5F00B92C90 /* SwiftLint */,
-				17B373AE23FCB97A009A1909 /* Sources */,
-				17B373AF23FCB97A009A1909 /* Frameworks */,
-				17B373B023FCB97A009A1909 /* Resources */,
-				FCB336F40E9D122E4D09DDE8 /* [CP] Embed Pods Frameworks */,
+				88D47074CC5467F2E5CFC614 /* [CP] Check Pods Manifest.lock */,
+				178F3C2A2400BC720074F4DE /* Sources */,
+				178F3C2B2400BC720074F4DE /* Frameworks */,
+				178F3C2C2400BC720074F4DE /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+			);
+			name = JMarvelWidget;
+			productName = JMarvelWidget;
+			productReference = 178F3C2E2400BC720074F4DE /* JMarvelWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		17B373B123FCB97A009A1909 /* JMarvel */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 17B373D423FCB97F009A1909 /* Build configuration list for PBXNativeTarget "JMarvel" */;
+			buildPhases = (
+				1A89552C1DDC2442D6B2D366 /* [CP] Check Pods Manifest.lock */,
+				17F176B223FCEC5F00B92C90 /* SwiftLint */,
+				17B373AE23FCB97A009A1909 /* Sources */,
+				17B373AF23FCB97A009A1909 /* Frameworks */,
+				17B373B023FCB97A009A1909 /* Resources */,
+				178F3C3E2400BC720074F4DE /* Embed App Extensions */,
+				6B0A3BCBE7744A2AF0CA5E27 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				178F3C392400BC720074F4DE /* PBXTargetDependency */,
 			);
 			name = JMarvel;
 			productName = JMarvel;
@@ -448,11 +536,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 17B373D723FCB97F009A1909 /* Build configuration list for PBXNativeTarget "JMarvelTests" */;
 			buildPhases = (
-				BACABC50D142F4A313630110 /* [CP] Check Pods Manifest.lock */,
+				3B2B3775B0EEB1A530466A18 /* [CP] Check Pods Manifest.lock */,
 				17B373C723FCB97F009A1909 /* Sources */,
 				17B373C823FCB97F009A1909 /* Frameworks */,
 				17B373C923FCB97F009A1909 /* Resources */,
-				648F3E6441D4A34D85BE2113 /* [CP] Embed Pods Frameworks */,
+				4A5C2D2B37C1A8DBACC53DE0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -474,6 +562,9 @@
 				LastUpgradeCheck = 1110;
 				ORGANIZATIONNAME = JoaoMarcos;
 				TargetAttributes = {
+					178F3C2D2400BC720074F4DE = {
+						CreatedOnToolsVersion = 11.1;
+					};
 					17B373B123FCB97A009A1909 = {
 						CreatedOnToolsVersion = 11.1;
 					};
@@ -498,11 +589,20 @@
 			targets = (
 				17B373B123FCB97A009A1909 /* JMarvel */,
 				17B373CA23FCB97F009A1909 /* JMarvelTests */,
+				178F3C2D2400BC720074F4DE /* JMarvelWidget */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		178F3C2C2400BC720074F4DE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				178F3C362400BC720074F4DE /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		17B373B023FCB97A009A1909 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -543,7 +643,7 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
-		3F8E79EB54109BE467667E45 /* [CP] Check Pods Manifest.lock */ = {
+		1A89552C1DDC2442D6B2D366 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -565,24 +665,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		648F3E6441D4A34D85BE2113 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-JMarvelTests/Pods-JMarvelTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-JMarvelTests/Pods-JMarvelTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JMarvelTests/Pods-JMarvelTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BACABC50D142F4A313630110 /* [CP] Check Pods Manifest.lock */ = {
+		3B2B3775B0EEB1A530466A18 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -604,7 +687,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FCB336F40E9D122E4D09DDE8 /* [CP] Embed Pods Frameworks */ = {
+		4A5C2D2B37C1A8DBACC53DE0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JMarvelTests/Pods-JMarvelTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JMarvelTests/Pods-JMarvelTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JMarvelTests/Pods-JMarvelTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6B0A3BCBE7744A2AF0CA5E27 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -621,9 +721,41 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JMarvel/Pods-JMarvel-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		88D47074CC5467F2E5CFC614 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JMarvelWidget-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		178F3C2A2400BC720074F4DE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				178F3C3F2400BCCC0074F4DE /* LocalDatabaseManager.swift in Sources */,
+				178F3C332400BC720074F4DE /* TodayViewController.swift in Sources */,
+				178F3C432400BF950074F4DE /* CharacterRealm.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		17B373AE23FCB97A009A1909 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -665,6 +797,7 @@
 				17F176AF23FCE80F00B92C90 /* ResultModel.swift in Sources */,
 				17F176B823FCF32600B92C90 /* CharacterCell.swift in Sources */,
 				17F176B523FCF2F200B92C90 /* CharacterListView.swift in Sources */,
+				178F3C422400BF770074F4DE /* CharacterRealm.swift in Sources */,
 				178F3BFC23FE54360074F4DE /* ImageModel.swift in Sources */,
 				17B373B823FCB97A009A1909 /* SceneDelegate.swift in Sources */,
 				17B373E623FCBC5A009A1909 /* CharactersRequest.swift in Sources */,
@@ -689,6 +822,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		178F3C392400BC720074F4DE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 178F3C2D2400BC720074F4DE /* JMarvelWidget */;
+			targetProxy = 178F3C382400BC720074F4DE /* PBXContainerItemProxy */;
+		};
 		17B373CD23FCB97F009A1909 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 17B373B123FCB97A009A1909 /* JMarvel */;
@@ -697,6 +835,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		178F3C342400BC720074F4DE /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				178F3C352400BC720074F4DE /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		17B373BB23FCB97A009A1909 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -716,6 +862,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		178F3C3C2400BC720074F4DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 04FEA1BBD5EF30E69163C160 /* Pods-JMarvelWidget.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = JMarvelWidget/JMarvelWidget.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KW44L7584U;
+				INFOPLIST_FILE = JMarvelWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.JM.JMarvel.Widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		178F3C3D2400BC720074F4DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C85DADDC86A8CEC19541800F /* Pods-JMarvelWidget.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = JMarvelWidget/JMarvelWidget.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KW44L7584U;
+				INFOPLIST_FILE = JMarvelWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.JM.JMarvel.Widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		17B373D223FCB97F009A1909 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -832,9 +1020,11 @@
 		};
 		17B373D523FCB97F009A1909 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AE60A0F7AD025D8D646433C6 /* Pods-JMarvel.debug.xcconfig */;
+			baseConfigurationReference = 0031E88A921F75ABE6139469 /* Pods-JMarvel.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = JMarvel/JMarvel.entitlements;
 				DEVELOPMENT_TEAM = KW44L7584U;
 				INFOPLIST_FILE = JMarvel/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -842,7 +1032,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = JM.JMarvel;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.JM.JMarvel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -851,9 +1041,11 @@
 		};
 		17B373D623FCB97F009A1909 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 498D1BF6FBC6FA2889ECFAAA /* Pods-JMarvel.release.xcconfig */;
+			baseConfigurationReference = 40F0D658CAE7F3F3314A9F53 /* Pods-JMarvel.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = JMarvel/JMarvel.entitlements;
 				DEVELOPMENT_TEAM = KW44L7584U;
 				INFOPLIST_FILE = JMarvel/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -861,7 +1053,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = JM.JMarvel;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.JM.JMarvel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -870,7 +1062,7 @@
 		};
 		17B373D823FCB97F009A1909 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 542EEC07FBC8165ED8CE02B1 /* Pods-JMarvelTests.debug.xcconfig */;
+			baseConfigurationReference = E40FB1AE7252F8992C997F0B /* Pods-JMarvelTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -893,7 +1085,7 @@
 		};
 		17B373D923FCB97F009A1909 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 58E6F531F9A601FFCBECDDDB /* Pods-JMarvelTests.release.xcconfig */;
+			baseConfigurationReference = B76953889C5CABA0FD4DA186 /* Pods-JMarvelTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -917,6 +1109,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		178F3C3B2400BC720074F4DE /* Build configuration list for PBXNativeTarget "JMarvelWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				178F3C3C2400BC720074F4DE /* Debug */,
+				178F3C3D2400BC720074F4DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		17B373AD23FCB979009A1909 /* Build configuration list for PBXProject "JMarvel" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -59,6 +59,7 @@ class MainRouterWireframe {
 extension MainRouterWireframe: MainRouterWireframeProtocol {
     func prepareInitial(window: UIWindow?) {
         let tabBar = self.createTabBar()
+        window?.tintColor = UIColor(named: "main")
         window?.rootViewController = tabBar
         window?.tintColor = UIColor(named: "main")
         window?.makeKeyAndVisible()
