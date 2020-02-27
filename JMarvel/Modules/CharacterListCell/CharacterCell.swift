@@ -37,7 +37,7 @@ class CharacterCell: UICollectionViewCell, ReusableView {
     
     // MARK: - Setup
     
-    func setup(with character: CharacterModel, delegate: CharacterCellActionDelegate? = nil) {
+    func setup(with character: CharacterModel?, delegate: CharacterCellActionDelegate? = nil) {
         self.model = character
         self.delegate = delegate
         self.nameLabel.text = model?.name

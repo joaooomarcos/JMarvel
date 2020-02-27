@@ -11,6 +11,10 @@ import RealmSwift
 
 class LocalDatabaseManager {
     
+    init() {
+        self.configure()
+    }
+    
     func configure() {
         let container = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.jm.JMarvel")
         let realmURL = container!.appendingPathComponent("default.realm")

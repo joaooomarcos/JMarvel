@@ -21,8 +21,8 @@
 		178F3C2523FFA49B0074F4DE /* MainRouterWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178F3C2423FFA49B0074F4DE /* MainRouterWireframe.swift */; };
 		178F3C2823FFA6C10074F4DE /* FavoritesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178F3C2623FFA6C10074F4DE /* FavoritesListView.swift */; };
 		178F3C302400BC720074F4DE /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 178F3C2F2400BC720074F4DE /* NotificationCenter.framework */; };
-		178F3C332400BC720074F4DE /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178F3C322400BC720074F4DE /* TodayViewController.swift */; };
-		178F3C362400BC720074F4DE /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 178F3C342400BC720074F4DE /* MainInterface.storyboard */; };
+		178F3C332400BC720074F4DE /* WidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178F3C322400BC720074F4DE /* WidgetView.swift */; };
+		178F3C362400BC720074F4DE /* Widget.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 178F3C342400BC720074F4DE /* Widget.storyboard */; };
 		178F3C3A2400BC720074F4DE /* JMarvelWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 178F3C2E2400BC720074F4DE /* JMarvelWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		178F3C3F2400BCCC0074F4DE /* LocalDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B596F62400117100F6BB69 /* LocalDatabaseManager.swift */; };
 		178F3C422400BF770074F4DE /* CharacterRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178F3C412400BF770074F4DE /* CharacterRealm.swift */; };
@@ -68,6 +68,11 @@
 		25D17C1F2406DE1600A90402 /* CharacterListInteractorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D17C1B2406DE1600A90402 /* CharacterListInteractorSpec.swift */; };
 		25D17C202406DE1600A90402 /* CharacterListViewSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D17C1C2406DE1600A90402 /* CharacterListViewSpec.swift */; };
 		25D17C22240709D300A90402 /* CharacterModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D17C21240709D300A90402 /* CharacterModelMock.swift */; };
+		25D17C2524081C1500A90402 /* CharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D17C2324081C1500A90402 /* CharacterView.swift */; };
+		25D17C2624081C1500A90402 /* CharacterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25D17C2424081C1500A90402 /* CharacterView.xib */; };
+		25D17C282408273800A90402 /* WidgetPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D17C272408273800A90402 /* WidgetPresenter.swift */; };
+		25D17C2A2408274600A90402 /* WidgetWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D17C292408274600A90402 /* WidgetWireframe.swift */; };
+		25D17C2C2408275000A90402 /* WidgetInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D17C2B2408275000A90402 /* WidgetInteractor.swift */; };
 		97557FBD18203A004C04F893 /* Pods_JMarvelWidget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E86374944B5B4D15F9CECF7 /* Pods_JMarvelWidget.framework */; };
 		CFEB065376046AD28749ACF3 /* Pods_JMarvel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFC52BEB9BE3AD29E0A8D501 /* Pods_JMarvel.framework */; };
 /* End PBXBuildFile section */
@@ -124,8 +129,8 @@
 		178F3C2623FFA6C10074F4DE /* FavoritesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesListView.swift; sourceTree = "<group>"; };
 		178F3C2E2400BC720074F4DE /* JMarvelWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = JMarvelWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		178F3C2F2400BC720074F4DE /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
-		178F3C322400BC720074F4DE /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
-		178F3C352400BC720074F4DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		178F3C322400BC720074F4DE /* WidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetView.swift; sourceTree = "<group>"; };
+		178F3C352400BC720074F4DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Widget.storyboard; sourceTree = "<group>"; };
 		178F3C372400BC720074F4DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		178F3C412400BF770074F4DE /* CharacterRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterRealm.swift; sourceTree = "<group>"; };
 		17B373B223FCB97A009A1909 /* JMarvel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JMarvel.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -172,6 +177,11 @@
 		25D17C1B2406DE1600A90402 /* CharacterListInteractorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterListInteractorSpec.swift; sourceTree = "<group>"; };
 		25D17C1C2406DE1600A90402 /* CharacterListViewSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterListViewSpec.swift; sourceTree = "<group>"; };
 		25D17C21240709D300A90402 /* CharacterModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterModelMock.swift; sourceTree = "<group>"; };
+		25D17C2324081C1500A90402 /* CharacterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterView.swift; sourceTree = "<group>"; };
+		25D17C2424081C1500A90402 /* CharacterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterView.xib; sourceTree = "<group>"; };
+		25D17C272408273800A90402 /* WidgetPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetPresenter.swift; sourceTree = "<group>"; };
+		25D17C292408274600A90402 /* WidgetWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetWireframe.swift; sourceTree = "<group>"; };
+		25D17C2B2408275000A90402 /* WidgetInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetInteractor.swift; sourceTree = "<group>"; };
 		2E86374944B5B4D15F9CECF7 /* Pods_JMarvelWidget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JMarvelWidget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		40F0D658CAE7F3F3314A9F53 /* Pods-JMarvel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JMarvel.release.xcconfig"; path = "Target Support Files/Pods-JMarvel/Pods-JMarvel.release.xcconfig"; sourceTree = "<group>"; };
 		B76953889C5CABA0FD4DA186 /* Pods-JMarvelTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JMarvelTests.release.xcconfig"; path = "Target Support Files/Pods-JMarvelTests/Pods-JMarvelTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -353,9 +363,10 @@
 			isa = PBXGroup;
 			children = (
 				1720435D240790C9003291A9 /* JMarvelWidget.entitlements */,
-				178F3C322400BC720074F4DE /* TodayViewController.swift */,
-				178F3C342400BC720074F4DE /* MainInterface.storyboard */,
+				178F3C342400BC720074F4DE /* Widget.storyboard */,
 				178F3C372400BC720074F4DE /* Info.plist */,
+				25D17C2E2408276700A90402 /* CharacterView */,
+				25D17C2D2408275800A90402 /* Widget */,
 			);
 			path = JMarvelWidget;
 			sourceTree = "<group>";
@@ -463,6 +474,26 @@
 				25D17C1C2406DE1600A90402 /* CharacterListViewSpec.swift */,
 			);
 			path = CharactersList;
+			sourceTree = "<group>";
+		};
+		25D17C2D2408275800A90402 /* Widget */ = {
+			isa = PBXGroup;
+			children = (
+				178F3C322400BC720074F4DE /* WidgetView.swift */,
+				25D17C272408273800A90402 /* WidgetPresenter.swift */,
+				25D17C292408274600A90402 /* WidgetWireframe.swift */,
+				25D17C2B2408275000A90402 /* WidgetInteractor.swift */,
+			);
+			path = Widget;
+			sourceTree = "<group>";
+		};
+		25D17C2E2408276700A90402 /* CharacterView */ = {
+			isa = PBXGroup;
+			children = (
+				25D17C2324081C1500A90402 /* CharacterView.swift */,
+				25D17C2424081C1500A90402 /* CharacterView.xib */,
+			);
+			path = CharacterView;
 			sourceTree = "<group>";
 		};
 		84CCA1679DC095869C5DFC7E /* Frameworks */ = {
@@ -599,7 +630,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				178F3C362400BC720074F4DE /* MainInterface.storyboard in Resources */,
+				25D17C2624081C1500A90402 /* CharacterView.xib in Resources */,
+				178F3C362400BC720074F4DE /* Widget.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -750,8 +782,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25D17C282408273800A90402 /* WidgetPresenter.swift in Sources */,
 				178F3C3F2400BCCC0074F4DE /* LocalDatabaseManager.swift in Sources */,
-				178F3C332400BC720074F4DE /* TodayViewController.swift in Sources */,
+				25D17C2A2408274600A90402 /* WidgetWireframe.swift in Sources */,
+				178F3C332400BC720074F4DE /* WidgetView.swift in Sources */,
+				25D17C2524081C1500A90402 /* CharacterView.swift in Sources */,
+				25D17C2C2408275000A90402 /* WidgetInteractor.swift in Sources */,
 				178F3C432400BF950074F4DE /* CharacterRealm.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -835,12 +871,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		178F3C342400BC720074F4DE /* MainInterface.storyboard */ = {
+		178F3C342400BC720074F4DE /* Widget.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				178F3C352400BC720074F4DE /* Base */,
 			);
-			name = MainInterface.storyboard;
+			name = Widget.storyboard;
 			sourceTree = "<group>";
 		};
 		17B373BB23FCB97A009A1909 /* Main.storyboard */ = {
