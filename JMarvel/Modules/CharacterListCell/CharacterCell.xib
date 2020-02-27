@@ -48,7 +48,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="placeHolder"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="aLL-Xw-WMx" secondAttribute="bottom" id="6q7-js-gPd"/>
                             <constraint firstItem="aLL-Xw-WMx" firstAttribute="leading" secondItem="Pd4-as-bJA" secondAttribute="leading" id="BWv-CO-zZ9"/>
@@ -68,6 +68,7 @@
                     </view>
                 </subviews>
             </view>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="Pd4-as-bJA" secondAttribute="trailing" id="3Dq-oe-t6k"/>
                 <constraint firstAttribute="bottom" secondItem="Pd4-as-bJA" secondAttribute="bottom" id="SU7-Ez-lKa"/>
@@ -88,6 +89,9 @@
         <image name="iconStar" width="30" height="30"/>
         <namedColor name="clearBackground">
             <color red="0.0" green="0.0" blue="0.0" alpha="0.75300002098083496" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="placeHolder">
+            <color red="0.16675920050761417" green="0.16675920050761417" blue="0.16675920050761417" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		04D12CE3BFCBCA7ED15B74E0 /* Pods_JMarvel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2583C54F7C9EE4B06C1B640 /* Pods_JMarvel.framework */; };
 		0EDBD38D351AC76C3A17D230 /* Pods_JMarvelTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAFEA5E57899121AF65B6B59 /* Pods_JMarvelTests.framework */; };
+		1720435924076870003291A9 /* JMCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1720435824076870003291A9 /* JMCollectionViewController.swift */; };
 		178F3BFA23FE4F110074F4DE /* CharacterDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178F3BF923FE4F110074F4DE /* CharacterDetailsViewController.swift */; };
 		178F3BFC23FE54360074F4DE /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178F3BFB23FE54360074F4DE /* ImageModel.swift */; };
 		178F3BFE23FE58FD0074F4DE /* ListResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178F3BFD23FE58FD0074F4DE /* ListResources.swift */; };
@@ -73,6 +74,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1720435824076870003291A9 /* JMCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JMCollectionViewController.swift; sourceTree = "<group>"; };
 		178F3BF923FE4F110074F4DE /* CharacterDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsViewController.swift; sourceTree = "<group>"; };
 		178F3BFB23FE54360074F4DE /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 		178F3BFD23FE58FD0074F4DE /* ListResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListResources.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				17F176A923FCE2A200B92C90 /* CryptoHelper.swift */,
 				17F176BE23FCF72000B92C90 /* ReusableView.swift */,
 				25B596F62400117100F6BB69 /* LocalDatabaseManager.swift */,
+				1720435824076870003291A9 /* JMCollectionViewController.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -644,6 +647,7 @@
 				17F176A823FCD22000B92C90 /* Constants.swift in Sources */,
 				178F3BFE23FE58FD0074F4DE /* ListResources.swift in Sources */,
 				258589C023FEE9F8004CE71B /* CharacterDetailsInteractor.swift in Sources */,
+				1720435924076870003291A9 /* JMCollectionViewController.swift in Sources */,
 				178F3BFA23FE4F110074F4DE /* CharacterDetailsViewController.swift in Sources */,
 				17F176AA23FCE2A200B92C90 /* CryptoHelper.swift in Sources */,
 				25B596F72400117100F6BB69 /* LocalDatabaseManager.swift in Sources */,

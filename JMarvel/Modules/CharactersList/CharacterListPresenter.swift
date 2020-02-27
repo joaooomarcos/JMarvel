@@ -60,8 +60,7 @@ class CharacterListPresenter: NSObject {
 extension CharacterListPresenter: CharacterListPresenterInputProtocol {
     func loadData() {
         self.isFetchingItems = true
-        self.models = []
-        self.interactor.getCharacters(with: self.models.count)
+        self.interactor.getCharacters(with: 0)
         self.view.showLoading()
     }
     
@@ -69,8 +68,7 @@ extension CharacterListPresenter: CharacterListPresenterInputProtocol {
         guard !isFetchingItems else { return }
         
         self.isFetchingItems = true
-        self.models = []
-        self.interactor.getCharacters(with: self.models.count)
+        self.interactor.getCharacters(with: 0)
     }
     
     func loadMore(for indexPaths: [IndexPath]) {
@@ -106,6 +104,11 @@ extension CharacterListPresenter: CharacterListInteractorOutputProtocol {
     func didGet(_ page: Page<CharacterModel>) {
         self.view.hideLoading()
         self.isFetchingItems = false
+        
+        if page.offset == 0 {
+            self.models = []
+        }
+        
         self.totalItemsAvailable = page.total ?? 0
         
         guard let results = page.results else {

@@ -9,7 +9,7 @@
 import RealmSwift
 import UIKit
 
-class FavoritesListView: UICollectionViewController {
+class FavoritesListView: JMCollectionViewController {
 
     // MARK: - Presenter
 
@@ -24,12 +24,6 @@ class FavoritesListView: UICollectionViewController {
     
     private var models: [CharacterRealm] = []
     private var itemSize = CGSize.zero
-
-    // MARK: - Outlets
-    
-    // MARK: - Actions
-
-    // MARK: - Inits
 
     // MARK: - Lifecycle
 
@@ -82,6 +76,12 @@ extension FavoritesListView: FavoritesListPresenterOutputProtocol {
     func didGetList(_ objects: [CharacterRealm]) {
         self.models = objects
         self.collectionView.reloadData()
+        
+        if self.models.isEmpty {
+            self.setEmptyMessage("You don't have favorites yet 😏")
+        } else {
+            self.removeEmptyMessage()
+        }
     }
 }
 

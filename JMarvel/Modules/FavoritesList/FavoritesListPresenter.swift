@@ -28,14 +28,6 @@ class FavoritesListPresenter {
     weak var view: FavoritesListPresenterOutputProtocol?
     var interactor: FavoritesListInteractorInputProtocol!
     var wireframe: FavoritesListWireframeProtocol!
-
-    // MARK: - Constants
-
-    // MARK: - Variables
-
-    // MARK: - Inits
-
-    // MARK: - Privates
 }
 
 // MARK: - Presenter Input
