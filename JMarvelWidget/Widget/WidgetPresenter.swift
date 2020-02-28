@@ -40,8 +40,8 @@ class WidgetPresenter {
 
 extension WidgetPresenter: WidgetPresenterInputProtocol {
     func loadData() {
-        self.interactor.getFavorites(limit: 3)
         self.view?.showLoading()
+        self.interactor.getFavorites(limit: 3)
     }
     
     func didTap(on item: CharacterRealm?) {
