@@ -14,65 +14,54 @@ class FavoritesListView: JMCollectionViewController {
     // MARK: - Presenter
 
     var presenter: FavoritesListPresenterInputProtocol!
-    
-    // MARK: - Constants
-    
-    private let spacing: CGFloat = 16.0
-    private let minItemSize = CGSize(width: 200, height: 225)
-    
+        
     // MARK: - Variables
     
     private var models: [CharacterRealm] = []
-    private var itemSize = CGSize.zero
 
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setupCollectionView()
-        self.setupNavigationBar()
-        self.setupLayout()
+        self.presenter.viewDidLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.presenter.loadData()
+        self.presenter.viewWillAppear()
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
-        self.calculateDimensions(width: size.width)
-        self.collectionView?.collectionViewLayout.invalidateLayout()
-    }
-
-    // MARK: - Privates
-    
-    private func setupNavigationBar() {
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-    }
-    
-    private func setupCollectionView() {
-        self.collectionView.register(CharacterCell.self)
-    }
-    
-    private func setupLayout() {
-        self.view.layoutIfNeeded()
-        self.calculateDimensions(width: self.view.frame.width)
-    }
-    
-    private func calculateDimensions(width: CGFloat) {
-        let utilWidth = width - 2 * self.spacing
-        let itemsPerRow = round(utilWidth / self.minItemSize.width)
-        
-        let itemWidth = (utilWidth - ((itemsPerRow - 1) * self.spacing)) / itemsPerRow
-        
-        self.itemSize = CGSize(width: itemWidth, height: itemWidth)
+        self.presenter.viewWillTransition(size: size)
     }
 }
 
 // MARK: - Presenter Output
 
 extension FavoritesListView: FavoritesListPresenterOutputProtocol {
+    func setupNavigationBar() {
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
+    func setupCollectionView() {
+        self.collectionView.register(CharacterCell.self)
+    }
+    
+    func setupLayout() {
+        self.view.layoutIfNeeded()
+        self.presenter.viewWillTransition(size: self.view.frame.size)
+    }
+    
+    func didCalculate(itemSize: CGSize, spacing: CGFloat) {
+        self.itemSize = itemSize
+        self.itemSpacing = spacing
+    }
+    
+    func reloadCollectionLayout() {
+        self.collectionView?.collectionViewLayout.invalidateLayout()
+    }
+    
     func didGetList(_ objects: [CharacterRealm]) {
         self.models = objects
         self.collectionView.reloadData()
@@ -103,37 +92,5 @@ extension FavoritesListView {
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.presenter.didSelect(index: indexPath)
-    }
-}
-
-// MARK: - Collection View Delegate Flow Layout
-
-extension FavoritesListView: UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return itemSize
-    }
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return self.spacing
-    }
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return self.spacing
-    }
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: self.spacing,
-                            left: self.spacing,
-                            bottom: self.spacing,
-                            right: self.spacing)
     }
 }

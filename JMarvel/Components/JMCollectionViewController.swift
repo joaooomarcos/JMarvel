@@ -6,12 +6,14 @@
 //  Copyright © 2020 JoaoMarcos. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 class JMCollectionViewController: UICollectionViewController {
     
     private var emptyMessageLabel: UILabel?
+    
+    var itemSize: CGSize = .zero
+    var itemSpacing: CGFloat = .zero
     
     func setEmptyMessage(_ message: String) {
         guard emptyMessageLabel == nil else {
@@ -40,5 +42,35 @@ class JMCollectionViewController: UICollectionViewController {
     func removeEmptyMessage() {
         self.emptyMessageLabel?.removeFromSuperview()
         self.emptyMessageLabel = nil
+    }
+}
+
+extension JMCollectionViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return itemSize
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return self.itemSpacing
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return self.itemSpacing
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: self.itemSpacing,
+                            left: self.itemSpacing,
+                            bottom: self.itemSpacing,
+                            right: self.itemSpacing)
     }
 }

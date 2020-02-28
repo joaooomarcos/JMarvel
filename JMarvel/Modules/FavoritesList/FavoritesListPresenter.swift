@@ -6,18 +6,25 @@
 //  Copyright © 2020 JoaoMarcos. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 // MARK: - Presenter Input Declaration
 
 protocol FavoritesListPresenterInputProtocol: class {
-    func loadData()
+    func viewDidLoad()
+    func viewWillAppear()
+    func viewWillTransition(size: CGSize)
     func didSelect(index: IndexPath)
 }
 
 // MARK: - Presenter Output Declaration
 
 protocol FavoritesListPresenterOutputProtocol: class {
+    func setupCollectionView()
+    func setupNavigationBar()
+    func setupLayout()
+    func didCalculate(itemSize: CGSize, spacing: CGFloat)
+    func reloadCollectionLayout()
     func didGetList(_ objects: [CharacterRealm])
     func showEmptyState(_ message: String)
 }
@@ -35,18 +42,32 @@ class FavoritesListPresenter {
     // MARK: - Variables
     
     private var models: [CharacterRealm] = []
+    private var itemSize: CGSize = .zero
+    private var isFetchingItems: Bool = false
 }
 
 // MARK: - Presenter Input
 
 extension FavoritesListPresenter: FavoritesListPresenterInputProtocol {
+    func viewDidLoad() {
+        self.view?.setupCollectionView()
+        self.view?.setupNavigationBar()
+        self.view?.setupLayout()
+    }
+    
+    func viewWillAppear() {
+        self.interactor.getFavorites()
+    }
+    
+    func viewWillTransition(size: CGSize) {
+        let helper = SizeHelper()
+        self.itemSize = helper.itemSize(for: size.width)
+        self.view?.didCalculate(itemSize: self.itemSize, spacing: Constants.Dimensions.spacing)
+    }
+    
     func didSelect(index: IndexPath) {
         let item = self.models[index.row]
         self.wireframe.navigateToDetail(model: CharacterModel(realm: item))
-    }
-    
-    func loadData() {
-        self.interactor.getFavorites()
     }
 }
 

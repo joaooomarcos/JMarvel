@@ -14,18 +14,12 @@ class CharacterListView: JMCollectionViewController {
     
     var presenter: CharacterListPresenterInputProtocol!
     
-    // MARK: - Constants
-    
-    private static let spacing: CGFloat = 16.0
-    private static let minItemSize = CGSize(width: 200, height: 225)
-    
     // MARK: - Variables
     
     private var models: [CharacterModel] = []
-    private var itemSize = CGSize.zero
-    private lazy var searchBar = UISearchBar(frame: CGRect.zero)
     
     private let refreshControl = UIRefreshControl()
+    private lazy var searchBar = UISearchBar(frame: CGRect.zero)
     
     // MARK: - Outlets
     
@@ -35,65 +29,21 @@ class CharacterListView: JMCollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setupCollectionView()
-        self.setupNavigationBar()
-        self.setupSearch()
-        self.setupLayout()
-        self.presenter.loadData()
+        self.presenter.viewDidLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.presenter.refreshData()
+        self.presenter.viewWillAppear()
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
-        self.calculateDimensions(width: size.width)
-        self.collectionView?.collectionViewLayout.invalidateLayout()
-    }
-    
-    // MARK: - Privates
-    
-    private func setupCollectionView() {
-        self.collectionView.register(CharacterCell.self)
-        self.collectionView.refreshControl = self.refreshControl
-        self.collectionView.prefetchDataSource = self
-        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
-        refreshControl.tintColor = UIColor(named: "main")
-    }
-    
-    private func setupNavigationBar() {
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-    }
-    
-    private func setupSearch() {
-        let searchController = UISearchController(searchResultsController: nil)
-        searchController.searchResultsUpdater = self.presenter as? UISearchResultsUpdating
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search"
-    
-        self.definesPresentationContext = true
-        self.navigationItem.searchController = searchController
-    }
-    
-    private func setupLayout() {
-        self.view.layoutIfNeeded()
-        self.calculateDimensions(width: self.view.frame.width)
-    }
-    
-    private func calculateDimensions(width: CGFloat) {
-        let utilWidth = width - 2 * CharacterListView.spacing
-        let itemsPerRow = round(utilWidth / CharacterListView.minItemSize.width)
-        
-        let itemWidth = (utilWidth - ((itemsPerRow - 1) * CharacterListView.spacing)) / itemsPerRow
-        
-        self.itemSize = CGSize(width: itemWidth, height: itemWidth)
+        self.presenter.viewWillTransition(size: size)
     }
     
     @objc
     private func refreshData() {
-        self.refreshControl.beginRefreshing()
         self.presenter.refreshData()
     }
 }
@@ -124,41 +74,46 @@ extension CharacterListView: UICollectionViewDataSourcePrefetching {
     }
 }
 
-// MARK: - Collection View Delegate Flow Layout
-
-extension CharacterListView: UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return itemSize
-    }
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return CharacterListView.spacing
-    }
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return CharacterListView.spacing
-    }
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: CharacterListView.spacing,
-                            left: CharacterListView.spacing,
-                            bottom: CharacterListView.spacing,
-                            right: CharacterListView.spacing)
-    }
-}
-
 // MARK: - Presenter Output
 
 extension CharacterListView: CharacterListPresenterOutputProtocol {
+    
+    func setupCollectionView() {
+        self.collectionView.register(CharacterCell.self)
+        self.collectionView.refreshControl = self.refreshControl
+        self.collectionView.prefetchDataSource = self
+        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        refreshControl.tintColor = UIColor(named: "main")
+    }
+    
+    func setupNavigationBar() {
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
+    func setupSearch() {
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self.presenter as? UISearchResultsUpdating
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search"
+    
+        self.definesPresentationContext = true
+        self.navigationItem.searchController = searchController
+    }
+    
+    func setupLayout() {
+        self.view.layoutIfNeeded()
+        self.presenter.viewWillTransition(size: self.view?.frame.size ?? .zero)
+    }
+    
+    func didCalculate(itemSize: CGSize, spacing: CGFloat) {
+        self.itemSize = itemSize
+        self.itemSpacing = spacing
+    }
+    
+    func reloadCollectionLayout() {
+        self.collectionView?.collectionViewLayout.invalidateLayout()
+    }
+    
     func didGet(_ characters: [CharacterModel]) {
         self.models = characters
         self.collectionView.reloadData()

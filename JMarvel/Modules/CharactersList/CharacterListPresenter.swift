@@ -12,7 +12,9 @@ import UIKit
 // MARK: - Presenter Input Declaration
 
 protocol CharacterListPresenterInputProtocol: class {
-    func loadData()
+    func viewDidLoad()
+    func viewWillAppear()
+    func viewWillTransition(size: CGSize)
     func refreshData()
     func loadMore(for indexPaths: [IndexPath])
     func didSelectItem(indexPath: IndexPath)
@@ -22,6 +24,12 @@ protocol CharacterListPresenterInputProtocol: class {
 // MARK: - Presenter Output Declaration
 
 protocol CharacterListPresenterOutputProtocol: class {
+    func setupCollectionView()
+    func setupNavigationBar()
+    func setupSearch()
+    func setupLayout()
+    func didCalculate(itemSize: CGSize, spacing: CGFloat)
+    func reloadCollectionLayout()
     func didGet(_ characters: [CharacterModel])
     func showAlert(title: String, message: String)
     func showEmptyState(message: String)
@@ -47,6 +55,7 @@ class CharacterListPresenter: NSObject {
         }
     }
     
+    private var itemSize: CGSize = .zero
     private var isFetchingItems: Bool = false
     private var totalItemsAvailable: Int
     
@@ -54,16 +63,34 @@ class CharacterListPresenter: NSObject {
         self.models = models
         self.totalItemsAvailable = totalItems
     }
+    
+    private func loadData() {
+        self.isFetchingItems = true
+        self.interactor.getCharacters(with: 0)
+        self.view.showLoading()
+        self.view.showEmptyState(message: "Searching... 🔍")
+    }
 }
 
 // MARK: - Presenter Input
 
 extension CharacterListPresenter: CharacterListPresenterInputProtocol {
-    func loadData() {
-        self.isFetchingItems = true
-        self.interactor.getCharacters(with: 0)
-        self.view.showLoading()
-        self.view.showEmptyState(message: "Searching... 🔍")
+    func viewDidLoad() {
+        self.view.setupCollectionView()
+        self.view.setupNavigationBar()
+        self.view.setupSearch()
+        self.view.setupLayout()
+        self.loadData()
+    }
+    
+    func viewWillAppear() {
+        self.refreshData()
+    }
+    
+    func viewWillTransition(size: CGSize) {
+        let helper = SizeHelper()
+        self.itemSize = helper.itemSize(for: size.width)
+        self.view.didCalculate(itemSize: self.itemSize, spacing: Constants.Dimensions.spacing)
     }
     
     func refreshData() {
