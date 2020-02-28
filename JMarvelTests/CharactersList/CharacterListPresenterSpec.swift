@@ -44,12 +44,12 @@ class CharacterListPresenterSpec: QuickSpec {
 
             context("Input protocol") {
                 it("should call interactor to getCharacters when call loadData") {
-                    sut.loadData()
+                    sut.viewDidLoad()
                     expect(interactor.getCharactersCalled).to(beTrue())
                 }
                 
                 it("should call show loading when call loadData") {
-                    sut.loadData()
+                    sut.viewDidLoad()
                     expect(view.showLoadingCalled).to(beTrue())
                 }
                 
@@ -91,7 +91,7 @@ class CharacterListPresenterSpec: QuickSpec {
                 }
                 
                 it("should call once interactor to getCharacters when isFetching for another call") {
-                    sut.loadData()
+                    sut.viewDidLoad()
                     sut.loadMore(for: [IndexPath(row: 0, section: 0)])
                     expect(interactor.getCharacterCalledCount).to(equal(1))
                 }
@@ -122,14 +122,7 @@ class CharacterListPresenterSpec: QuickSpec {
                 
                 it("should call didFailed when didGet does not has results") {
                     sut.didGet(Page())
-                    expect(view.emptyStateMessage).toNot(beEmpty())
-                }
-                
-                it("should call didFailed when didGet does not has results") {
-                    let model = CharacterModel.mock(0)
-                    let page = Page(results: [model])
-                    sut.didGet(page)
-                    expect(view.didGetCalled).to(beTrue())
+                    expect(view.emptyMessage).toNot(beEmpty())
                 }
                 
                 it("should call hide loading when called didFailed") {
@@ -149,7 +142,7 @@ class CharacterListPresenterSpec: QuickSpec {
                     let search = SearchControlMock()
                     search.text = ""
                     sut.updateSearchResults(for: search)
-                    expect(view.characters.count).to(equal(models.count))
+                    expect(view.characters?.count).to(equal(models.count))
                 }
                 
                 it("should return filtered models based on search text") {
@@ -162,7 +155,7 @@ class CharacterListPresenterSpec: QuickSpec {
                     }
                     
                     sut.updateSearchResults(for: search)
-                    expect(view.characters.count).to(equal(filtered.count))
+                    expect(view.characters?.count).to(equal(filtered.count))
                 }
             }
         }
@@ -180,25 +173,57 @@ class SearchControlMock: UISearchController {
 }
 
 class CharacterListViewMock: CharacterListPresenterOutputProtocol {
-    var didGetCalled: Bool = false
+    var setupCollectionViewCalled: Bool = false
+    var setupNavigationBarCalled: Bool = false
+    var setupSearchCalled: Bool = false
+    var setupLayoutCalled: Bool = false
+    var reloadCollectionLayoutCalled: Bool = false
     var showLoadingCalled: Bool = false
     var hideLoadingCalled: Bool = false
-    var characters: [CharacterModel] = []
     
+    var itemSize: CGSize?
+    var spacing: CGFloat?
+    var characters: [CharacterModel]?
+    var alertTitle: String?
     var alertMessage: String?
-    var emptyStateMessage: String?
+    var emptyMessage: String?
+    
+    func setupCollectionView() {
+        self.setupCollectionViewCalled = true
+    }
+    
+    func setupNavigationBar() {
+        self.setupNavigationBarCalled = true
+    }
+    
+    func setupSearch() {
+        self.setupSearchCalled = true
+    }
+    
+    func setupLayout() {
+        self.setupLayoutCalled = true
+    }
+    
+    func didCalculate(itemSize: CGSize, spacing: CGFloat) {
+        self.itemSize = itemSize
+        self.spacing = spacing
+    }
+    
+    func reloadCollectionLayout() {
+        self.reloadCollectionLayoutCalled = true
+    }
     
     func didGet(_ characters: [CharacterModel]) {
-        self.didGetCalled = true
         self.characters = characters
     }
     
     func showAlert(title: String, message: String) {
+        self.alertTitle = title
         self.alertMessage = message
     }
     
     func showEmptyState(message: String) {
-        self.emptyStateMessage = message
+        self.emptyMessage = message
     }
     
     func showLoading() {

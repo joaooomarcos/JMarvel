@@ -53,31 +53,41 @@ class CharacterListViewSpec: QuickSpec {
             }
 
             context("Actions") {
-                it("should tell the presenter that tap on item") {
-                    sut.collectionView(sut.collectionView, didSelectItemAt: IndexPath(item: 0, section: 0))
-                    expect((sut.presenter as? CharacterListPresenterMock)?.didSelectItemCalled).to(beTrue())
-                }
-                
-                it("should tell the presenter that tap favorite on item") {
-                    sut.didTapFavorite(CharacterModel.mock(0))
-                    expect((sut.presenter as? CharacterListPresenterMock)?.didTapFavoriteCalled).to(beTrue())
-                }
-            }
-
-            context("Load data") {
-                it("should tell the presenter that the view is loaded") {
-                    sut.viewDidLoad()
-                    expect((sut.presenter as? CharacterListPresenterMock)?.loadDataCalled).to(beTrue())
-                }
-                
-                it("should tell the presenter that the view needed to be refreshed") {
-                    sut.viewWillAppear(true)
+                it("should tell the presenter to refreshData") {
+                    sut.refreshData()
                     expect((sut.presenter as? CharacterListPresenterMock)?.refreshDataCalled).to(beTrue())
                 }
                 
+                it("should tell the presenter that tap on item") {
+                    let index = IndexPath(item: 0, section: 0)
+                    sut.collectionView(sut.collectionView, didSelectItemAt: index)
+                    expect((sut.presenter as? CharacterListPresenterMock)?.selectedItem).to(equal(index))
+                }
+                
+                it("should tell the presenter that tap favorite on item") {
+                    let model = CharacterModel.mock(0)
+                    sut.didTapFavorite(model)
+                    expect((sut.presenter as? CharacterListPresenterMock)?.favoritedItem).to(equal(model))
+                }
+            }
+
+            context("Life Cycle") {
+                it("should tell the presenter that the view is loaded") {
+                    sut.viewDidLoad()
+                    expect((sut.presenter as? CharacterListPresenterMock)?.viewDidLoadCalled).to(beTrue())
+                }
+                
+                it("should tell the presenter that the view will appear") {
+                    sut.viewWillAppear(true)
+                    expect((sut.presenter as? CharacterListPresenterMock)?.viewWillAppearCalled).to(beTrue())
+                }
+            }
+            
+            context("Scroll") {
                 it("should tell the presenter that the view needed more items") {
-                    sut.collectionView(sut.collectionView, prefetchItemsAt: [])
-                    expect((sut.presenter as? CharacterListPresenterMock)?.loadMoreCalled).to(beTrue())
+                    let items: [IndexPath] = []
+                    sut.collectionView(sut.collectionView, prefetchItemsAt: items)
+                    expect((sut.presenter as? CharacterListPresenterMock)?.loadMoreIndexPaths).to(equal(items))
                 }
             }
         }
@@ -85,14 +95,25 @@ class CharacterListViewSpec: QuickSpec {
 }
 
 class CharacterListPresenterMock: CharacterListPresenterInputProtocol {
-	var loadDataCalled: Bool = false
+    var viewDidLoadCalled: Bool = false
+    var viewWillAppearCalled: Bool = false
     var refreshDataCalled: Bool = false
-    var loadMoreCalled: Bool = false
-    var didSelectItemCalled: Bool = false
-    var didTapFavoriteCalled: Bool = false
     
-    func loadData() {
-        self.loadDataCalled = true
+    var size: CGSize?
+    var loadMoreIndexPaths: [IndexPath]?
+    var selectedItem: IndexPath?
+    var favoritedItem: CharacterModel?
+    
+    func viewDidLoad() {
+        self.viewDidLoadCalled = true
+    }
+    
+    func viewWillAppear() {
+        self.viewWillAppearCalled = true
+    }
+    
+    func viewWillTransition(size: CGSize) {
+        self.size = size
     }
     
     func refreshData() {
@@ -100,14 +121,14 @@ class CharacterListPresenterMock: CharacterListPresenterInputProtocol {
     }
     
     func loadMore(for indexPaths: [IndexPath]) {
-        self.loadMoreCalled = true
+        self.loadMoreIndexPaths = indexPaths
     }
     
     func didSelectItem(indexPath: IndexPath) {
-        self.didSelectItemCalled = true
+        self.selectedItem = indexPath
     }
     
     func didTapFavorite(on model: CharacterModel) {
-        self.didTapFavoriteCalled = true
+        self.favoritedItem = model
     }
 }

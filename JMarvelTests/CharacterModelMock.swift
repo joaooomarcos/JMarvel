@@ -21,3 +21,9 @@ extension CharacterModel {
         return try! JSONDecoder().decode(CharacterModel.self, from: json)
     }
 }
+
+extension CharacterModel: Equatable {
+    public static func == (lhs: CharacterModel, rhs: CharacterModel) -> Bool {
+        return lhs.id == rhs.id && lhs.name == rhs.name
+    }
+}

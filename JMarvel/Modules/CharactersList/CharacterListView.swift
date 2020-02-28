@@ -43,7 +43,7 @@ class CharacterListView: JMCollectionViewController {
     }
     
     @objc
-    private func refreshData() {
+    func refreshData() {
         self.presenter.refreshData()
     }
 }
