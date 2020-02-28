@@ -75,7 +75,6 @@ public final class HTTPClient {
         }
         
         guard let newUrl = URL(string: url) else {
-            // TODO: Tratativa de erro
             fatalError("Fail on get url request")
         }
         

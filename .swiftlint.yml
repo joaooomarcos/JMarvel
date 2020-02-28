@@ -75,3 +75,6 @@ opt_in_rules:
 excluded:
   - Pods
   - JMarvelTests
+  - fastlane
+  - slather
+  - ruby

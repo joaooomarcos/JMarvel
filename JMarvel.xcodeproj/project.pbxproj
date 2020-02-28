@@ -27,7 +27,6 @@
 		178F3C3A2400BC720074F4DE /* JMarvelWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 178F3C2E2400BC720074F4DE /* JMarvelWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		178F3C3F2400BCCC0074F4DE /* LocalDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B596F62400117100F6BB69 /* LocalDatabaseManager.swift */; };
 		178F3C422400BF770074F4DE /* CharacterRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178F3C412400BF770074F4DE /* CharacterRealm.swift */; };
-		178F3C432400BF950074F4DE /* CharacterRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178F3C412400BF770074F4DE /* CharacterRealm.swift */; };
 		17B373B623FCB97A009A1909 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B373B523FCB97A009A1909 /* AppDelegate.swift */; };
 		17B373B823FCB97A009A1909 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B373B723FCB97A009A1909 /* SceneDelegate.swift */; };
 		17B373BD23FCB97A009A1909 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17B373BB23FCB97A009A1909 /* Main.storyboard */; };
@@ -77,6 +76,7 @@
 		25D17C282408273800A90402 /* WidgetPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D17C272408273800A90402 /* WidgetPresenter.swift */; };
 		25D17C2A2408274600A90402 /* WidgetWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D17C292408274600A90402 /* WidgetWireframe.swift */; };
 		25D17C2C2408275000A90402 /* WidgetInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D17C2B2408275000A90402 /* WidgetInteractor.swift */; };
+		25D1A91524094BC9005FACFC /* CharacterRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178F3C412400BF770074F4DE /* CharacterRealm.swift */; };
 		97557FBD18203A004C04F893 /* Pods_JMarvelWidget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E86374944B5B4D15F9CECF7 /* Pods_JMarvelWidget.framework */; };
 		CFEB065376046AD28749ACF3 /* Pods_JMarvel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFC52BEB9BE3AD29E0A8D501 /* Pods_JMarvel.framework */; };
 /* End PBXBuildFile section */
@@ -230,13 +230,10 @@
 		178F3BF823FE42880074F4DE /* Detail */ = {
 			isa = PBXGroup;
 			children = (
-				178F3BF923FE4F110074F4DE /* CharacterDetailsViewController.swift */,
-				258589BD23FEE9EB004CE71B /* CharacterDetailsPresenter.swift */,
-				258589BF23FEE9F8004CE71B /* CharacterDetailsInteractor.swift */,
-				258589C123FEEA0C004CE71B /* CharacterDetailsWireframe.swift */,
-				258589C723FEF16E004CE71B /* CharacterDetailsAPI.swift */,
-				258589C923FEF8B2004CE71B /* CharacterDetailsRequest.swift */,
-				2520A06D24086F5A00FEA72F /* CharacterDetailRequest.swift */,
+				25D1A91224094A36005FACFC /* Wireframe */,
+				25D1A91124094A31005FACFC /* View */,
+				25D1A91324094A3E005FACFC /* Presenter */,
+				25D1A91424094A44005FACFC /* Interactor */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -330,16 +327,13 @@
 			path = CharacterListCell;
 			sourceTree = "<group>";
 		};
-		178F3C0823FE5A0D0074F4DE /* Characters */ = {
+		178F3C0823FE5A0D0074F4DE /* Character */ = {
 			isa = PBXGroup;
 			children = (
 				17F176BA23FCF47700B92C90 /* CharacterModel.swift */,
-				178F3BFD23FE58FD0074F4DE /* ListResources.swift */,
-				17F176BC23FCF5DE00B92C90 /* CharacterAPI.swift */,
-				17B373E523FCBC5A009A1909 /* CharactersRequest.swift */,
 				178F3C412400BF770074F4DE /* CharacterRealm.swift */,
 			);
-			path = Characters;
+			path = Character;
 			sourceTree = "<group>";
 		};
 		178F3C0923FE5A290074F4DE /* ImageModel */ = {
@@ -363,10 +357,10 @@
 		178F3C1123FF939B0074F4DE /* FavoritesList */ = {
 			isa = PBXGroup;
 			children = (
-				178F3C1223FF939B0074F4DE /* FavoritesListInteractor.swift */,
-				178F3C1423FF939B0074F4DE /* FavoritesListPresenter.swift */,
-				178F3C1523FF939B0074F4DE /* FavoritesListWireframe.swift */,
-				178F3C2623FFA6C10074F4DE /* FavoritesListView.swift */,
+				25D1A909240949E4005FACFC /* Wireframe */,
+				25D1A90A240949EA005FACFC /* View */,
+				25D1A90B240949F3005FACFC /* Presenter */,
+				25D1A90C240949F9005FACFC /* Interactor */,
 			);
 			path = FavoritesList;
 			sourceTree = "<group>";
@@ -410,7 +404,10 @@
 			children = (
 				1720435C24078E97003291A9 /* JMarvel.entitlements */,
 				178F3C0023FE59300074F4DE /* AppDelegate */,
+				178F3C0623FE59DB0074F4DE /* Storyboard */,
+				25D1A905240948C3005FACFC /* CommonModels */,
 				17F176B323FCF1F300B92C90 /* Modules */,
+				25D1A90424094882005FACFC /* Cells */,
 				17B373DC23FCBAEB009A1909 /* API */,
 				178F3C0223FE59610074F4DE /* Resources */,
 				178F3BFF23FE59220074F4DE /* Components */,
@@ -446,13 +443,8 @@
 		17F176B323FCF1F300B92C90 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				178F3C0623FE59DB0074F4DE /* Storyboard */,
-				178F3C1123FF939B0074F4DE /* FavoritesList */,
-				178F3C0A23FF8DD90074F4DE /* PosterCell */,
-				178F3C0823FE5A0D0074F4DE /* Characters */,
-				178F3C0923FE5A290074F4DE /* ImageModel */,
 				250DC8D623FDB855007A87BA /* CharactersList */,
-				178F3C0723FE59F80074F4DE /* CharacterListCell */,
+				178F3C1123FF939B0074F4DE /* FavoritesList */,
 				178F3BF823FE42880074F4DE /* Detail */,
 			);
 			path = Modules;
@@ -461,10 +453,10 @@
 		250DC8D623FDB855007A87BA /* CharactersList */ = {
 			isa = PBXGroup;
 			children = (
-				17F176B423FCF2F200B92C90 /* CharacterListView.swift */,
-				250DC8D723FDB8F0007A87BA /* CharacterListPresenter.swift */,
-				250DC8D923FDB8FD007A87BA /* CharacterListInteractor.swift */,
-				250DC8DD23FDB92C007A87BA /* CharacterListWireframe.swift */,
+				25D1A90D24094A08005FACFC /* Wireframe */,
+				25D1A90E24094A0E005FACFC /* View */,
+				25D1A90F24094A15005FACFC /* Presenter */,
+				25D1A91024094A1B005FACFC /* Interactor */,
 			);
 			path = CharactersList;
 			sourceTree = "<group>";
@@ -506,6 +498,150 @@
 				25D17C2424081C1500A90402 /* CharacterView.xib */,
 			);
 			path = CharacterView;
+			sourceTree = "<group>";
+		};
+		25D1A90424094882005FACFC /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				178F3C0723FE59F80074F4DE /* CharacterListCell */,
+				178F3C0A23FF8DD90074F4DE /* PosterCell */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		25D1A905240948C3005FACFC /* CommonModels */ = {
+			isa = PBXGroup;
+			children = (
+				178F3C0823FE5A0D0074F4DE /* Character */,
+				178F3C0923FE5A290074F4DE /* ImageModel */,
+				25D1A906240948E2005FACFC /* ListResources */,
+			);
+			path = CommonModels;
+			sourceTree = "<group>";
+		};
+		25D1A906240948E2005FACFC /* ListResources */ = {
+			isa = PBXGroup;
+			children = (
+				178F3BFD23FE58FD0074F4DE /* ListResources.swift */,
+			);
+			path = ListResources;
+			sourceTree = "<group>";
+		};
+		25D1A90724094990005FACFC /* API */ = {
+			isa = PBXGroup;
+			children = (
+				17F176BC23FCF5DE00B92C90 /* CharacterAPI.swift */,
+				17B373E523FCBC5A009A1909 /* CharactersRequest.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		25D1A908240949B7005FACFC /* API */ = {
+			isa = PBXGroup;
+			children = (
+				258589C723FEF16E004CE71B /* CharacterDetailsAPI.swift */,
+				258589C923FEF8B2004CE71B /* CharacterDetailsRequest.swift */,
+				2520A06D24086F5A00FEA72F /* CharacterDetailRequest.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		25D1A909240949E4005FACFC /* Wireframe */ = {
+			isa = PBXGroup;
+			children = (
+				178F3C1523FF939B0074F4DE /* FavoritesListWireframe.swift */,
+			);
+			path = Wireframe;
+			sourceTree = "<group>";
+		};
+		25D1A90A240949EA005FACFC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				178F3C2623FFA6C10074F4DE /* FavoritesListView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		25D1A90B240949F3005FACFC /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				178F3C1423FF939B0074F4DE /* FavoritesListPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		25D1A90C240949F9005FACFC /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				178F3C1223FF939B0074F4DE /* FavoritesListInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		25D1A90D24094A08005FACFC /* Wireframe */ = {
+			isa = PBXGroup;
+			children = (
+				250DC8DD23FDB92C007A87BA /* CharacterListWireframe.swift */,
+			);
+			path = Wireframe;
+			sourceTree = "<group>";
+		};
+		25D1A90E24094A0E005FACFC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				17F176B423FCF2F200B92C90 /* CharacterListView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		25D1A90F24094A15005FACFC /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				250DC8D723FDB8F0007A87BA /* CharacterListPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		25D1A91024094A1B005FACFC /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				250DC8D923FDB8FD007A87BA /* CharacterListInteractor.swift */,
+				25D1A90724094990005FACFC /* API */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		25D1A91124094A31005FACFC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				178F3BF923FE4F110074F4DE /* CharacterDetailsViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		25D1A91224094A36005FACFC /* Wireframe */ = {
+			isa = PBXGroup;
+			children = (
+				258589C123FEEA0C004CE71B /* CharacterDetailsWireframe.swift */,
+			);
+			path = Wireframe;
+			sourceTree = "<group>";
+		};
+		25D1A91324094A3E005FACFC /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				258589BD23FEE9EB004CE71B /* CharacterDetailsPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		25D1A91424094A44005FACFC /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				258589BF23FEE9F8004CE71B /* CharacterDetailsInteractor.swift */,
+				25D1A908240949B7005FACFC /* API */,
+			);
+			path = Interactor;
 			sourceTree = "<group>";
 		};
 		84CCA1679DC095869C5DFC7E /* Frameworks */ = {
@@ -800,7 +936,7 @@
 				178F3C332400BC720074F4DE /* WidgetView.swift in Sources */,
 				25D17C2524081C1500A90402 /* CharacterView.swift in Sources */,
 				25D17C2C2408275000A90402 /* WidgetInteractor.swift in Sources */,
-				178F3C432400BF950074F4DE /* CharacterRealm.swift in Sources */,
+				25D1A91524094BC9005FACFC /* CharacterRealm.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

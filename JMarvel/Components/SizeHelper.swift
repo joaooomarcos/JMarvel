@@ -14,7 +14,7 @@ class SizeHelper {
     private let minItemSize: CGSize
     
     init(minItemSize: CGSize = Constants.Dimensions.minItemSize,
-        spacing: CGFloat = Constants.Dimensions.spacing) {
+         spacing: CGFloat = Constants.Dimensions.spacing) {
         self.minItemSize = minItemSize
         self.spacing = spacing
     }
