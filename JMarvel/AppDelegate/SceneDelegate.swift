@@ -31,6 +31,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window = UIWindow(windowScene: windowScene)
                 
         MainRouterWireframe().prepareInitial(window: window)
-        DeepLinkManager.shared.handleDeeplink(connectionOptions.urlContexts)
+        DeepLinkManager.shared.handleDeeplink(connectionOptions)
+    }
+    
+    func windowScene(_ windowScene: UIWindowScene,
+                     performActionFor shortcutItem: UIApplicationShortcutItem,
+                     completionHandler: @escaping (Bool) -> Void) {
+        completionHandler(DeepLinkManager.shared.handleDeeplink(shortcutItem))
     }
 }
