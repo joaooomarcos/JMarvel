@@ -19,7 +19,7 @@ protocol CharacterDetailsPresenterInputProtocol: class {
 
 protocol CharacterDetailsPresenterOutputProtocol: class {
     func prepareLayout(seriesIsHidden: Bool, comicsIsHidden: Bool)
-    func didGet(imageURL: URL?, description: String)
+    func didGet(title: String, imageURL: URL?, description: String)
     func didGet(series items: [PosterItem])
     func didGet(comics items: [PosterItem])
     func updateLayout(isFavorited: Bool)
@@ -89,7 +89,9 @@ class CharacterDetailsPresenter {
         self.loadSeries()
         self.loadComics()
         self.view.prepareLayout(seriesIsHidden: !self.hasSeries, comicsIsHidden: !self.hasComics)
-        self.view.didGet(imageURL: self.model.image?.image(kind: .landscape), description: self.model.summary ?? "")
+        self.view.didGet(title: self.model.name ?? "",
+                         imageURL: self.model.image?.image(kind: .landscape),
+                         description: self.model.summary ?? "")
         self.view.updateLayout(isFavorited: self.model.isFavorited)
     }
 }

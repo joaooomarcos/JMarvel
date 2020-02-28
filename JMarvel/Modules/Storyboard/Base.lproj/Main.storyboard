@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xxX-oF-dzv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xxX-oF-dzv">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -49,10 +49,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Iob-fG-MYL">
-                                <rect key="frame" x="169" y="315" width="37" height="37"/>
-                                <color key="color" name="main"/>
-                            </activityIndicatorView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kST-8d-uyc">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
@@ -80,7 +76,7 @@
                                                             <action selector="favoriteButtonTapped:" destination="xVk-9H-5UH" eventType="touchUpInside" id="d6l-HC-jSN"/>
                                                         </connections>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="90A-MT-j0c">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="90A-MT-j0c">
                                                         <rect key="frame" x="16" y="216.5" width="343" height="22"/>
                                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
                                                         <nil key="textColor"/>
@@ -209,12 +205,16 @@
                                     <constraint firstItem="0pK-ik-YC2" firstAttribute="leading" secondItem="kST-8d-uyc" secondAttribute="leading" id="rn9-bb-Mma"/>
                                 </constraints>
                             </scrollView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Iob-fG-MYL">
+                                <rect key="frame" x="169" y="100" width="37" height="37"/>
+                                <color key="color" name="main"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="kST-8d-uyc" firstAttribute="top" secondItem="d3s-0d-meo" secondAttribute="top" id="7Nu-Mm-iXf"/>
                             <constraint firstItem="kST-8d-uyc" firstAttribute="bottom" secondItem="d3s-0d-meo" secondAttribute="bottom" id="8Pa-Ct-L5k"/>
-                            <constraint firstItem="Iob-fG-MYL" firstAttribute="centerY" secondItem="kG1-Nr-mNV" secondAttribute="centerY" id="EaK-OE-0Id"/>
+                            <constraint firstItem="Iob-fG-MYL" firstAttribute="top" secondItem="d3s-0d-meo" secondAttribute="top" constant="100" id="Caq-Oo-DuZ"/>
                             <constraint firstItem="kST-8d-uyc" firstAttribute="leading" secondItem="d3s-0d-meo" secondAttribute="leading" id="Ebz-tn-v62"/>
                             <constraint firstItem="kST-8d-uyc" firstAttribute="trailing" secondItem="d3s-0d-meo" secondAttribute="trailing" id="qjg-8E-V3o"/>
                             <constraint firstItem="Iob-fG-MYL" firstAttribute="centerX" secondItem="kG1-Nr-mNV" secondAttribute="centerX" id="xu8-oj-lEU"/>
@@ -269,7 +269,7 @@
             <color red="1" green="0.037000000476837158" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="placeHolder">
-            <color red="0.85100001096725464" green="0.85100001096725464" blue="0.85100001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.16699999570846558" green="0.16699999570846558" blue="0.16699999570846558" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

@@ -100,7 +100,8 @@ extension CharacterDetailsViewController: CharacterDetailsPresenterOutputProtoco
         self.comicsView.isHidden = comicsIsHidden
     }
     
-    func didGet(imageURL: URL?, description: String) {
+    func didGet(title: String, imageURL: URL?, description: String) {
+        self.title = title
         self.mainImageView.kf.setImage(with: imageURL)
         self.decriptionLabel.text = description
     }
