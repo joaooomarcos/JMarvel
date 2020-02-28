@@ -3,6 +3,15 @@ default_platform(:ios)
 platform :ios do
   desc "Unit tests"
   lane :unit_tests do
-    run_tests(scheme: "JMarvel")
+    scan(scheme: "JMarvel")
+    
+    slather(
+      scheme: "JMarvel",
+      proj: "JMarvel.xcodeproj",
+      workspace: "JMarvel.xcworkspace",
+      html: true,
+      show: true,
+      output_directory: "slather"
+    )
   end
 end

@@ -50,3 +50,6 @@ fastlane/test_output
 
 # bundler
 ruby/
+
+# slather
+slather/
