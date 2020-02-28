@@ -22,6 +22,7 @@ Projeto de teste baseado na API de personagens da Marvel
 - Filtro por nome na listagem de personagens
 - Scroll "infinito" (ao chegar perto do final da página, são carregados mais itens)
 - Ação de favoritar personagem dentro e fora do detalhe
+- Dark mode
 
 ### Desenvolvimento
 
