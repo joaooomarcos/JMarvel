@@ -77,7 +77,6 @@ extension CharacterListView: UICollectionViewDataSourcePrefetching {
 // MARK: - Presenter Output
 
 extension CharacterListView: CharacterListPresenterOutputProtocol {
-    
     func setupCollectionView() {
         self.collectionView.register(CharacterCell.self)
         self.collectionView.refreshControl = self.refreshControl
@@ -112,6 +111,10 @@ extension CharacterListView: CharacterListPresenterOutputProtocol {
     
     func reloadCollectionLayout() {
         self.collectionView?.collectionViewLayout.invalidateLayout()
+    }
+    
+    func reloadItems(at indexPath: [IndexPath]) {
+        self.collectionView.reloadItems(at: indexPath)
     }
     
     func didGet(_ characters: [CharacterModel]) {

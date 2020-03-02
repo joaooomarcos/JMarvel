@@ -30,6 +30,7 @@ protocol CharacterListPresenterOutputProtocol: class {
     func setupLayout()
     func didCalculate(itemSize: CGSize, spacing: CGFloat)
     func reloadCollectionLayout()
+    func reloadItems(at indexPath: [IndexPath])
     func didGet(_ characters: [CharacterModel])
     func showAlert(title: String, message: String)
     func showEmptyState(message: String)
@@ -55,6 +56,9 @@ class CharacterListPresenter: NSObject {
         }
     }
     
+    private var filteredModels: [CharacterModel] = []
+    private var selectedsItems: [IndexPath] = []
+    
     private var itemSize: CGSize = .zero
     private var isFetchingItems: Bool = false
     private var totalItemsAvailable: Int
@@ -70,6 +74,10 @@ class CharacterListPresenter: NSObject {
         self.view.showLoading()
         self.view.showEmptyState(message: "Searching... 🔍")
     }
+    
+    private func model(for indexPath: IndexPath) -> CharacterModel {
+        self.filteredModels.isEmpty ? self.models[indexPath.row] : self.filteredModels[indexPath.row]
+    }
 }
 
 // MARK: - Presenter Input
@@ -84,7 +92,8 @@ extension CharacterListPresenter: CharacterListPresenterInputProtocol {
     }
     
     func viewWillAppear() {
-        self.refreshData()
+        self.view.reloadItems(at: self.selectedsItems)
+        self.selectedsItems = []
     }
     
     func viewWillTransition(size: CGSize) {
@@ -117,7 +126,8 @@ extension CharacterListPresenter: CharacterListPresenterInputProtocol {
     }
     
     func didSelectItem(indexPath: IndexPath) {
-        self.wireframe.navigateToDetail(model: self.models[indexPath.row])
+        self.selectedsItems.append(indexPath)
+        self.wireframe.navigateToDetail(model: model(for: indexPath))
     }
     
     func didTapFavorite(on model: CharacterModel) {
@@ -172,17 +182,18 @@ extension CharacterListPresenter: UISearchResultsUpdating {
         let searchText = searchController.searchBar.text ?? ""
         
         if searchText.isEmpty {
+            self.filteredModels = []
             self.view.didGet(self.models)
             return
         }
         
-        let filtered = models.filter { item -> Bool in
+        self.filteredModels = models.filter { item -> Bool in
             (item.name ?? "").lowercased().contains(searchText.lowercased())
         }
         
-        self.view.didGet(filtered)
+        self.view.didGet(filteredModels)
         
-        if filtered.isEmpty {
+        if self.filteredModels.isEmpty {
             self.view.showEmptyState(message: "Nothing to show 😲")
         }
     }
