@@ -90,11 +90,51 @@ class CharacterListViewSpec: QuickSpec {
                     expect((sut.presenter as? CharacterListPresenterMock)?.loadMoreIndexPaths).to(equal(items))
                 }
             }
+            
+            context("Presenter output") {
+                it("should setup collection view when presenter demands") {
+                    sut.setupCollectionView()
+                    expect(sut.collectionView.refreshControl).toNot(beNil())
+                    expect(sut.collectionView.prefetchDataSource).toNot(beNil())
+                }
+                
+                it("should setup navigation bar when presenter demands") {
+                    sut.setupNavigationBar()
+                    expect(sut.navigationController?.navigationBar.prefersLargeTitles).to(beTrue())
+                }
+                
+                it("should setup search when presenter demands") {
+                    sut.setupSearch()
+                    expect(sut.navigationItem.searchController).toNot(beNil())
+                    expect(sut.navigationItem.searchController?.searchResultsUpdater).to(be(sut.presenter))
+                }
+                
+                it("should show alert when presenter demands") {
+                    let title = "title"
+                    let message = "message"
+                    sut.showAlert(title: title, message: message)
+                    let alert = sut.presentedViewController as? UIAlertController
+                    expect(alert?.title).to(equal(title))
+                    expect(alert?.message).to(equal(message))
+                }
+                
+                it("should show loading when presenter demands") {
+                    sut.showLoading()
+                    expect(sut.activityIndicator.isAnimating).to(beTrue())
+                }
+                
+                it("should hide loading when presenter demands") {
+                    sut.setupCollectionView()
+                    sut.hideLoading()
+                    expect(sut.activityIndicator.isAnimating).to(beFalse())
+                    expect(sut.collectionView.refreshControl?.isRefreshing).to(beFalse())
+                }
+            }
         }
     }
 }
 
-class CharacterListPresenterMock: CharacterListPresenterInputProtocol {
+class CharacterListPresenterMock: NSObject, CharacterListPresenterInputProtocol, UISearchResultsUpdating {
     var viewDidLoadCalled: Bool = false
     var viewWillAppearCalled: Bool = false
     var refreshDataCalled: Bool = false
@@ -131,4 +171,9 @@ class CharacterListPresenterMock: CharacterListPresenterInputProtocol {
     func didTapFavorite(on model: CharacterModel) {
         self.favoritedItem = model
     }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        
+    }
 }
+

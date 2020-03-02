@@ -58,9 +58,29 @@ class CharacterListPresenterSpec: QuickSpec {
                     expect(interactor.getCharactersCalled).to(beTrue())
                 }
                 
+                it("should call only once getCharacters when call refreshData twice") {
+                    sut.refreshData()
+                    sut.refreshData()
+                    expect(interactor.getCharacterCalledCount).to(equal(1))
+                }
+                
+                it("should call show loading when call refreshData withou items") {
+                    sut.didGet(Page(offset: 0))
+                    sut.refreshData()
+                    expect(view.showLoadingCalled).to(beTrue())
+                    expect(view.emptyMessage).toNot(beNil())
+                }
+                
                 it("should call interactor to getCharacters when call loadMore") {
                     sut.loadMore(for: [IndexPath(row: 1, section: 0)])
                     expect(interactor.getCharactersCalled).to(beTrue())
+                }
+                
+                it("should sum characters when did get after load more") {
+                    var newModels = [CharacterModel.mock(2), CharacterModel.mock(3)]
+                    sut.didGet(Page(offset: 4, total: 4, results: newModels))
+                    newModels = models + newModels
+                    expect(view.characters).to(equal(newModels))
                 }
                 
                 it("should not call interactor to getCharacters when called loadMore with indexpath lower than models.count") {
@@ -96,9 +116,18 @@ class CharacterListPresenterSpec: QuickSpec {
                     expect(interactor.getCharacterCalledCount).to(equal(1))
                 }
                 
-                it("should call wireframe to navigate when call didSelectItem") {
+                it("should navigate to correct item when did select item") {
                     sut.didSelectItem(indexPath: IndexPath(row: 0, section: 0))
-                    expect(wireframe.navigateToDetailCalled).to(beTrue())
+                    expect(wireframe.navigateModel).to(be(models.first))
+                }
+                
+                it("should navigate to correct item when did select item filtered") {
+                    let search = SearchControlMock()
+                    search.text = models.last?.name
+                    sut.updateSearchResults(for: search)
+        
+                    sut.didSelectItem(indexPath: IndexPath(row: 0, section: 0))
+                    expect(wireframe.navigateModel).to(be(models.last))
                 }
                 
                 it("should call interactor to favorite when call didTapFavorite") {
@@ -135,6 +164,18 @@ class CharacterListPresenterSpec: QuickSpec {
                     sut.didFailed(GenericError(message: failMessage))
                     expect(view.alertMessage).to(contain(failMessage))
                 }
+                
+                it("should call reload collection view") {
+                    sut.view.reloadCollectionLayout()
+                    expect(view.reloadCollectionLayoutCalled).to(beTrue())
+                }
+                
+                it("should call reloadItems when view will appear after select an item") {
+                    let index = IndexPath(row: 0, section: 0)
+                    sut.didSelectItem(indexPath: index)
+                    sut.viewWillAppear()
+                    expect(view.reloadedItems).to(equal([index]))
+                }
             }
             
             context("Search Control protocol") {
@@ -148,7 +189,7 @@ class CharacterListPresenterSpec: QuickSpec {
                 it("should return filtered models based on search text") {
                     let searchText = "me1"
                     let search = SearchControlMock()
-                    search.text = "name1"
+                    search.text = searchText
                     
                     let filtered = models.filter { item -> Bool in
                         (item.name ?? "").lowercased().contains(searchText.lowercased())
@@ -156,6 +197,15 @@ class CharacterListPresenterSpec: QuickSpec {
                     
                     sut.updateSearchResults(for: search)
                     expect(view.characters?.count).to(equal(filtered.count))
+                }
+                
+                it("should view show empty state when filter is invalid") {
+                    let search = SearchControlMock()
+                    search.text = "blabla"
+        
+                    sut.updateSearchResults(for: search)
+                    expect(view.characters?.count).to(equal(0))
+                    expect(view.emptyMessage).toNot(beNil())
                 }
             }
         }
@@ -187,6 +237,7 @@ class CharacterListViewMock: CharacterListPresenterOutputProtocol {
     var alertTitle: String?
     var alertMessage: String?
     var emptyMessage: String?
+    var reloadedItems: [IndexPath]?
     
     func setupCollectionView() {
         self.setupCollectionViewCalled = true
@@ -211,6 +262,10 @@ class CharacterListViewMock: CharacterListPresenterOutputProtocol {
     
     func reloadCollectionLayout() {
         self.reloadCollectionLayoutCalled = true
+    }
+    
+    func reloadItems(at indexPath: [IndexPath]) {
+        self.reloadedItems = indexPath
     }
     
     func didGet(_ characters: [CharacterModel]) {
@@ -257,7 +312,7 @@ class CharacterListInteractorMock: CharacterListInteractorInputProtocol {
 
 class CharacterListWireframeMock: CharacterListWireframeProtocol {
     var getNavigationCalled: Bool = false
-    var navigateToDetailCalled: Bool = false
+    var navigateModel: CharacterModel?
     
     func getNavigation() -> UINavigationController? {
         self.getNavigationCalled = true
@@ -265,6 +320,6 @@ class CharacterListWireframeMock: CharacterListWireframeProtocol {
     }
     
     func navigateToDetail(model: CharacterModel) {
-        self.navigateToDetailCalled = true
+        self.navigateModel = model
     }
 }
